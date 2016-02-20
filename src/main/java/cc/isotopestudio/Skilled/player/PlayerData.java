@@ -12,15 +12,19 @@ public class PlayerData {
 		this.plugin = plugin;
 	}
 
-	public boolean ifHasClass(Player player, String name) {
+	public boolean ifHasClass(Player player, String job) {
+		return false;
+	}
+	
+	public boolean ifHasSkill(Player player, String job, int skill) {
 		return false;
 	}
 
-	public int getLevel(Player player, String job) {
+	public int getLevel(Player player, String job, int skill) {
 		return -1;
 	}
 
-	public void setLevel(Player player, String job, int level) {
+	public void setLevel(Player player, String job, int skill, int level) {
 
 	}
 
