@@ -2,6 +2,11 @@ name: Skilled
 main: cc.isotopestudio.Skilled.Skilled
 
 author: Mars
-description: 'ְҵ'
+description: Jobs
 website: http://isotopestudio.cc
 version: 1.0
+commands:
+  class:
+    description: Skilled Command.
+    usage: /<command>
+#    aliases: rpg
