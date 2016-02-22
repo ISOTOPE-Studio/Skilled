@@ -9,7 +9,13 @@ public class ConfigData {
 	public ConfigData(Skilled plugin) {
 		this.plugin = plugin;
 	}
+
+	public int getUpdateRequiredSkillPoint(String job, int skill){
+		return -1;
+	}
 	
-	
-	
+	public int getUnlockRequiredSkillPoint(String job, int skill){
+		return -1;
+	}
+
 }

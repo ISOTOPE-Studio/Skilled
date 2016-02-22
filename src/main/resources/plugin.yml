@@ -10,3 +10,7 @@ commands:
     description: Skilled Command.
     usage: /<command>
 #    aliases: rpg
+  CSkill:
+    description: Skilled Command.
+    usage: /<command>
+    aliases: skill

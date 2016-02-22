@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
-public class MainGUI implements Listener {
+public class ClassGUI implements Listener {
 	
 	//From: https://bukkit.org/threads/icon-menu.108342
 	
@@ -24,7 +24,7 @@ public class MainGUI implements Listener {
 	private String[] optionNames;
 	private ItemStack[] optionIcons;
 
-	public MainGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin) {
+	public ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin) {
 		this.name = name;
 		this.size = size;
 		this.handler = handler;
@@ -34,10 +34,14 @@ public class MainGUI implements Listener {
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 	}
 
-	public MainGUI setOption(int position, ItemStack icon, String name, String... info) {
+	public ClassGUI setOption(int position, ItemStack icon, String name, String... info) {
 		optionNames[position] = name;
 		optionIcons[position] = setItemNameAndLore(icon, name, info);
 		return this;
+	}
+	
+	public void setHandler(OptionClickEventHandler handler){
+		this.handler = handler;
 	}
 
 	public void open(Player player) {
@@ -63,7 +67,7 @@ public class MainGUI implements Listener {
 		if (event.getInventory().getTitle().equals(name)) {
 			event.setCancelled(true);
 			int slot = event.getRawSlot();
-			if (slot >= 1 && slot < size && optionNames[slot] != null) {
+			if (slot >= 1 && slot <= 4 && optionNames[slot] != null) {
 				Plugin plugin = this.plugin;
 				OptionClickEvent e = new OptionClickEvent((Player) event.getWhoClicked(), slot, optionNames[slot]);
 				handler.onOptionClick(e);

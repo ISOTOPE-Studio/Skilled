@@ -15,40 +15,59 @@ public class PlayerData {
 	public boolean ifHasClass(Player player, String job) {
 		return false;
 	}
-	
+
 	public boolean ifHasSkill(Player player, String job, int skill) {
 		return false;
 	}
 
-	public int getLevel(Player player, String job, int skill) {
-		return -1;
+	public int getLevel(Player player, int skill) {
+		int level = plugin.getPlayersData().getInt(player.getName() + ".skill" + skill);
+		return level;
+		// return -1;
 	}
 
-	public void setLevel(Player player, String job, int skill, int level) {
+	public void setLevel(Player player, int skill, int level) {
+		plugin.getPlayersData().set(player.getName() + ".skill" + skill, level);
+	}
 
+	public void addLevel(Player player, int skill) {
+		int newLevel = getLevel(player, skill) + 1;
+		setLevel(player, skill, newLevel);
 	}
 
 	public String getClass(Player player) {
-		return "";
+		String job = plugin.getPlayersData().getString(player.getName() + ".class");
+		return job;
 	}
 
-	public void setClass(Player player, String job, int level) {
-
+	public void setClass(Player player, String job) {
+		plugin.getPlayersData().set(player.getName() + ".class", job);
 	}
 
 	public int getSkillPoint(Player player) {
-		return 0;
+		int skillPoint = plugin.getPlayersData().getInt(player.getName() + ".skillPoint");
+		return skillPoint;
 	}
 
 	public void setSkillPoint(Player player, int point) {
-
+		plugin.getPlayersData().set(player.getName() + ".skillPoint", point);
+	}
+	
+	public void addSkillPoint(Player player, int i) {
+		int newSkillPoint = getSkillPoint(player) + i;
+		setSkillPoint(player, newSkillPoint);
+	}
+	public void removeSkillPoint(Player player, int i) {
+		int newSkillPoint = getSkillPoint(player) - i;
+		setSkillPoint(player, newSkillPoint);
 	}
 
 	public int getMagic(Player player) {
-		return -1;
+		int magic = plugin.getPlayersData().getInt(player.getName() + ".magic");
+		return magic;
 	}
 
 	public void setMagic(Player player, int magic) {
-
+		plugin.getPlayersData().set(player.getName() + ".magic", magic);
 	}
 }
