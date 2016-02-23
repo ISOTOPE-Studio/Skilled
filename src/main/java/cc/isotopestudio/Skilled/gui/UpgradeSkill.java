@@ -47,12 +47,12 @@ public class UpgradeSkill {
 				}
 				if (skillPoint >= reqPoint) {
 					data.addLevel(event.getPlayer(), skill);
-					data.removeSkillPoint(event.getPlayer(), reqPoint);
+					data.addSkillPoint(event.getPlayer(), -reqPoint);
 					plugin.savePlayersData();
 					event.getPlayer().sendMessage("成功升级!");
 				}
 			}
-		}, plugin)
+		}, plugin, true)
 				.setOption(0, new ItemStack(Material.NETHER_STAR, 1), "升级或解锁！", "你的技能点数: " + data.getSkillPoint(player),
 						"单击即可解锁或者升级技能")
 				.setOption(1, new ItemStack(Material.GLOWSTONE_DUST, 1), skillsName[1], skillsDescription[1][0],

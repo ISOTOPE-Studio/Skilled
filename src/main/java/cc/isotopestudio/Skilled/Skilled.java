@@ -13,7 +13,9 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import cc.isotopestudio.Skilled.command.CommandCSkill;
+import cc.isotopestudio.Skilled.command.CommandCbind;
 import cc.isotopestudio.Skilled.command.CommandClass;
+import cc.isotopestudio.Skilled.command.CommandSkilled;
 import cc.isotopestudio.Skilled.gui.ClassGUI;
 import cc.isotopestudio.Skilled.gui.SelectClass;
 
@@ -51,6 +53,8 @@ public class Skilled extends JavaPlugin {
 		// pm.registerEvents(new ReinforceListener(this), this);
 		this.getCommand("class").setExecutor(new CommandClass(this));
 		this.getCommand("CSkill").setExecutor(new CommandCSkill(this));
+		this.getCommand("Skilled").setExecutor(new CommandSkilled(this));
+		this.getCommand("CBind").setExecutor(new CommandCbind(this));
 
 		SelectClass.createMenu(this);
 		getLogger().info("Skilled ≥…π¶º”‘ÿ!");

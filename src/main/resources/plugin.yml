@@ -14,3 +14,10 @@ commands:
     description: Skilled Command.
     usage: /<command>
     aliases: skill
+  CBind:
+    description: Skilled Command.
+    usage: /<command>
+    aliases: bind
+  Skilled:
+    description: Skilled Command.
+    usage: /<command>

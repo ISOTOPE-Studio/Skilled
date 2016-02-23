@@ -1,4 +1,144 @@
-圣谕:
-  治愈:
-  #恢复目标生命值
+initial:
+  skillPoint: 10
+basic:
+  magic:
+    full: 200
+    refill: 5
+c1:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
+c2:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
+c3:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
+c4:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
+
+c5:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
+c6:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
+c7:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
+c8:
+  s1:
+    skillPoint:
+      unlock: 1
+      upgrade: 2
+  s2:
+    skillPoint:
+      unlock: 2
+      upgrade: 2
+  s3:
+    skillPoint:
+      unlock: 3
+      upgrade: 2
+  s4:
+    skillPoint:
+      unlock: 5
+      upgrade: 3
     

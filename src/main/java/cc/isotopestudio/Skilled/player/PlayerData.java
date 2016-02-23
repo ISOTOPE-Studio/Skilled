@@ -16,8 +16,11 @@ public class PlayerData {
 		return false;
 	}
 
-	public boolean ifHasSkill(Player player, String job, int skill) {
-		return false;
+	public boolean ifHasSkill(Player player, int skill) {
+		if (getLevel(player, skill) <= 0)
+			return false;
+		else
+			return true;
 	}
 
 	public int getLevel(Player player, int skill) {
@@ -49,16 +52,26 @@ public class PlayerData {
 		return skillPoint;
 	}
 
+	public int getSkillPoint(String player) {
+		int skillPoint = plugin.getPlayersData().getInt(player + ".skillPoint");
+		return skillPoint;
+	}
+
 	public void setSkillPoint(Player player, int point) {
 		plugin.getPlayersData().set(player.getName() + ".skillPoint", point);
 	}
-	
+
+	public void setSkillPoint(String player, int point) {
+		plugin.getPlayersData().set(player + ".skillPoint", point);
+	}
+
 	public void addSkillPoint(Player player, int i) {
 		int newSkillPoint = getSkillPoint(player) + i;
 		setSkillPoint(player, newSkillPoint);
 	}
-	public void removeSkillPoint(Player player, int i) {
-		int newSkillPoint = getSkillPoint(player) - i;
+
+	public void addSkillPoint(String player, int i) {
+		int newSkillPoint = getSkillPoint(player) + i;
 		setSkillPoint(player, newSkillPoint);
 	}
 

@@ -8,21 +8,23 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
 public class ClassGUI implements Listener {
-	
-	//From: https://bukkit.org/threads/icon-menu.108342
-	
+
+	// From: https://bukkit.org/threads/icon-menu.108342
+
 	private String name;
 	private int size;
 	private OptionClickEventHandler handler;
 	private Plugin plugin;
 	private String[] optionNames;
 	private ItemStack[] optionIcons;
+	private boolean willDestory;
 
 	public ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin) {
 		this.name = name;
@@ -32,6 +34,18 @@ public class ClassGUI implements Listener {
 		this.optionNames = new String[size];
 		this.optionIcons = new ItemStack[size];
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
+		willDestory = false;
+	}
+
+	public ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin, boolean willDestory) {
+		this.name = name;
+		this.size = size;
+		this.handler = handler;
+		this.plugin = plugin;
+		this.optionNames = new String[size];
+		this.optionIcons = new ItemStack[size];
+		plugin.getServer().getPluginManager().registerEvents(this, plugin);
+		this.willDestory = willDestory;
 	}
 
 	public ClassGUI setOption(int position, ItemStack icon, String name, String... info) {
@@ -39,8 +53,8 @@ public class ClassGUI implements Listener {
 		optionIcons[position] = setItemNameAndLore(icon, name, info);
 		return this;
 	}
-	
-	public void setHandler(OptionClickEventHandler handler){
+
+	public void setHandler(OptionClickEventHandler handler) {
 		this.handler = handler;
 	}
 
@@ -54,7 +68,7 @@ public class ClassGUI implements Listener {
 		player.openInventory(inventory);
 	}
 
-	public void destroy() {
+	public void Destory() {
 		HandlerList.unregisterAll(this);
 		handler = null;
 		plugin = null;
@@ -80,8 +94,17 @@ public class ClassGUI implements Listener {
 					}, 1);
 				}
 				if (e.willDestroy()) {
-					destroy();
+					Destory();
 				}
+			}
+		}
+	}
+
+	@EventHandler(priority = EventPriority.MONITOR)
+	void onInventoryClose(InventoryCloseEvent event) {
+		if (event.getInventory().getTitle().equals(name)) {
+			if (willDestory) {
+				Destory();
 			}
 		}
 	}
@@ -95,14 +118,18 @@ public class ClassGUI implements Listener {
 		private int position;
 		private String name;
 		private boolean close;
-		private boolean destroy;
+		private boolean Destory;
 
 		public OptionClickEvent(Player player, int position, String name) {
 			this.player = player;
 			this.position = position;
 			this.name = name;
 			this.close = true;
-			this.destroy = false;
+			this.Destory = false;
+		}
+
+		public OptionClickEvent(Player player) {
+			this.player = player;
 		}
 
 		public Player getPlayer() {
@@ -122,15 +149,15 @@ public class ClassGUI implements Listener {
 		}
 
 		public boolean willDestroy() {
-			return destroy;
+			return Destory;
 		}
 
 		public void setWillClose(boolean close) {
 			this.close = close;
 		}
 
-		public void setWillDestroy(boolean destroy) {
-			this.destroy = destroy;
+		public void setWillDestroy(boolean Destory) {
+			this.Destory = Destory;
 		}
 	}
 
