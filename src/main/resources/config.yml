@@ -3,7 +3,8 @@ initial:
 basic:
   magic:
     full: 200
-    refill: 5
+    refillRate: 5
+    refillValue: 10
 c1:
   s1:
     skillPoint:

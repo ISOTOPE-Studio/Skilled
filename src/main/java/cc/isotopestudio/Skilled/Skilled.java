@@ -16,6 +16,7 @@ import cc.isotopestudio.Skilled.command.CommandCSkill;
 import cc.isotopestudio.Skilled.command.CommandCbind;
 import cc.isotopestudio.Skilled.command.CommandClass;
 import cc.isotopestudio.Skilled.command.CommandSkilled;
+import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.gui.ClassGUI;
 import cc.isotopestudio.Skilled.gui.SelectClass;
 
@@ -57,9 +58,14 @@ public class Skilled extends JavaPlugin {
 		this.getCommand("CBind").setExecutor(new CommandCbind(this));
 
 		SelectClass.createMenu(this);
+		ConfigData.updateConfig(this);
 		getLogger().info("Skilled 成功加载!");
 		getLogger().info("Skilled 由ISOTOPE Studio制作!");
 		getLogger().info("http://isotopestudio.cc");
+	}
+
+	public void onReload() {
+		ConfigData.updateConfig(this);
 	}
 
 	@Override

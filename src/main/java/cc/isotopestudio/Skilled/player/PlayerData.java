@@ -31,6 +31,7 @@ public class PlayerData {
 
 	public void setLevel(Player player, int skill, int level) {
 		plugin.getPlayersData().set(player.getName() + ".skill" + skill, level);
+		plugin.savePlayersData();
 	}
 
 	public void addLevel(Player player, int skill) {
@@ -45,6 +46,7 @@ public class PlayerData {
 
 	public void setClass(Player player, String job) {
 		plugin.getPlayersData().set(player.getName() + ".class", job);
+		plugin.savePlayersData();
 	}
 
 	public int getSkillPoint(Player player) {
@@ -59,10 +61,12 @@ public class PlayerData {
 
 	public void setSkillPoint(Player player, int point) {
 		plugin.getPlayersData().set(player.getName() + ".skillPoint", point);
+		plugin.savePlayersData();
 	}
 
 	public void setSkillPoint(String player, int point) {
 		plugin.getPlayersData().set(player + ".skillPoint", point);
+		plugin.savePlayersData();
 	}
 
 	public void addSkillPoint(Player player, int i) {
@@ -82,5 +86,16 @@ public class PlayerData {
 
 	public void setMagic(Player player, int magic) {
 		plugin.getPlayersData().set(player.getName() + ".magic", magic);
+		plugin.savePlayersData();
+	}
+
+	public int getMagic(String player) {
+		int magic = plugin.getPlayersData().getInt(player + ".magic");
+		return magic;
+	}
+
+	public void setMagic(String player, int magic) {
+		plugin.getPlayersData().set(player + ".magic", magic);
+		plugin.savePlayersData();
 	}
 }
