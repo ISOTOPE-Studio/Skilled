@@ -169,4 +169,12 @@ public class Names {
 		}
 		return -1;
 	}
+
+	public static int getClassNum(String job) {
+		for (int i = 1; i <= 8; i++) {
+			if (getClassName(i).equals(job))
+				return i;
+		}
+		return -1;
+	}
 }

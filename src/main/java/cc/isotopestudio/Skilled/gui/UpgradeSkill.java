@@ -26,7 +26,7 @@ public class UpgradeSkill {
 				skillsDescription[i][1] = "解锁所需技能点" + config.getUnlockRequiredSkillPoint(job, i);
 			} else {
 				skillsDescription[i][0] = "当前等级" + skillsLevel[i];
-				skillsDescription[i][1] = "升级所需技能点" + config.getUpdateRequiredSkillPoint(job, i);
+				skillsDescription[i][1] = "升级所需技能点" + config.getUpgradeRequiredSkillPoint(job, i);
 			}
 		}
 		final ClassGUI menu = new ClassGUI("技能升级", 9, new ClassGUI.OptionClickEventHandler() {
@@ -43,13 +43,15 @@ public class UpgradeSkill {
 				if (skill == 0) {
 					reqPoint = config.getUnlockRequiredSkillPoint(job, skill);
 				} else {
-					reqPoint = config.getUpdateRequiredSkillPoint(job, skill);
+					reqPoint = config.getUpgradeRequiredSkillPoint(job, skill);
 				}
 				if (skillPoint >= reqPoint) {
 					data.addLevel(event.getPlayer(), skill);
 					data.addSkillPoint(event.getPlayer(), -reqPoint);
 					plugin.savePlayersData();
 					event.getPlayer().sendMessage("成功升级!");
+				} else {
+					event.getPlayer().sendMessage("技能点不足!");
 				}
 			}
 		}, plugin, true)

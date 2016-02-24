@@ -56,6 +56,12 @@ public class CommandSkilled implements CommandExecutor {
 						.append("成功给予玩家 " + playerName + " " + skillPoint + " 技能点").toString());
 				return true;
 			}
+			if(args[0].equalsIgnoreCase("reload")){
+				plugin.onReload();
+				sender.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.AQUA)
+						.append("成功重新载入配置文件").toString());
+				
+			}
 			return true;
 
 		}

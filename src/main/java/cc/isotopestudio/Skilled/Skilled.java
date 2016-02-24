@@ -11,6 +11,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
 
 import cc.isotopestudio.Skilled.command.CommandCSkill;
 import cc.isotopestudio.Skilled.command.CommandCbind;
@@ -19,6 +20,7 @@ import cc.isotopestudio.Skilled.command.CommandSkilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.gui.ClassGUI;
 import cc.isotopestudio.Skilled.gui.SelectClass;
+import cc.isotopestudio.Skilled.task.MagicRefillTask;
 
 public class Skilled extends JavaPlugin {
 
@@ -50,8 +52,9 @@ public class Skilled extends JavaPlugin {
 			getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
-		// PluginManager pm = this.getServer().getPluginManager();
+		PluginManager pm = this.getServer().getPluginManager();
 		// pm.registerEvents(new ReinforceListener(this), this);
+
 		this.getCommand("class").setExecutor(new CommandClass(this));
 		this.getCommand("CSkill").setExecutor(new CommandCSkill(this));
 		this.getCommand("Skilled").setExecutor(new CommandSkilled(this));
@@ -59,6 +62,9 @@ public class Skilled extends JavaPlugin {
 
 		SelectClass.createMenu(this);
 		ConfigData.updateConfig(this);
+
+		BukkitTask task = new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
+
 		getLogger().info("Skilled 成功加载!");
 		getLogger().info("Skilled 由ISOTOPE Studio制作!");
 		getLogger().info("http://isotopestudio.cc");
@@ -66,6 +72,7 @@ public class Skilled extends JavaPlugin {
 
 	public void onReload() {
 		ConfigData.updateConfig(this);
+		SelectClass.createMenu(this);
 	}
 
 	@Override

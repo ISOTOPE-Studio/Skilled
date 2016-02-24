@@ -25,15 +25,19 @@ public class MagicRefillTask extends BukkitRunnable {
 		if (players.size() != 0) {
 			PlayerData data = new PlayerData(plugin);
 			int value = ConfigData.magicRefillValue;
+			int max = ConfigData.maxMagic;
 			Iterator<String> it = players.iterator();
 			while (it.hasNext()) {
 				Player player = Bukkit.getServer().getPlayer(it.next());
 				if (player != null) {
 					int newMagic = data.getMagic(player) + value;
-					if (newMagic > ConfigData.maxMagic) {
-						data.setMagic(player, ConfigData.maxMagic);
+					if (!(newMagic == max + value)) {
+						if (newMagic > ConfigData.maxMagic) {
+							newMagic = ConfigData.maxMagic;
+						}
+						data.setMagic(player, newMagic);
+						player.sendMessage("" + newMagic);
 					}
-					data.setMagic(player, newMagic);
 				}
 			}
 		}
