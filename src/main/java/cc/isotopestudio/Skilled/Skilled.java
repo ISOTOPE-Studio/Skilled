@@ -60,7 +60,6 @@ public class Skilled extends JavaPlugin {
 		this.getCommand("Skilled").setExecutor(new CommandSkilled(this));
 		this.getCommand("CBind").setExecutor(new CommandCbind(this));
 
-		SelectClass.createMenu(this);
 		ConfigData.updateConfig(this);
 
 		BukkitTask task = new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
@@ -72,7 +71,6 @@ public class Skilled extends JavaPlugin {
 
 	public void onReload() {
 		ConfigData.updateConfig(this);
-		SelectClass.createMenu(this);
 	}
 
 	@Override

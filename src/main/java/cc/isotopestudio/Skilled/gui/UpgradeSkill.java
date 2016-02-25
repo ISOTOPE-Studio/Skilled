@@ -1,5 +1,7 @@
 package cc.isotopestudio.Skilled.gui;
 
+import java.util.ArrayList;
+
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;

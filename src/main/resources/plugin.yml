@@ -10,11 +10,11 @@ commands:
     description: Skilled Command.
     usage: /<command>
 #    aliases: rpg
-  CSkill:
+  cSkill:
     description: Skilled Command.
     usage: /<command>
     aliases: skill
-  CBind:
+  cBind:
     description: Skilled Command.
     usage: /<command>
     aliases: bind

@@ -1,5 +1,6 @@
 package cc.isotopestudio.Skilled.gui;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -25,6 +26,7 @@ public class ClassGUI implements Listener {
 	private String[] optionNames;
 	private ItemStack[] optionIcons;
 	private boolean willDestory;
+	private ArrayList<Integer> clickList;
 
 	public ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin) {
 		this.name = name;
@@ -76,12 +78,31 @@ public class ClassGUI implements Listener {
 		optionIcons = null;
 	}
 
+	public void setClickList(ArrayList<Integer> list) {
+		clickList = list;
+	}
+
+	private boolean ifValueExist(int n) {
+		for (int i : clickList) {
+			if (i == n)
+				return true;
+		}
+		return false;
+	}
+
 	@EventHandler(priority = EventPriority.MONITOR)
 	void onInventoryClick(InventoryClickEvent event) {
 		if (event.getInventory().getTitle().equals(name)) {
 			event.setCancelled(true);
 			int slot = event.getRawSlot();
-			if (slot >= 1 && slot <= 4 && optionNames[slot] != null) {
+			if (clickList == null) {
+				clickList = new ArrayList<Integer>();
+			}
+			clickList.add(1);
+			clickList.add(2);
+			clickList.add(3);
+			clickList.add(4);
+			if (ifValueExist(slot) && optionNames[slot] != null) {
 				Plugin plugin = this.plugin;
 				OptionClickEvent e = new OptionClickEvent((Player) event.getWhoClicked(), slot, optionNames[slot]);
 				handler.onOptionClick(e);

@@ -1,5 +1,7 @@
 package cc.isotopestudio.Skilled.command;
 
+import java.util.ArrayList;
+
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,8 +25,17 @@ public class CommandClass implements CommandExecutor {
 				sender.sendMessage(Msg.mustBePlayer);
 				return true;
 			}
+			
 			Player player = (Player) sender;
-			SelectClass.menu.open(player);
+			
+			ArrayList<Integer> list = new ArrayList<Integer>();
+			for (int i = 5; i <= 7; i++) {
+				if (player.hasPermission("Skilled.class." + i) || player.hasPermission("Skilled.class.*")) {
+					list.add(i);
+				}
+			}
+			
+			SelectClass.createMenu(plugin, list).open(player);
 			return true;
 		}
 		return false;
