@@ -18,7 +18,7 @@ public class ItemUti {
 		this.plugin = plugin;
 	}
 
-	public void addLore(final ItemStack item, String job, final int skill) {
+	public static void addLore(final ItemStack item, String job, final int skill) {
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(Names.getSkillName(job, skill));
 
@@ -31,6 +31,21 @@ public class ItemUti {
 		meta.setLore(lore);
 
 		item.setItemMeta(meta);
+	}
+
+	public static String[] getLore(final ItemStack item) {
+		ItemMeta meta = item.getItemMeta();
+		String[] classAndSkill = new String[2];
+		List<String> lore = item.getItemMeta().getLore();
+		for (String temp : lore) {
+			if (temp.contains("职业: ")) {
+				classAndSkill[0] = temp.split(": ")[1];
+			}
+			if (temp.contains("释放技能: ")) {
+				classAndSkill[1] = temp.split(": ")[1];
+			}
+		}
+		return classAndSkill;
 	}
 
 }

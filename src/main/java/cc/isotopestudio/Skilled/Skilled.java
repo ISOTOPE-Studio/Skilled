@@ -20,6 +20,7 @@ import cc.isotopestudio.Skilled.command.CommandSkilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.gui.ClassGUI;
 import cc.isotopestudio.Skilled.gui.SelectClass;
+import cc.isotopestudio.Skilled.listener.Class1;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
 
 public class Skilled extends JavaPlugin {
@@ -53,7 +54,7 @@ public class Skilled extends JavaPlugin {
 			return;
 		}
 		PluginManager pm = this.getServer().getPluginManager();
-		// pm.registerEvents(new ReinforceListener(this), this);
+		pm.registerEvents(new Class1(this), this);
 
 		this.getCommand("class").setExecutor(new CommandClass(this));
 		this.getCommand("CSkill").setExecutor(new CommandCSkill(this));

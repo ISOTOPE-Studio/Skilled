@@ -53,8 +53,7 @@ public class CommandCbind implements CommandExecutor {
 				player.sendMessage(Msg.mustbe1);
 				return true;
 			}
-			ItemUti uti = new ItemUti(plugin);
-			uti.addLore(item, data.getClass(player), skill);
+			ItemUti.addLore(item, data.getClass(player), skill);
 			player.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.AQUA).append("³É¹¦°ó¶¨ ").toString());
 			return true;
 

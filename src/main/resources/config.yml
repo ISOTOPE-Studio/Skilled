@@ -5,141 +5,209 @@ basic:
     full: 200
     refillRate: 5
     refillValue: 10
+
+#圣谕
 c1:
   s1:
+  #治愈
     skillPoint:
       unlock: 1
       upgrade: 2
+    release:
+	  magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
 c2:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
+    release:
+	  magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
 c3:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
+    release:
+	  magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
 c4:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
+    release:
+	  magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
 
 c5:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
+    release:
+	  magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
+
 c6:
   s1:
     skillPoint:
       unlock: 1
+    release:
+	  magic: 5
       upgrade: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
 c7:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
+    release:
+	  magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
 c8:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
+    release:
+	  magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
+    release:
+	  magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
+    release:
+	  magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
+    release:
+	  magic: 5
     

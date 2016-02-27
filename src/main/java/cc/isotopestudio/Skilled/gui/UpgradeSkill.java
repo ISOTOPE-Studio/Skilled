@@ -15,7 +15,6 @@ public class UpgradeSkill {
 
 	public static ClassGUI createMenu(final Skilled plugin, Player player) {
 		PlayerData data = new PlayerData(plugin);
-		ConfigData config = new ConfigData(plugin);
 		String job = data.getClass(player);
 		String[] skillsName = new String[5];
 		String[][] skillsDescription = new String[5][3];
@@ -25,10 +24,10 @@ public class UpgradeSkill {
 			skillsName[i] = Names.getSkillName(job, i);
 			if (skillsLevel[i] == 0) {
 				skillsDescription[i][0] = "未解锁";
-				skillsDescription[i][1] = "解锁所需技能点" + config.getUnlockRequiredSkillPoint(job, i);
+				skillsDescription[i][1] = "解锁所需技能点" + ConfigData.getUnlockRequiredSkillPoint(job, i);
 			} else {
 				skillsDescription[i][0] = "当前等级" + skillsLevel[i];
-				skillsDescription[i][1] = "升级所需技能点" + config.getUpgradeRequiredSkillPoint(job, i);
+				skillsDescription[i][1] = "升级所需技能点" + ConfigData.getUpgradeRequiredSkillPoint(job, i);
 			}
 		}
 		final ClassGUI menu = new ClassGUI("技能升级", 9, new ClassGUI.OptionClickEventHandler() {
@@ -38,14 +37,13 @@ public class UpgradeSkill {
 				event.setWillDestroy(true);
 				PlayerData data = new PlayerData(plugin);
 				int skillPoint = data.getSkillPoint(event.getPlayer());
-				ConfigData config = new ConfigData(plugin);
 				String job = data.getClass(event.getPlayer());
 				int skill = Names.getSkillNum(event.getName());
 				int reqPoint = 0;
 				if (skill == 0) {
-					reqPoint = config.getUnlockRequiredSkillPoint(job, skill);
+					reqPoint = ConfigData.getUnlockRequiredSkillPoint(job, skill);
 				} else {
-					reqPoint = config.getUpgradeRequiredSkillPoint(job, skill);
+					reqPoint = ConfigData.getUpgradeRequiredSkillPoint(job, skill);
 				}
 				if (skillPoint >= reqPoint) {
 					data.addLevel(event.getPlayer(), skill);
