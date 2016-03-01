@@ -14,100 +14,100 @@ c1:
       unlock: 1
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
 c2:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
 c3:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
 c4:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
 
 c5:
   s1:
@@ -115,99 +115,99 @@ c5:
       unlock: 1
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
 
 c6:
   s1:
     skillPoint:
       unlock: 1
     release:
-	  magic: 5
+      magic: 5
       upgrade: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
 c7:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
 c8:
   s1:
     skillPoint:
       unlock: 1
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
-	  magic: 5
+      magic: 5
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
-	  magic: 5
+      magic: 5
     

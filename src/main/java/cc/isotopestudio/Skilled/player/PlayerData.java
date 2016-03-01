@@ -13,14 +13,15 @@ public class PlayerData {
 	}
 
 	public boolean ifHasClass(Player player, String job) {
+		if (job.equals(plugin.getPlayersData().getString(player.getName() + ".class")))
+			return true;
 		return false;
 	}
 
 	public boolean ifHasSkill(Player player, int skill) {
 		if (getLevel(player, skill) <= 0)
 			return false;
-		else
-			return true;
+		return true;
 	}
 
 	public int getLevel(Player player, int skill) {

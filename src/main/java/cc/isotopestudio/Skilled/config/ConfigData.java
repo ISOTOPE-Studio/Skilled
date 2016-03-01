@@ -33,6 +33,7 @@ public class ConfigData {
 		maxMagic = plugin.getConfig().getInt("basic.magic.full");
 		unlock = new int[9][5];
 		upgrade = new int[9][5];
+		magic = new int[9][5];
 		for (int job = 1; job <= 8; job++) {
 			for (int skill = 1; skill <= 4; skill++) {
 				unlock[job][skill] = plugin.getConfig().getInt("c" + job + ".s" + skill + ".skillPoint.unlock");

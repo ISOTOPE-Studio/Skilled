@@ -17,17 +17,17 @@ public class Msg {
 	public static final String playerNotOnline = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
 			.append("请注意玩家不在线").toString();
 
-	public static final String noSkill = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
-			.append("你没有这个技能").toString();
+	public static final String noSkill = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("你没有这个技能")
+			.toString();
+	public static final String noClass = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("你没有这个职业")
+			.toString();
+	public static final String mustbe1 = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("只能绑定一个物品")
+			.toString();
 
-	public static final String mustbe1 = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
-			.append("只能绑定一个物品").toString();
-	
 	public static final String commandSkilledAddsp = (new StringBuilder()).append(ChatColor.GOLD)
 			.append("/Skilled addsp <玩家名字> <技能点数>").append(ChatColor.GRAY).append(" - ").append(ChatColor.LIGHT_PURPLE)
 			.append("给玩家添加技能点数").toString();
-	public static final String commandcBind = (new StringBuilder()).append(ChatColor.GOLD)
-			.append("/cBind <技能编号>").append(ChatColor.GRAY).append(" - ").append(ChatColor.LIGHT_PURPLE)
-			.append("绑定到手持物品").toString();
+	public static final String commandcBind = (new StringBuilder()).append(ChatColor.GOLD).append("/cBind <技能编号>")
+			.append(ChatColor.GRAY).append(" - ").append(ChatColor.LIGHT_PURPLE).append("绑定到手持物品").toString();
 
 }

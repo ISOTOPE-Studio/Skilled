@@ -9,6 +9,7 @@ import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.gui.SelectClass;
 import cc.isotopestudio.Skilled.gui.UpgradeSkill;
 import cc.isotopestudio.Skilled.message.Msg;
+import cc.isotopestudio.Skilled.player.PlayerData;
 
 public class CommandCSkill implements CommandExecutor {
 	private final Skilled plugin;
@@ -25,6 +26,11 @@ public class CommandCSkill implements CommandExecutor {
 				return true;
 			}
 			Player player = (Player) sender;
+			PlayerData data = new PlayerData(plugin);
+			if (data.getClass(player) == null) {
+				player.sendMessage(Msg.noClass);
+				return true;
+			}
 			UpgradeSkill.createMenu(plugin, player).open(player);
 			return true;
 		}

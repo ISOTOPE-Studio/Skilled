@@ -16,54 +16,43 @@ import cc.isotopestudio.Skilled.player.ItemUti;
 import cc.isotopestudio.Skilled.player.PlayerData;
 
 public class Class1 implements Listener {
-	// 职业名字：圣谕
+	// 圣谕
 
-	private final Skilled plugin;
+	// 技能1：治愈：恢复目标生命值 //点击生物
+	// 技能2：活力：恢复目标法力值 //点击玩家
+	// 技能3：神圣打击：召唤天雷攻击敌人 //点击空气
+	// 技能4：生命源泉：群体恢复 //点击空气
 
-	public Class1(Skilled instance) {
-		plugin = instance;
-	}
-
-	// 技能1：治愈：恢复目标生命值
-	// 技能2：活力：恢复目标魔法值
-	// 技能3：神圣打击：召唤天雷攻击敌人
-	// 技能4：生命源泉：群体恢复
-	@EventHandler
-	public void onClass1Skill1(PlayerInteractEntityEvent event) {
-		Player player = event.getPlayer();
-		ItemStack item;
-		String[] classAndSkill;
-		String job, skill;
-		LivingEntity rightClicked;
-		try {
-			rightClicked = (LivingEntity) event.getRightClicked();
-			item = player.getItemInHand();
-			classAndSkill = ItemUti.getLore(item);
-			job = classAndSkill[0];
-			skill = classAndSkill[1];
-		} catch (Exception e) {
-			return;
-		}
-		event.getPlayer().sendMessage(job + skill + Names.getSkillNum(skill));
-		event.getPlayer().sendMessage(event.getEventName());
-		if (!(job.equals(Names.getClassName(1)) && skill.equals(Names.getSkillName(job, 1)))) {
-			return;
-		}
+	public static void onClass1Skill1(Player player, LivingEntity rightClicked, Skilled plugin) {
+		System.out.print("onClass1Skill1");
 		double health = rightClicked.getHealth();
 		if (rightClicked.getMaxHealth() == health) {
 			player.sendMessage(Skilled.prefix + "已经满血");
 			return;
 		}
 		PlayerData data = new PlayerData(plugin);
-		if (data.getMagic(player) < ConfigData.getRequiredMagic(job, Names.getSkillNum(skill))) {
+		if (data.getMagic(player) < ConfigData.getRequiredMagic(Names.getClassName(1), 1)) {
 			return;
 		}
 		health += 5;
 		if (health > rightClicked.getMaxHealth()) {
 			health = rightClicked.getMaxHealth();
 		}
-		rightClicked.setHealth(rightClicked.getHealth() + 5);
+
+		rightClicked.setHealth(rightClicked.getHealth());
 		player.sendMessage("成功释放！");
+	}
+
+	public static void onClass1Skill2(Player player, Player rightClicked, Skilled plugin) {
+		System.out.print("onClass1Skill2");
+	}
+
+	public static void onClass1Skill3(Player player, Skilled skilled) {
+		System.out.print("onClass1Skill3");
+	}
+
+	public static void onClass1Skill4(Player player, Skilled skilled) {
+		System.out.print("onClass1Skill4");
 	}
 
 }

@@ -4,12 +4,9 @@ import java.io.File;
 import java.io.IOException;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
-import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
@@ -18,9 +15,7 @@ import cc.isotopestudio.Skilled.command.CommandCbind;
 import cc.isotopestudio.Skilled.command.CommandClass;
 import cc.isotopestudio.Skilled.command.CommandSkilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
-import cc.isotopestudio.Skilled.gui.ClassGUI;
-import cc.isotopestudio.Skilled.gui.SelectClass;
-import cc.isotopestudio.Skilled.listener.Class1;
+import cc.isotopestudio.Skilled.listener.SkilledListener;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
 
 public class Skilled extends JavaPlugin {
@@ -53,8 +48,9 @@ public class Skilled extends JavaPlugin {
 			getServer().getPluginManager().disablePlugin(this);
 			return;
 		}
+		
 		PluginManager pm = this.getServer().getPluginManager();
-		pm.registerEvents(new Class1(this), this);
+		pm.registerEvents(new SkilledListener(this), this);
 
 		this.getCommand("class").setExecutor(new CommandClass(this));
 		this.getCommand("CSkill").setExecutor(new CommandCSkill(this));
