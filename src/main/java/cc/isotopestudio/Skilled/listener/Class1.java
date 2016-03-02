@@ -5,16 +5,10 @@ import java.util.List;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
 
 import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
-import cc.isotopestudio.Skilled.message.Names;
-import cc.isotopestudio.Skilled.player.ItemUti;
 import cc.isotopestudio.Skilled.player.PlayerData;
 
 public class Class1 implements Listener {
@@ -88,6 +82,7 @@ public class Class1 implements Listener {
 					((LivingEntity) entity).setHealth(health);
 				}
 		}
+		player.sendMessage("≥…π¶ Õ∑≈£°");
 		return true;
 	}
 

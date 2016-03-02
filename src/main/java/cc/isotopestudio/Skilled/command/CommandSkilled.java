@@ -6,6 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Msg;
@@ -56,6 +58,8 @@ public class CommandSkilled implements CommandExecutor {
 						.append("成功给予玩家 " + playerName + " " + skillPoint + " 技能点").toString());
 				return true;
 			}
+			if(args[0].equals("test"))
+				((Player)sender).addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY,Integer.parseInt(args[1]),Integer.parseInt(args[2])));
 			if(args[0].equalsIgnoreCase("reload")){
 				plugin.onReload();
 				sender.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.AQUA)
