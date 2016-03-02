@@ -16,6 +16,7 @@ import cc.isotopestudio.Skilled.command.CommandClass;
 import cc.isotopestudio.Skilled.command.CommandSkilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.listener.SkilledListener;
+import cc.isotopestudio.Skilled.task.CooldownResetTask;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
 
 public class Skilled extends JavaPlugin {
@@ -59,8 +60,8 @@ public class Skilled extends JavaPlugin {
 
 		ConfigData.updateConfig(this);
 
-		BukkitTask task = new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
-
+		BukkitTask task1 = new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
+		BukkitTask task2 = new CooldownResetTask(this).runTaskLater(this, 20);
 		getLogger().info("Skilled 成功加载!");
 		getLogger().info("Skilled 由ISOTOPE Studio制作!");
 		getLogger().info("http://isotopestudio.cc");

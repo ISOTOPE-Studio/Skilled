@@ -23,20 +23,24 @@ public class Class2 implements Listener {
 	// 技能3：孤注一掷：血量减少，攻击力上升 //点击空气
 	// 技能4：影舞：挥动匕首，使周围敌人受到伤害，并且附带中毒效果 //点击空气
 
-	public static void onClass2Skill1(Player player, Player rightClicked, Skilled plugin) {
+	public static boolean onClass2Skill1(Player player, Player rightClicked, Skilled plugin) {
 		System.out.print("onClass2Skill1");
+		return true;
 	}
 
-	public static void onClass2Skill2(Player player, Skilled plugin) {
+	public static boolean onClass2Skill2(Player player, Skilled plugin) {
 		System.out.print("onClass2Skill2");
+		return true;
 	}
 
-	public static void onClass2Skill3(Player player, Skilled plugin) {
+	public static boolean onClass2Skill3(Player player, Skilled plugin) {
 		System.out.print("onClass2Skill3");
+		return true;
 	}
 
-	public static void onClass2Skill4(Player player, Skilled plugin) {
+	public static boolean onClass2Skill4(Player player, Skilled plugin) {
 		System.out.print("onClass2Skill4");
+		return true;
 	}
 
 }

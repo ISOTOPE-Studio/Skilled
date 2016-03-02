@@ -24,20 +24,28 @@ public class Class8 implements Listener {
 	// 技能3：暗：一定时间内攻击附带虚弱和失明 //点击空气
 	// 技能4：刃：范围伤害，附带虚弱和凋零 //点击空气
 
-	public static void onClass8Skill1(Player player, Skilled plugin) {
+	public static boolean onClass8Skill1(Player player, Skilled plugin) {
 		System.out.print("onClass8Skill1");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass8Skill2(Player player, LivingEntity rightClicked, Skilled plugin) {
+	public static boolean onClass8Skill2(Player player, LivingEntity rightClicked, Skilled plugin) {
 		System.out.print("onClass8Skill2");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass8Skill3(Player player, Skilled plugin) {
+	public static boolean onClass8Skill3(Player player, Skilled plugin) {
 		System.out.print("onClass8Skill3");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass8Skill4(Player player, Skilled plugin) {
+	public static boolean onClass8Skill4(Player player, Skilled plugin) {
 		System.out.print("onClass8Skill4");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
 }

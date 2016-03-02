@@ -23,36 +23,48 @@ public class Class1 implements Listener {
 	// 技能3：神圣打击：召唤天雷攻击敌人 //点击空气
 	// 技能4：生命源泉：群体恢复 //点击空气
 
-	public static void onClass1Skill1(Player player, LivingEntity rightClicked, Skilled plugin) {
+	public static boolean onClass1Skill1(Player player, LivingEntity rightClicked, Skilled plugin) {
 		System.out.print("onClass1Skill1");
 		double health = rightClicked.getHealth();
 		if (rightClicked.getMaxHealth() == health) {
 			player.sendMessage(Skilled.prefix + "已经满血");
-			return;
+			return false;
 		}
-		PlayerData data = new PlayerData(plugin);
-		if (data.getMagic(player) < ConfigData.getRequiredMagic(Names.getClassName(1), 1)) {
-			return;
-		}
-		health += 5;
+		health += 5; // Revise
 		if (health > rightClicked.getMaxHealth()) {
 			health = rightClicked.getMaxHealth();
 		}
 
 		rightClicked.setHealth(rightClicked.getHealth());
 		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass1Skill2(Player player, Player rightClicked, Skilled plugin) {
+	public static boolean onClass1Skill2(Player player, Player rightClicked, Skilled plugin) {
+		PlayerData data = new PlayerData(plugin);
 		System.out.print("onClass1Skill2");
+		int magic = data.getMagic(rightClicked);
+		if (ConfigData.maxMagic <= magic) {
+			player.sendMessage(Skilled.prefix + "法力值已满");
+			return false;
+		}
+		magic += 10;
+		if (ConfigData.maxMagic <= magic) {
+			magic = ConfigData.maxMagic;
+		}
+		data.setMagic(rightClicked, magic);
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass1Skill3(Player player, Skilled skilled) {
+	public static boolean onClass1Skill3(Player player, Skilled skilled) {
 		System.out.print("onClass1Skill3");
+		return true;
 	}
 
-	public static void onClass1Skill4(Player player, Skilled skilled) {
+	public static boolean onClass1Skill4(Player player, Skilled skilled) {
 		System.out.print("onClass1Skill4");
+		return true;
 	}
 
 }

@@ -15,24 +15,28 @@ c1:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
 c2:
   s1:
     skillPoint:
@@ -40,24 +44,28 @@ c2:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
 c3:
   s1:
     skillPoint:
@@ -65,24 +73,28 @@ c3:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
 c4:
   s1:
     skillPoint:
@@ -90,24 +102,28 @@ c4:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
 
 c5:
   s1:
@@ -116,24 +132,28 @@ c5:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
 
 c6:
   s1:
@@ -141,6 +161,7 @@ c6:
       unlock: 1
     release:
       magic: 5
+      cooldown: 2
       upgrade: 2
   s2:
     skillPoint:
@@ -148,18 +169,21 @@ c6:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
 c7:
   s1:
     skillPoint:
@@ -167,24 +191,28 @@ c7:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
 c8:
   s1:
     skillPoint:
@@ -192,22 +220,26 @@ c8:
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s2:
     skillPoint:
       unlock: 2
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s3:
     skillPoint:
       unlock: 3
       upgrade: 2
     release:
       magic: 5
+      cooldown: 2
   s4:
     skillPoint:
       unlock: 5
       upgrade: 3
     release:
       magic: 5
+      cooldown: 2
     

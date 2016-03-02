@@ -24,20 +24,28 @@ public class Class7 implements Listener {
 	//技能3：祈祷：生命吸收，伤害增加 //点击空气
 	//技能4：神临：无敌 //点击空气
 	
-	public static void onClass7Skill1(Player player, LivingEntity rightClicked, Skilled plugin) {
+	public static boolean onClass7Skill1(Player player, LivingEntity rightClicked, Skilled plugin) {
 		System.out.print("onClass7Skill1");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass7Skill2(Player player, Skilled plugin) {
+	public static boolean onClass7Skill2(Player player, Skilled plugin) {
 		System.out.print("onClass7Skill2");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass7Skill3(Player player, Skilled plugin) {
+	public static boolean onClass7Skill3(Player player, Skilled plugin) {
 		System.out.print("onClass7Skill3");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
-	public static void onClass7Skill4(Player player, Skilled plugin) {
+	public static boolean onClass7Skill4(Player player, Skilled plugin) {
 		System.out.print("onClass7Skill4");
+		player.sendMessage("成功释放！");
+		return true;
 	}
 
 }

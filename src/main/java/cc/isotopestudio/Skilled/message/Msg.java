@@ -14,6 +14,8 @@ public class Msg {
 	public static final String mustBeInt = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
 			.append("这不是一个有效数字吧").toString();
 
+	public static final String mustbe1 = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("只能绑定一个物品")
+			.toString();
 	public static final String playerNotOnline = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
 			.append("请注意玩家不在线").toString();
 
@@ -21,7 +23,9 @@ public class Msg {
 			.toString();
 	public static final String noClass = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("你没有这个职业")
 			.toString();
-	public static final String mustbe1 = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("只能绑定一个物品")
+	public static final String noMagic = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("法力值不足")
+			.toString();
+	public static final String cooldown = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("冷却中")
 			.toString();
 
 	public static final String commandSkilledAddsp = (new StringBuilder()).append(ChatColor.GOLD)

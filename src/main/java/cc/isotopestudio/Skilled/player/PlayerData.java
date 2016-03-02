@@ -27,7 +27,6 @@ public class PlayerData {
 	public int getLevel(Player player, int skill) {
 		int level = plugin.getPlayersData().getInt(player.getName() + ".skill" + skill);
 		return level;
-		// return -1;
 	}
 
 	public void setLevel(Player player, int skill, int level) {
@@ -90,6 +89,12 @@ public class PlayerData {
 		plugin.savePlayersData();
 	}
 
+	public void decreaseMagic(Player player, int magic) {
+		int newMagic = getMagic(player) - magic;
+		setMagic(player, newMagic);
+		plugin.savePlayersData();
+	}
+
 	public int getMagic(String player) {
 		int magic = plugin.getPlayersData().getInt(player + ".magic");
 		return magic;
@@ -97,6 +102,21 @@ public class PlayerData {
 
 	public void setMagic(String player, int magic) {
 		plugin.getPlayersData().set(player + ".magic", magic);
+		plugin.savePlayersData();
+	}
+
+	public boolean isCooldown(Player player, int skill) {
+		boolean isCooldown = plugin.getPlayersData().getBoolean(player.getName() + ".cooldown." + skill, false);
+		return isCooldown;
+	}
+
+	public void setCooldown(Player player, int skill, boolean isCooldown) {
+		plugin.getPlayersData().set(player.getName() + ".cooldown." + skill, isCooldown);
+		plugin.savePlayersData();
+	}
+
+	public void setCooldown(String player, int skill, boolean isCooldown) {
+		plugin.getPlayersData().set(player + ".cooldown." + skill, isCooldown);
 		plugin.savePlayersData();
 	}
 }
