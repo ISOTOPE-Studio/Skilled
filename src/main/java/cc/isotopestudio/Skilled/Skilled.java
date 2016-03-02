@@ -69,6 +69,7 @@ public class Skilled extends JavaPlugin {
 
 	public void onReload() {
 		ConfigData.updateConfig(this);
+		BukkitTask task2 = new CooldownResetTask(this).runTaskLater(this, 20);
 	}
 
 	@Override

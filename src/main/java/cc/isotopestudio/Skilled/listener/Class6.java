@@ -23,25 +23,25 @@ public class Class6 implements Listener {
 	// 技能3：破魂：造成范围击退并产生短暂的禁锢 //点击空气
 	// 技能4：灭火：单体攻击，有较小几率秒杀敌人，失败则造成少量伤害 //点击生物
 
-	public static boolean onClass6Skill1(Player player, LivingEntity rightClicked, Skilled plugin) {
+	public static boolean onClass6Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
 		System.out.print("onClass6Skill1");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass6Skill2(Player player, LivingEntity rightClicked, Skilled plugin) {
+	public static boolean onClass6Skill2(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
 		System.out.print("onClass6Skill2");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass6Skill3(Player player, Skilled plugin) {
+	public static boolean onClass6Skill3(Player player, int level, Skilled plugin) {
 		System.out.print("onClass6Skill3");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass6Skill4(Player player, LivingEntity rightClicked, Skilled plugin) {
+	public static boolean onClass6Skill4(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
 		System.out.print("onClass6Skill4");
 		player.sendMessage("成功释放！");
 		return true;

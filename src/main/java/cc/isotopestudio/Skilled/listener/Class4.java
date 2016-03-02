@@ -23,25 +23,25 @@ public class Class4 implements Listener {
 	//技能3：不屈：获得再生 II //点击空气
 	//技能4：坚不可摧：三秒内无视伤害 //点击空气
 	
-	public static boolean onClass4Skill1(Player player, Skilled plugin) {
+	public static boolean onClass4Skill1(Player player, int level, Skilled plugin) {
 		System.out.print("onClass4Skill1");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass4Skill2(Player player, Skilled plugin) {
+	public static boolean onClass4Skill2(Player player, int level, Skilled plugin) {
 		System.out.print("onClass4Skill2");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass4Skill3(Player player, Skilled plugin) {
+	public static boolean onClass4Skill3(Player player, int level, Skilled plugin) {
 		System.out.print("onClass4Skill3");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass4Skill4(Player player, Skilled plugin) {
+	public static boolean onClass4Skill4(Player player, int level, Skilled plugin) {
 		System.out.print("onClass4Skill4");
 		player.sendMessage("成功释放！");
 		return true;

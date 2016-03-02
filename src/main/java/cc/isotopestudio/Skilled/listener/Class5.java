@@ -23,25 +23,25 @@ public class Class5 implements Listener {
 	//技能3：怒火：范围使敌人受到伤害且燃烧 //点击空气
 	//技能4：一夫当关：一定时间内攻击力大幅提升，获得再生效果 //点击空气
 	
-	public static boolean onClass5Skill1(Player player, LivingEntity rightClicked, Skilled plugin) {
+	public static boolean onClass5Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
 		System.out.print("onClass5Skill1");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass5Skill2(Player player, Skilled plugin) {
+	public static boolean onClass5Skill2(Player player, int level, Skilled plugin) {
 		System.out.print("onClass5Skill2");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass5Skill3(Player player, Skilled plugin) {
+	public static boolean onClass5Skill3(Player player, int level, Skilled plugin) {
 		System.out.print("onClass5Skill3");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass5Skill4(Player player, Skilled plugin) {
+	public static boolean onClass5Skill4(Player player, int level, Skilled plugin) {
 		System.out.print("onClass5Skill4");
 		player.sendMessage("成功释放！");
 		return true;

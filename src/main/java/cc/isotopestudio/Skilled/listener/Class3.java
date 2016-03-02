@@ -23,25 +23,25 @@ public class Class3 implements Listener {
 	// 技能3：轻语：一定时间增加攻击力 //点击空气
 	// 技能4：箭雨：从空中落下一片箭雨 //点击空气
 
-	public static boolean onClass3Skill1(Player player, Skilled plugin) {
+	public static boolean onClass3Skill1(Player player, int level, Skilled plugin) {
 		System.out.print("onClass3Skill1");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass3Skill2(Player player, Skilled plugin) {
+	public static boolean onClass3Skill2(Player player, int level, Skilled plugin) {
 		System.out.print("onClass3Skill2");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass3Skill3(Player player, Skilled plugin) {
+	public static boolean onClass3Skill3(Player player, int level, Skilled plugin) {
 		System.out.print("onClass3Skill3");
 		player.sendMessage("成功释放！");
 		return true;
 	}
 
-	public static boolean onClass3Skill4(Player player, Skilled plugin) {
+	public static boolean onClass3Skill4(Player player, int level, Skilled plugin) {
 		System.out.print("onClass3Skill4");
 		player.sendMessage("成功释放！");
 		return true;
