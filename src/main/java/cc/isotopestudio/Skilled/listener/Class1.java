@@ -26,7 +26,7 @@ public class Class1 implements Listener {
 			player.sendMessage(Skilled.prefix + "ÒÑ¾­ÂúÑª");
 			return false;
 		}
-		health += (int) (5 * (1 + 0.1 * level)); // Revise
+		health += (int) (5 * (1 + 2* level)); // Revise
 		if (health > rightClicked.getMaxHealth()) {
 			health = rightClicked.getMaxHealth();
 		}
@@ -74,7 +74,7 @@ public class Class1 implements Listener {
 					if (((LivingEntity) entity).getMaxHealth() == health) {
 						continue;
 					}
-					health += (int) (Math.random() * 7 * (1 + 0.05 * level)); // Revise
+					health += (int) (Math.random() * 7 * (1 + 2* level)); // Revise
 					if (health > ((LivingEntity) entity).getMaxHealth()) {
 						health = ((LivingEntity) entity).getMaxHealth();
 					}

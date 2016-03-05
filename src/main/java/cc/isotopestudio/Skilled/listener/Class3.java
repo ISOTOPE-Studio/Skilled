@@ -17,8 +17,8 @@ public class Class3 implements Listener {
 
 	public static boolean onClass3Skill1(Player player, int level, Skilled plugin) {
 		System.out.print("onClass3Skill1");
-		player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, (5 + level) * 20, (int) (1 + level * 0.5))); // Revise
-		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + level) * 20, (int) (1 + level * 0.5))); // Revise
+		player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, (5 + 3*level) * 20, level)); // Revise
+		player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + 3*level) * 20, level)); // Revise
 		player.sendMessage("成功释放！");
 		return true;
 	}
@@ -32,7 +32,7 @@ public class Class3 implements Listener {
 	public static boolean onClass3Skill3(Player player, int level, Skilled plugin) {
 		System.out.print("onClass3Skill3");
 		player.addPotionEffect(
-				new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (7 + level) * 20, (int) (1.5 + level * 0.5))); // Revise
+				new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (7 + 3*level) * 20, level)); // Revise
 		player.sendMessage("成功释放！");
 		return true;
 	}

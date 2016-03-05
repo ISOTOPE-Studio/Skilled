@@ -29,9 +29,9 @@ public class Class2 implements Listener {
 
 	public static boolean onClass2Skill2(Player player, int level, Skilled plugin) {
 		System.out.print("onClass2Skill2");
-		player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, (5+level)*20, 1, true)); // Revise
+		player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, (5+3*level)*20, 1, true)); // Revise
 
-		player.sendMessage("成功释放！" + ((5+level)*20));
+		player.sendMessage("成功释放！" + ((5+3*level)*20));
 		return true;
 	}
 
@@ -39,9 +39,9 @@ public class Class2 implements Listener {
 		System.out.print("onClass2Skill3");
 		double health = player.getHealth() * 0.6;// Revise
 		player.setHealth(health);
-		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5+level)*20, (int) (1 + level * 0.5))); // Revise
+		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5+3*level)*20, level)); // Revise
 
-		player.sendMessage("成功释放！" + ((5+level)*20) + (int) (1 + level * 0.5));
+		player.sendMessage("成功释放！" + ((5+3*level)*20) + level);
 		return true;
 	}
 
@@ -54,8 +54,8 @@ public class Class2 implements Listener {
 			return false;
 		}
 		ArrayList<PotionEffect> effects = new ArrayList<PotionEffect>();
-		effects.add(new PotionEffect(PotionEffectType.HARM, 1 * 20, 5 + level)); // Revise
-		effects.add(new PotionEffect(PotionEffectType.POISON, level * 15, (int) (1 + level * 0.5))); // Revise
+		effects.add(new PotionEffect(PotionEffectType.HARM, 1 ,level)); // Revise
+		effects.add(new PotionEffect(PotionEffectType.POISON, 3*level * 20, level)); // Revise
 
 		for (Entity entity : near) {
 			if (entity.equals(player))

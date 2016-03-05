@@ -8,6 +8,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
@@ -25,6 +27,7 @@ public class Class5 implements Listener {
 	
 	public static boolean onClass5Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
 		System.out.print("onClass5Skill1");
+		rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, ( 5+3*level) * 20, level)); // Revise
 		player.sendMessage("成功释放！");
 		return true;
 	}
@@ -43,6 +46,8 @@ public class Class5 implements Listener {
 
 	public static boolean onClass5Skill4(Player player, int level, Skilled plugin) {
 		System.out.print("onClass5Skill4");
+		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3*level) * 20, level)); // Revise
+		player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (5 + 3*level) * 20, level)); // Revise
 		player.sendMessage("成功释放！");
 		return true;
 	}
