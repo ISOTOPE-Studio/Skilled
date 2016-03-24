@@ -39,7 +39,7 @@ public class ConfigData {
 		int jobNum = Names.getClassNum(job);
 		return cooldown[jobNum][skill];
 	}
-	
+
 	public static void updateConfig(Skilled plugin) {
 		magicRefillRate = plugin.getConfig().getInt("basic.magic.refillRate");
 		magicRefillValue = plugin.getConfig().getInt("basic.magic.refillValue");
@@ -57,7 +57,7 @@ public class ConfigData {
 				System.out.println(unlock[job][skill] + " " + upgrade[job][skill] + " " + magic[job][skill]);
 			}
 		}
-		
+
 	}
 
 }

@@ -27,6 +27,9 @@ public class Msg {
 			.toString();
 	public static final String cooldown = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("冷却中")
 			.toString();
+	
+	public static final String release = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD).append("成功释放技能")
+			.toString();
 
 	public static final String commandSkilledAddsp = (new StringBuilder()).append(ChatColor.GOLD)
 			.append("/Skilled addsp <玩家名字> <技能点数>").append(ChatColor.GRAY).append(" - ").append(ChatColor.LIGHT_PURPLE)

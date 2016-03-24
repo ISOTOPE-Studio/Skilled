@@ -1,5 +1,6 @@
 package cc.isotopestudio.Skilled.listener;
 
+import org.bukkit.Effect;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

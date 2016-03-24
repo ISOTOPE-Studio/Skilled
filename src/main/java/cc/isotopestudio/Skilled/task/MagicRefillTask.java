@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Set;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -36,7 +37,8 @@ public class MagicRefillTask extends BukkitRunnable {
 							newMagic = ConfigData.maxMagic;
 						}
 						data.setMagic(player, newMagic);
-						player.sendMessage("" + newMagic);
+						player.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.GOLD)
+								.append("»Ø¸´Ä§·¨Öµ" + newMagic).toString());
 					}
 				}
 			}

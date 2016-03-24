@@ -25,8 +25,9 @@ public class CooldownResetTask extends BukkitRunnable {
 		if (players.size() != 0) {
 			PlayerData data = new PlayerData(plugin);
 			Iterator<String> it = players.iterator();
-			String name = it.next();
+			String name;
 			while (it.hasNext()) {
+				name = it.next();
 				for (int i = 1; i <= 4; i++)
 					data.setCooldown(name, i, false);
 			}

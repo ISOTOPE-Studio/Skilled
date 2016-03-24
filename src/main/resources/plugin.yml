@@ -5,6 +5,8 @@ author: Mars
 description: Jobs
 website: http://isotopestudio.cc
 version: 1.0
+depend: [ProtocolLib]
+
 commands:
   class:
     description: Skilled Command.

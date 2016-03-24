@@ -10,6 +10,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitTask;
 
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
+
 import cc.isotopestudio.Skilled.command.CommandCSkill;
 import cc.isotopestudio.Skilled.command.CommandCbind;
 import cc.isotopestudio.Skilled.command.CommandClass;
@@ -24,6 +27,8 @@ public class Skilled extends JavaPlugin {
 	public static final String prefix = (new StringBuilder()).append(ChatColor.GREEN).append("[")
 			.append(ChatColor.ITALIC).append(ChatColor.BOLD).append("ְҵ").append(ChatColor.RESET)
 			.append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
+	
+	public ProtocolManager protocolManager;
 
 	public void createFile(String name) {
 
@@ -50,6 +55,8 @@ public class Skilled extends JavaPlugin {
 			return;
 		}
 		
+		protocolManager = ProtocolLibrary.getProtocolManager();
+
 		PluginManager pm = this.getServer().getPluginManager();
 		pm.registerEvents(new SkilledListener(this), this);
 
