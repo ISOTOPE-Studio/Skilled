@@ -166,121 +166,121 @@ public class Names {
 		if (job.equals(getClassName(1))) {
 			switch (skill) {
 			case (1): {
-				return "治愈";
+				return "恢复目标玩家生命值";
 			}
 			case (2): {
-				return "活力";
+				return "恢复目标玩家法力值";
 			}
 			case (3): {
-				return "神圣打击";
+				return "玩家召唤天雷攻击敌人";
 			}
 			case (4): {
-				return "生命源泉";
+				return "群体恢复";
 			}
 			}
 		} else if (job.equals(getClassName(2))) {
 			switch (skill) {
 			case (1): {
-				return "影击";
+				return "玩家瞬移到背后给敌人一击";
 			}
 			case (2): {
-				return "影化";
+				return "玩家获得隐身效果";
 			}
 			case (3): {
-				return "孤注一掷";
+				return "玩家的血量减少，但攻击力上升";
 			}
 			case (4): {
-				return "影舞";
+				return "挥动匕首，造成范围伤害并中毒";
 			}
 			}
 		} else if (job.equals(getClassName(3))) {
 			switch (skill) {
 			case (1): {
-				return "警惕";
+				return "增加玩家的移动速度和跳跃力";
 			}
 			case (2): {
-				return "魔法箭";
+				return "玩家射出的箭附带随机负面效果";
 			}
 			case (3): {
-				return "轻语";
+				return "玩家一定时间提升玩家攻击力";
 			}
 			case (4): {
-				return "箭雨";
+				return "从空中落下一片箭雨";
 			}
 			}
 		} else if (job.equals(getClassName(4))) {
 			switch (skill) {
 			case (1): {
-				return "坚定不移";
+				return "增加玩家的抗性与血量";
 			}
 			case (2): {
-				return "怒吼";
+				return "玩家发出一个火球";
 			}
 			case (3): {
-				return "不屈";
+				return "玩家获得再生效果";
 			}
 			case (4): {
-				return "坚不可摧";
+				return "玩家可在三秒内无视伤害";
 			}
 			}
 		} else if (job.equals(getClassName(5))) {
 			switch (skill) {
 			case (1): {
-				return "压制";
+				return "玩家的攻击使目标虚弱";
 			}
 			case (2): {
-				return "狂化";
+				return "玩家自身收到灼烧伤害，但攻击附加生命偷取效果 ";
 			}
 			case (3): {
-				return "怒火";
+				return "玩家对目标区域产生范围伤害，并附加燃烧效果";
 			}
 			case (4): {
-				return "一夫当关";
+				return "玩家一定时间内攻击力获得大幅提升，并获得再生效果 ";
 			}
 			}
 		} else if (job.equals(getClassName(6))) {
 			switch (skill) {
 			case (1): {
-				return "控魂";
+				return "玩家进行施法使目标敌人减速";
 			}
 			case (2): {
-				return "诱魂";
+				return "玩家对敌人造成单体伤害并使敌人进入负面效果 ";
 			}
 			case (3): {
-				return "破魂";
+				return "玩家所所指位置造成范围击退并产生短暂的禁锢";
 			}
 			case (4): {
-				return "灭火";
+				return "有较小几率秒杀目标，若失败则对目标造成少量伤害";
 			}
 			}
 		} else if (job.equals(getClassName(7))) {
 			switch (skill) {
 			case (1): {
-				return "审判";
+				return "玩家对目标造成单体伤害并点燃目标";
 			}
 			case (2): {
-				return "守护";
+				return "玩家对目标所处范围玩家增加抗性效果";
 			}
 			case (3): {
-				return "祈祷";
+				return "玩家获得生命吸收效果，并且自身伤害增加";
 			}
 			case (4): {
-				return "神临";
+				return "无敌";
 			}
 			}
 		} else if (job.equals(getClassName(8))) {
 			switch (skill) {
 			case (1): {
-				return "影";
+				return "玩家增加移动速度和攻击力以及生命恢复效果";
 			}
 			case (2): {
-				return "烈";
+				return "玩家对目标造成单体伤害，附加点燃和虚弱";
 			}
 			case (3): {
-				return "暗";
+				return "玩家在一定时间内攻击附带虚弱和失明效果";
 			}
 			case (4): {
-				return "刃";
+				return "玩家造成范围伤害，并对区域敌人附带虚弱和凋零效果";
 			}
 			}
 		}

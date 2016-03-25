@@ -2,6 +2,7 @@ package cc.isotopestudio.Skilled.gui;
 
 import java.util.ArrayList;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -13,6 +14,18 @@ import cc.isotopestudio.Skilled.player.PlayerData;
 
 public class UpgradeSkill {
 
+	static final String title = new StringBuilder().append(ChatColor.YELLOW).append(ChatColor.BOLD).append("技能升级")
+			.toString();
+
+	static final String unlock = new StringBuilder().append(ChatColor.BLUE).append(ChatColor.ITALIC).append("未解锁")
+			.toString();
+	static final String unlockRequire = new StringBuilder().append(ChatColor.RED).append(ChatColor.ITALIC)
+			.append("解锁所需技能点: ").toString();
+	static final String upgrade = new StringBuilder().append(ChatColor.BLUE).append(ChatColor.ITALIC).append("当前等级")
+			.toString();
+	static final String upgradeRequire = new StringBuilder().append(ChatColor.GREEN).append(ChatColor.ITALIC)
+			.append("升级所需技能点: ").toString();
+
 	public static ClassGUI createMenu(final Skilled plugin, Player player) {
 		PlayerData data = new PlayerData(plugin);
 		String job = data.getClass(player);
@@ -23,14 +36,14 @@ public class UpgradeSkill {
 			skillsLevel[i] = data.getLevel(player, i);
 			skillsName[i] = Names.getSkillName(job, i);
 			if (skillsLevel[i] == 0) {
-				skillsDescription[i][0] = "未解锁";
-				skillsDescription[i][1] = "解锁所需技能点" + ConfigData.getUnlockRequiredSkillPoint(job, i);
+				skillsDescription[i][0] = unlock;
+				skillsDescription[i][1] = unlockRequire + ConfigData.getUnlockRequiredSkillPoint(job, i);
 			} else {
-				skillsDescription[i][0] = "当前等级" + skillsLevel[i];
-				skillsDescription[i][1] = "升级所需技能点" + ConfigData.getUpgradeRequiredSkillPoint(job, i);
+				skillsDescription[i][0] = upgrade + skillsLevel[i];
+				skillsDescription[i][1] = upgradeRequire + ConfigData.getUpgradeRequiredSkillPoint(job, i);
 			}
 		}
-		final ClassGUI menu = new ClassGUI("技能升级", 9, new ClassGUI.OptionClickEventHandler() {
+		final ClassGUI menu = new ClassGUI(title, 9, new ClassGUI.OptionClickEventHandler() {
 			@Override
 			public void onOptionClick(ClassGUI.OptionClickEvent event) {
 				event.setWillClose(true);
