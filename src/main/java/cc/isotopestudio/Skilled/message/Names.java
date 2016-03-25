@@ -1,5 +1,7 @@
 package cc.isotopestudio.Skilled.message;
 
+import org.bukkit.ChatColor;
+
 public class Names {
 
 	public static String getClassName(int job) {
@@ -158,6 +160,137 @@ public class Names {
 			}
 		}
 		return null;
+	}
+
+	public static String getSkillInfo(String job, int skill) {
+		if (job.equals(getClassName(1))) {
+			switch (skill) {
+			case (1): {
+				return "治愈";
+			}
+			case (2): {
+				return "活力";
+			}
+			case (3): {
+				return "神圣打击";
+			}
+			case (4): {
+				return "生命源泉";
+			}
+			}
+		} else if (job.equals(getClassName(2))) {
+			switch (skill) {
+			case (1): {
+				return "影击";
+			}
+			case (2): {
+				return "影化";
+			}
+			case (3): {
+				return "孤注一掷";
+			}
+			case (4): {
+				return "影舞";
+			}
+			}
+		} else if (job.equals(getClassName(3))) {
+			switch (skill) {
+			case (1): {
+				return "警惕";
+			}
+			case (2): {
+				return "魔法箭";
+			}
+			case (3): {
+				return "轻语";
+			}
+			case (4): {
+				return "箭雨";
+			}
+			}
+		} else if (job.equals(getClassName(4))) {
+			switch (skill) {
+			case (1): {
+				return "坚定不移";
+			}
+			case (2): {
+				return "怒吼";
+			}
+			case (3): {
+				return "不屈";
+			}
+			case (4): {
+				return "坚不可摧";
+			}
+			}
+		} else if (job.equals(getClassName(5))) {
+			switch (skill) {
+			case (1): {
+				return "压制";
+			}
+			case (2): {
+				return "狂化";
+			}
+			case (3): {
+				return "怒火";
+			}
+			case (4): {
+				return "一夫当关";
+			}
+			}
+		} else if (job.equals(getClassName(6))) {
+			switch (skill) {
+			case (1): {
+				return "控魂";
+			}
+			case (2): {
+				return "诱魂";
+			}
+			case (3): {
+				return "破魂";
+			}
+			case (4): {
+				return "灭火";
+			}
+			}
+		} else if (job.equals(getClassName(7))) {
+			switch (skill) {
+			case (1): {
+				return "审判";
+			}
+			case (2): {
+				return "守护";
+			}
+			case (3): {
+				return "祈祷";
+			}
+			case (4): {
+				return "神临";
+			}
+			}
+		} else if (job.equals(getClassName(8))) {
+			switch (skill) {
+			case (1): {
+				return "影";
+			}
+			case (2): {
+				return "烈";
+			}
+			case (3): {
+				return "暗";
+			}
+			case (4): {
+				return "刃";
+			}
+			}
+		}
+		return null;
+	}
+
+	public static String getSkillColorInfo(int job, int skill) {
+		return new StringBuilder().append(ChatColor.GOLD).append(ChatColor.BOLD)
+				.append(getSkillName(getClassName(job), skill)).append(ChatColor.RESET).append(ChatColor.GRAY)
+				.append(": ").append(ChatColor.LIGHT_PURPLE).append(getSkillInfo(getClassName(job), skill)).toString();
 	}
 
 	public static int getSkillNum(String skill) {
