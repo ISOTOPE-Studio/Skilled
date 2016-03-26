@@ -46,7 +46,7 @@ public class Class7 {
 				}
 		}
 		if (count <= 1) {
-			player.sendMessage("周围无生物！");
+			player.sendMessage(Msg.noLife);
 			return false;
 		}
 		player.sendMessage(Msg.release);

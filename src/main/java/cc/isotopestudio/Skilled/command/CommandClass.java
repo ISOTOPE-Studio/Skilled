@@ -29,7 +29,7 @@ public class CommandClass implements CommandExecutor {
 			Player player = (Player) sender;
 
 			ArrayList<Integer> list = new ArrayList<Integer>();
-			for (int i = 5; i <= 7; i++) {
+			for (int i = 6; i <= 8; i++) {
 				if (player.hasPermission("Skilled.class." + i) || player.hasPermission("Skilled.class.*")) {
 					list.add(i);
 				}

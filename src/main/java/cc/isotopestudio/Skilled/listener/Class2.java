@@ -9,6 +9,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.Vector;
 
 import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Msg;
@@ -22,9 +24,23 @@ public class Class2 {
 	// 技能3：孤注一掷：血量减少，攻击力上升 //点击空气
 	// 技能4：影舞：挥动匕首，使周围敌人受到伤害，并且附带中毒效果 //点击空气
 
-	public static boolean onClass2Skill1(Player player, Player rightClicked, int level, Skilled plugin) {
+	public static boolean onClass2Skill1(Player player, final Player rightClicked, final int level, Skilled plugin) {
 		System.out.print("onClass2Skill1");
-		Location location = rightClicked.getLocation();
+		Location loc = rightClicked.getLocation();
+		double y = loc.getY();
+		Vector v = loc.getDirection().normalize();
+		v.multiply(-2);
+		loc.add(v);
+		loc.setY(y);
+		loc.setPitch(0F);
+		player.teleport(loc);
+		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+		new BukkitRunnable() {
+			public void run() {
+				rightClicked
+						.addPotionEffect(new PotionEffect(PotionEffectType.HARM, 1, (int) (1 + 0.2 * level), false));// Revise
+			}
+		}.runTaskLater(plugin, 10);
 		return true;
 	}
 
@@ -63,6 +79,10 @@ public class Class2 {
 					ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, entity.getLocation(), 20);
 					count++;
 				}
+		}
+		if (count == 0) {
+			player.sendMessage(Msg.noLife);
+			return false;
 		}
 		player.sendMessage(Msg.release);
 		return true;

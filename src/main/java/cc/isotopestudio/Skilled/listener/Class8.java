@@ -69,7 +69,7 @@ public class Class8 {
 			}
 		}
 		if (count == 0) {
-			player.sendMessage("周围无生物！");
+			player.sendMessage(Msg.noLife);
 			return false;
 		}
 		player.sendMessage(Msg.release);

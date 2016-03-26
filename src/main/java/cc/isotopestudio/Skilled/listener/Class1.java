@@ -2,6 +2,7 @@ package cc.isotopestudio.Skilled.listener;
 
 import java.util.List;
 
+import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -58,6 +59,15 @@ public class Class1 {
 
 	public static boolean onClass1Skill3(Player player, int level, Skilled skilled) {
 		System.out.print("onClass1Skill3");
+		Location[] target = new Location[6];
+		target[0] = player.getLocation().clone().add(3, 0, 0);
+		target[1] = player.getLocation().clone().add(3, 0, 3);
+		target[2] = player.getLocation().clone().add(0, 0, 3);
+		target[3] = player.getLocation().clone().add(0, 0, -3);
+		target[4] = player.getLocation().clone().add(-3, 0, 0);
+		target[5] = player.getLocation().clone().add(-3, 0, 3);
+		for (int i = 0; i < 6; i++)
+			player.getWorld().strikeLightning(target[i]);
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
 		return true;
 	}
@@ -86,7 +96,7 @@ public class Class1 {
 				}
 		}
 		if (count == 0) {
-			player.sendMessage("周围无生物！");
+			player.sendMessage(Msg.noLife);
 			return false;
 		}
 		player.sendMessage(Msg.release);

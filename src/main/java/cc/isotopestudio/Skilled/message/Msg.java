@@ -27,6 +27,8 @@ public class Msg {
 			.toString();
 	public static final String noSkillPoint = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("技能点不足")
 			.toString();
+	public static final String noLife = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("周围无生物")
+			.toString();
 	public static final String cooldown = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("冷却中")
 			.toString();
 
