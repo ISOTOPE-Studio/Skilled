@@ -38,7 +38,7 @@ public class MagicRefillTask extends BukkitRunnable {
 						}
 						data.setMagic(player, newMagic);
 						player.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.GOLD)
-								.append("回复魔法值" + newMagic).toString());
+								.append("恢复魔法值" + newMagic).toString());
 					}
 				}
 			}

@@ -25,12 +25,21 @@ public class Msg {
 			.toString();
 	public static final String noMagic = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("法力值不足")
 			.toString();
+	public static final String noSkillPoint = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("技能点不足")
+			.toString();
 	public static final String cooldown = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("冷却中")
 			.toString();
-	
+
 	public static final String release = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD).append("成功释放技能")
 			.toString();
 
+	public static final String successJoin = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD).append("成功加入职业")
+			.toString();
+	public static final String successUnlock = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD).append("成功解锁技能")
+			.toString();
+	public static final String successUpgrade = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD)
+			.append("成功升级技能").toString();
+	
 	public static final String commandSkilledAddsp = (new StringBuilder()).append(ChatColor.GOLD)
 			.append("/Skilled addsp <玩家名字> <技能点数>").append(ChatColor.GRAY).append(" - ").append(ChatColor.LIGHT_PURPLE)
 			.append("给玩家添加技能点数").toString();
