@@ -34,7 +34,6 @@ public class ItemUti {
 	}
 
 	public static String[] getLore(final ItemStack item) {
-		ItemMeta meta = item.getItemMeta();
 		String[] classAndSkill = new String[2];
 		List<String> lore = item.getItemMeta().getLore();
 		for (String temp : lore) {

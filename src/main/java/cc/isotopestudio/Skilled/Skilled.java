@@ -8,8 +8,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.scheduler.BukkitTask;
-
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 
@@ -67,8 +65,8 @@ public class Skilled extends JavaPlugin {
 
 		ConfigData.updateConfig(this);
 
-		BukkitTask task1 = new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
-		BukkitTask task2 = new CooldownResetTask(this).runTaskLater(this, 20);
+		new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
+		new CooldownResetTask(this).runTaskLater(this, 20);
 		getLogger().info("Skilled 成功加载!");
 		getLogger().info("Skilled 由ISOTOPE Studio制作!");
 		getLogger().info("http://isotopestudio.cc");
@@ -76,7 +74,7 @@ public class Skilled extends JavaPlugin {
 
 	public void onReload() {
 		ConfigData.updateConfig(this);
-		BukkitTask task2 = new CooldownResetTask(this).runTaskLater(this, 20);
+		new CooldownResetTask(this).runTaskLater(this, 20);
 	}
 
 	@Override

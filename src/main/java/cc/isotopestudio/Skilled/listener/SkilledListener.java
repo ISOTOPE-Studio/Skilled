@@ -1,6 +1,9 @@
 package cc.isotopestudio.Skilled.listener;
 
-import org.bukkit.Effect;
+import java.util.Date;
+import java.util.HashMap;
+
+import org.bukkit.ChatColor;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,10 +23,12 @@ import cc.isotopestudio.Skilled.player.PlayerData;
 public class SkilledListener implements Listener {
 	private final Skilled plugin;
 	private final PlayerData data;
+	private final HashMap<String, Long> cooldownMap;
 
 	public SkilledListener(Skilled instance) {
 		plugin = instance;
 		data = new PlayerData(plugin);
+		cooldownMap = new HashMap<String, Long>();
 	}
 
 	@EventHandler
@@ -180,7 +185,8 @@ public class SkilledListener implements Listener {
 			return;
 		}
 		if (data.isCooldown(player, skill)) {
-			player.sendMessage(Msg.cooldown);
+			player.sendMessage(Msg.cooldown
+					+ ((cooldownMap.get(player.getName() + job + skill) - new Date().getTime()) / 1000.0) + "秒");
 			return;
 		}
 		switch (Names.getClassNum(job)) {
@@ -343,16 +349,21 @@ public class SkilledListener implements Listener {
 	}
 
 	private void afterRelease(final Player player, final String job, final int skill, Skilled plugin) {
-		data.decreaseMagic(player, ConfigData.getRequiredMagic(job, skill));
+		int magic = ConfigData.getRequiredMagic(job, skill);
+		data.decreaseMagic(player, magic);
 		data.setCooldown(player, skill, true);
+		int cooldownTime = ConfigData.getCooldown(job, skill);
+		final String playerName = player.getName();
+		cooldownMap.put(playerName + job + skill, new Date().getTime() + cooldownTime * 1000);
 		new BukkitRunnable() {
-
 			@Override
 			public void run() {
 				data.setCooldown(player, skill, false);
+				cooldownMap.remove(playerName + job + skill);
 			}
-
-		}.runTaskLater(this.plugin, 20 * ConfigData.getCooldown(job, skill));
-
+		}.runTaskLater(this.plugin, 20 * cooldownTime);
+		player.sendMessage(new StringBuilder(Msg.release + Names.getSkillColorName(job, skill)).append(ChatColor.GOLD)
+				.append(", 消耗法力值" + magic).toString());
 	}
+
 }

@@ -8,6 +8,8 @@ public class Msg {
 
 	public static final String noPermission = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("你没有权限")
 			.toString();
+	public static final String notNumber = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("这不是一个数字")
+			.toString();
 	public static final String mustBePlayer = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
 			.append("只有玩家能使用").toString();
 
@@ -29,7 +31,7 @@ public class Msg {
 			.toString();
 	public static final String noLife = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("周围无生物")
 			.toString();
-	public static final String cooldown = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("冷却中")
+	public static final String cooldown = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("技能冷却中，还有")
 			.toString();
 
 	public static final String release = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD).append("成功释放技能")

@@ -27,7 +27,6 @@ public class Class8 {
 		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
 		player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (5 + 3 * level) * 20, level, false)); // Revise
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
@@ -37,13 +36,11 @@ public class Class8 {
 		rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
 		rightClicked.setFireTicks((5 + 3 * level) * 20);// Revise
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
 	public static boolean onClass8Skill3(Player player, int level, Skilled plugin) {
 		System.out.print("onClass8Skill3");
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
@@ -72,7 +69,6 @@ public class Class8 {
 			player.sendMessage(Msg.noLife);
 			return false;
 		}
-		player.sendMessage(Msg.release);
 		return true;
 	}
 

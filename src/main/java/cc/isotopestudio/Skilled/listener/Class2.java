@@ -48,7 +48,6 @@ public class Class2 {
 		System.out.print("onClass2Skill2");
 		player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, (5 + 3 * level) * 20, 1, true)); // Revise
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
@@ -58,7 +57,6 @@ public class Class2 {
 		player.setHealth(health);
 		player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
@@ -84,7 +82,6 @@ public class Class2 {
 			player.sendMessage(Msg.noLife);
 			return false;
 		}
-		player.sendMessage(Msg.release);
 		return true;
 	}
 

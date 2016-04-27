@@ -1,14 +1,7 @@
 package cc.isotopestudio.Skilled.config;
 
-import java.util.Iterator;
-import java.util.Set;
-
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-
 import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Names;
-import cc.isotopestudio.Skilled.player.PlayerData;
 
 public class ConfigData {
 

@@ -35,7 +35,6 @@ public class Class1 {
 
 		rightClicked.setHealth(health);
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
@@ -53,7 +52,6 @@ public class Class1 {
 		}
 		data.setMagic(rightClicked, magic);
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
@@ -99,7 +97,6 @@ public class Class1 {
 			player.sendMessage(Msg.noLife);
 			return false;
 		}
-		player.sendMessage(Msg.release);
 		return true;
 	}
 

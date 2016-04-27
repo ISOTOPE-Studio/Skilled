@@ -7,9 +7,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import cc.isotopestudio.Skilled.Skilled;
-import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.message.Names;
-import cc.isotopestudio.Skilled.player.PlayerData;
 
 public class SelectClass {
 
@@ -28,18 +26,7 @@ public class SelectClass {
 		ClassGUI menu = new ClassGUI(title, 9, new ClassGUI.OptionClickEventHandler() {
 			@Override
 			public void onOptionClick(ClassGUI.OptionClickEvent event) {
-				event.setWillClose(true);
-				String job = event.getName().substring(4);
-				event.getPlayer().sendMessage(Msg.successJoin + event.getName());
-				PlayerData data = new PlayerData(plugin);
-				data.setClass(event.getPlayer(), job);
-				data.setLevel(event.getPlayer(), 1, 0);
-				data.setLevel(event.getPlayer(), 2, 0);
-				data.setLevel(event.getPlayer(), 3, 0);
-				data.setLevel(event.getPlayer(), 4, 0);
-				data.setMagic(event.getPlayer(), 200);
-				data.setSkillPoint(event.getPlayer(), 10);
-				plugin.savePlayersData();
+				event.setWillClose(false);
 			}
 		}, plugin, true)
 

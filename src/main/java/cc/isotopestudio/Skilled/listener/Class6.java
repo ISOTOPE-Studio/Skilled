@@ -64,13 +64,11 @@ public class Class6 {
 					.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, (5 + 3 * level) * 20, level, false)); // Revise
 
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
 	public static boolean onClass6Skill3(Player player, int level, Skilled plugin) {
 		System.out.print("onClass6Skill3");
-		player.sendMessage(Msg.release);
 		return true;
 	}
 
@@ -82,7 +80,6 @@ public class Class6 {
 		else
 			rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, 1 + level)); // Revise
 		ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
-		player.sendMessage(Msg.release);
 		return true;
 	}
 

@@ -6,7 +6,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import cc.isotopestudio.Skilled.Skilled;
-import cc.isotopestudio.Skilled.gui.SelectClass;
 import cc.isotopestudio.Skilled.gui.UpgradeSkill;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.player.PlayerData;
