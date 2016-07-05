@@ -40,7 +40,7 @@ public class CommandClass implements CommandExecutor {
 					player.sendMessage(Msg.notNumber);
 					return true;
 				}
-				if (!player.hasPermission("Skilled.class." + job) || player.hasPermission("Skilled.class.*")) {
+				if (!(player.hasPermission("Skilled.class." + job) || player.hasPermission("Skilled.class.*"))) {
 					player.sendMessage(Msg.noPermission);
 					return true;
 				}
