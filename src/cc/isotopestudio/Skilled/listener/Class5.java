@@ -33,7 +33,7 @@ class Class5 {
 
     static boolean onClass5Skill2(Player player, int level, Skilled plugin) {
         System.out.print("onClass5Skill2");
-        final int ticks = 2 + level * 20; //Revise
+        final int ticks = (1 + level * 2) * 20; //Revise
         player.setFireTicks(ticks);
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, ticks, 1, false)); // Revise
         PluginManager pm = plugin.getServer().getPluginManager();
@@ -83,7 +83,7 @@ class Class5 {
             if (entity instanceof LivingEntity) {
                 LivingEntity livingEntity = (LivingEntity) entity;
                 livingEntity.setFireTicks(40); // Reivse
-                livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.HARM, 1, 1, false));
+                livingEntity.damage(4, player);
             }
         }
         return true;

@@ -6,8 +6,15 @@ import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.HandlerList;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 
@@ -40,7 +47,38 @@ class Class8 {
 
     public static boolean onClass8Skill3(Player player, int level, Skilled plugin) {
         System.out.print("onClass8Skill3");
+        final int ticks = 20 * (level * 2 + 1); // Revise
+        PluginManager pm = plugin.getServer().getPluginManager();
+        DamageListener listener = new DamageListener(player, level);
+        pm.registerEvents(listener, plugin);
+        player.sendMessage("to-do");
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                HandlerList.unregisterAll(listener);
+                player.sendMessage("to-do");
+            }
+        }.runTaskLater(plugin, ticks);
         return true;
+    }
+
+    private static class DamageListener implements Listener {
+        private final Player player;
+        private final int level;
+
+        DamageListener(Player player, int level) {
+            this.player = player;
+            this.level = level;
+        }
+
+        @EventHandler(priority = EventPriority.HIGHEST)
+        public void onDamage(EntityDamageByEntityEvent event) {
+            if (event.getDamager().equals(player) && event.getEntity() instanceof LivingEntity) {
+                LivingEntity livingEntity = (LivingEntity) event.getEntity();
+                livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (1 + 3 * level) * 20, (int) (1 + level * 0.05), false));
+                livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, (1 + 3 * level) * 20, (int) (1 + level * 0.05), false));
+            }
+        }
     }
 
     static boolean onClass8Skill4(Player player, int level, Skilled plugin) {

@@ -114,7 +114,7 @@ public class SkilledListener implements Listener {
                             afterRelease(player, job, skill, plugin);
                         return;
                     }
-                    case (3): {
+                    case (2): {
                         if (Class6.onClass6Skill2(player, rightClicked, level, plugin))
                             afterRelease(player, job, skill, plugin);
                         return;
