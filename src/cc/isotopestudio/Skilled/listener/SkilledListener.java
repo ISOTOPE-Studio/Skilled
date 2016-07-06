@@ -27,7 +27,7 @@ public class SkilledListener implements Listener {
     public SkilledListener(Skilled instance) {
         plugin = instance;
         data = new PlayerData(plugin);
-        cooldownMap = new HashMap<String, Long>();
+        cooldownMap = new HashMap<>();
     }
 
     @EventHandler
@@ -359,8 +359,7 @@ public class SkilledListener implements Listener {
                 cooldownMap.remove(playerName + job + skill);
             }
         }.runTaskLater(this.plugin, 20 * cooldownTime);
-        player.sendMessage(new StringBuilder(Msg.release + Names.getSkillColorName(job, skill)).append(ChatColor.GOLD)
-                .append(", 消耗法力值" + magic).toString());
+        player.sendMessage(Msg.release + Names.getSkillColorName(job, skill) + ChatColor.GOLD + ", 消耗法力值" + magic);
     }
 
 }

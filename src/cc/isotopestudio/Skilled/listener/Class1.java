@@ -20,14 +20,14 @@ class Class1 {
     // 技能3：神圣打击：召唤天雷攻击敌人 //点击空气
     // 技能4：生命源泉：群体恢复 //点击空气
 
-    public static boolean onClass1Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
+    static boolean onClass1Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
         System.out.print("onClass1Skill1");
         double health = rightClicked.getHealth();
         if (rightClicked.getMaxHealth() == health) {
             player.sendMessage(Skilled.prefix + "已经满血");
             return false;
         }
-        health += (int) (5 * (1 + 2 * level)); // Revise
+        health += 5 * (1 + 2 * level); // Revise
         if (health > rightClicked.getMaxHealth()) {
             health = rightClicked.getMaxHealth();
         }
@@ -37,7 +37,7 @@ class Class1 {
         return true;
     }
 
-    public static boolean onClass1Skill2(Player player, Player rightClicked, int level, Skilled plugin) {
+    static boolean onClass1Skill2(Player player, Player rightClicked, int level, Skilled plugin) {
         PlayerData data = new PlayerData(plugin);
         System.out.print("onClass1Skill2");
         int magic = data.getMagic(rightClicked);
@@ -69,7 +69,7 @@ class Class1 {
         return true;
     }
 
-    public static boolean onClass1Skill4(Player player, int level, Skilled skilled) {
+    static boolean onClass1Skill4(Player player, int level, Skilled skilled) {
         System.out.print("onClass1Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();

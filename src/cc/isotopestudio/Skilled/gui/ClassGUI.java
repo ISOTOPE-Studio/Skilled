@@ -97,7 +97,7 @@ public class ClassGUI implements Listener {
             event.setCancelled(true);
             int slot = event.getRawSlot();
             if (clickList == null) {
-                clickList = new ArrayList<Integer>();
+                clickList = new ArrayList<>();
             }
             clickList.add(1);
             clickList.add(2);

@@ -53,8 +53,7 @@ public class CommandSkilled implements CommandExecutor {
                 }
                 PlayerData data = new PlayerData(plugin);
                 data.addSkillPoint(playerName, skillPoint);
-                sender.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.AQUA)
-                        .append("成功给予玩家 " + playerName + " " + skillPoint + " 技能点").toString());
+                sender.sendMessage(Skilled.prefix + ChatColor.AQUA + "成功给予玩家 " + playerName + " " + skillPoint + " 技能点");
                 return true;
             }
             if (args[0].equals("test"))
@@ -63,7 +62,7 @@ public class CommandSkilled implements CommandExecutor {
             if (args[0].equalsIgnoreCase("reload")) {
                 plugin.onReload();
                 sender.sendMessage(
-                        new StringBuilder(Skilled.prefix).append(ChatColor.AQUA).append("成功重新载入配置文件").toString());
+                        Skilled.prefix + ChatColor.AQUA + "成功重新载入配置文件");
 
             }
             return true;

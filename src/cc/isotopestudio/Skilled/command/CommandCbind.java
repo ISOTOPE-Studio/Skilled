@@ -48,14 +48,17 @@ public class CommandCbind implements CommandExecutor {
                 return true;
             }
             ItemStack item = player.getItemInHand();
+            if (item.getItemMeta().hasDisplayName() || item.getItemMeta().hasLore()) {
+                player.sendMessage(Msg.hasMetaData);
+                return true;
+            }
             if (item.getAmount() != 1) {
                 player.sendMessage(Msg.mustbe1);
                 return true;
             }
             ItemUti.addLore(item, data.getClass(player), skill);
-            player.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.AQUA).append("成功绑定 ").toString());
+            player.sendMessage(Skilled.prefix + ChatColor.AQUA + "成功绑定 ");
             return true;
-
         }
         return false;
     }

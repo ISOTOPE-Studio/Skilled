@@ -12,24 +12,21 @@ import org.bukkit.inventory.ItemStack;
 
 public class UpgradeSkill {
 
-    private static final String title = new StringBuilder().append(ChatColor.GOLD).append(ChatColor.BOLD).append("技能升级")
-            .toString();
+    private static final String title = String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "技能升级";
 
     private static final String[] intro = {
-            new StringBuilder().append(ChatColor.GOLD).append(ChatColor.BOLD).append("升级或解锁技能！").toString(),
-            new StringBuilder().append(ChatColor.GREEN).append(ChatColor.ITALIC).append("你的技能点数: ").toString(),
-            new StringBuilder().append(ChatColor.AQUA).append(ChatColor.ITALIC).append("单击即可解锁或者升级技能").toString()};
+            String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "升级或解锁技能！",
+            String.valueOf(ChatColor.GREEN) + ChatColor.ITALIC + "你的技能点数: ",
+            String.valueOf(ChatColor.AQUA) + ChatColor.ITALIC + "单击即可解锁或者升级技能"};
 
-    private static final String unlock = new StringBuilder().append(ChatColor.BLUE).append(ChatColor.ITALIC).append("未解锁")
-            .toString();
-    private static final String unlockRequire = new StringBuilder().append(ChatColor.RED).append(ChatColor.ITALIC)
-            .append("解锁所需技能点: ").toString();
-    private static final String upgrade = new StringBuilder().append(ChatColor.BLUE).append(ChatColor.ITALIC).append("当前等级: ")
-            .toString();
-    private static final String upgradeRequire = new StringBuilder().append(ChatColor.GREEN).append(ChatColor.ITALIC)
-            .append("升级所需技能点: ").toString();
-    private static final String magicRequired = new StringBuilder().append(ChatColor.YELLOW).append(ChatColor.ITALIC)
-            .append("使用所需法力值: ").toString();
+    private static final String unlock = String.valueOf(ChatColor.BLUE) + ChatColor.ITALIC + "未解锁";
+    private static final String unlockRequire = String.valueOf(ChatColor.RED) + ChatColor.ITALIC +
+            "解锁所需技能点: ";
+    private static final String upgrade = String.valueOf(ChatColor.BLUE) + ChatColor.ITALIC + "当前等级: ";
+    private static final String upgradeRequire = String.valueOf(ChatColor.GREEN) + ChatColor.ITALIC +
+            "升级所需技能点: ";
+    private static final String magicRequired = String.valueOf(ChatColor.YELLOW) + ChatColor.ITALIC +
+            "使用所需法力值: ";
 
     public static ClassGUI createMenu(final Skilled plugin, Player player) {
         PlayerData data = new PlayerData(plugin);

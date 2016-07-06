@@ -10,16 +10,13 @@ import java.util.ArrayList;
 
 public class SelectClass {
 
-    private static final String title = new StringBuilder().append(ChatColor.GOLD).append(ChatColor.BOLD).append("职业选择")
-            .toString();
-    private static final String unknownJob = new StringBuilder().append(ChatColor.BLUE).append(ChatColor.ITALIC).append("未知职业")
-            .toString();
-    private static final String questionMark = new StringBuilder().append(ChatColor.BLACK).append(ChatColor.ITALIC).append("????")
-            .toString();
-    private static final String[] intro = {new StringBuilder().append(ChatColor.GOLD).append(ChatColor.BOLD).append("说明").toString(),
-            new StringBuilder().append(ChatColor.GREEN).append(ChatColor.ITALIC).append("这里是可以选择的职业").toString(),
-            new StringBuilder().append(ChatColor.AQUA).append(ChatColor.ITALIC).append("单击即可加入一个职业").toString()};
-    private static final String skill = new StringBuilder().append(ChatColor.AQUA).append(ChatColor.ITALIC).append("技能: ").toString();
+    private static final String title = String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "职业选择";
+    private static final String unknownJob = String.valueOf(ChatColor.BLUE) + ChatColor.ITALIC + "未知职业";
+    private static final String questionMark = String.valueOf(ChatColor.BLACK) + ChatColor.ITALIC + "????";
+    private static final String[] intro = {String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "说明",
+            String.valueOf(ChatColor.GREEN) + ChatColor.ITALIC + "这里是可以选择的职业",
+            String.valueOf(ChatColor.AQUA) + ChatColor.ITALIC + "单击即可加入一个职业"};
+    private static final String skill = String.valueOf(ChatColor.AQUA) + ChatColor.ITALIC + "技能: ";
 
     public static ClassGUI createMenu(final Skilled plugin, ArrayList<Integer> list) {
         ClassGUI menu = new ClassGUI(title, 9, new ClassGUI.OptionClickEventHandler() {

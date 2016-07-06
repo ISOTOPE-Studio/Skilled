@@ -26,9 +26,8 @@ public class MagicRefillTask extends BukkitRunnable {
             PlayerData data = new PlayerData(plugin);
             int value = ConfigData.magicRefillValue;
             int max = ConfigData.maxMagic;
-            Iterator<String> it = players.iterator();
-            while (it.hasNext()) {
-                Player player = Bukkit.getServer().getPlayer(it.next());
+            for (String player1 : players) {
+                Player player = Bukkit.getServer().getPlayer(player1);
                 if (player != null) {
                     int newMagic = data.getMagic(player) + value;
                     if (!(newMagic == max + value)) {
@@ -36,8 +35,7 @@ public class MagicRefillTask extends BukkitRunnable {
                             newMagic = ConfigData.maxMagic;
                         }
                         data.setMagic(player, newMagic);
-                        player.sendMessage(new StringBuilder(Skilled.prefix).append(ChatColor.GOLD)
-                                .append("恢复魔法值" + newMagic).toString());
+                        player.sendMessage(Skilled.prefix + ChatColor.GOLD + "恢复魔法值" + newMagic);
                     }
                 }
             }

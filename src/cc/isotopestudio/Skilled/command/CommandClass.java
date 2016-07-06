@@ -55,7 +55,7 @@ public class CommandClass implements CommandExecutor {
                 data.setSkillPoint(player, 10);
                 plugin.savePlayersData();
             } else {
-                ArrayList<Integer> list = new ArrayList<Integer>();
+                ArrayList<Integer> list = new ArrayList<>();
                 for (int i = 6; i <= 8; i++) {
                     if (player.hasPermission("Skilled.class." + i) || player.hasPermission("Skilled.class.*")) {
                         list.add(i);

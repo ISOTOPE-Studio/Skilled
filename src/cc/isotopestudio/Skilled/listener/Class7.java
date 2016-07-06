@@ -20,7 +20,7 @@ class Class7 {
     // 技能3：祈祷：生命吸收，伤害增加 //点击空气
     // 技能4：神临：无敌 //点击空气
 
-    public static boolean onClass7Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
+    static boolean onClass7Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
         System.out.print("onClass7Skill1");
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.setFireTicks((5 + 3 * level) * 20);// Revise
@@ -28,7 +28,7 @@ class Class7 {
         return true;
     }
 
-    public static boolean onClass7Skill2(Player player, int level, Skilled plugin) {
+    static boolean onClass7Skill2(Player player, int level, Skilled plugin) {
         System.out.print("onClass7Skill2");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
@@ -49,7 +49,7 @@ class Class7 {
         return true;
     }
 
-    public static boolean onClass7Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass7Skill3(Player player, int level, Skilled plugin) {
         System.out.print("onClass7Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise

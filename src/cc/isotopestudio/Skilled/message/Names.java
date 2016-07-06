@@ -288,25 +288,23 @@ public class Names {
     }
 
     public static String getClassColorName(int job) {
-        return new StringBuilder().append(ChatColor.DARK_RED).append(ChatColor.BOLD).append(getClassName(job))
-                .toString();
+        return String.valueOf(ChatColor.DARK_RED) + ChatColor.BOLD + getClassName(job);
     }
 
     public static String getSkillColorInfo(int job, int skill) {
-        return new StringBuilder().append(ChatColor.GOLD).append(ChatColor.BOLD)
-                .append(getSkillName(getClassName(job), skill)).append(ChatColor.RESET).append(ChatColor.GRAY)
-                .append(": ").append(ChatColor.LIGHT_PURPLE).append(getSkillInfo(getClassName(job), skill)).toString();
+        return String.valueOf(ChatColor.GOLD) + ChatColor.BOLD +
+                getSkillName(getClassName(job), skill) + ChatColor.RESET + ChatColor.GRAY +
+                ": " + ChatColor.LIGHT_PURPLE + getSkillInfo(getClassName(job), skill);
     }
 
     public static String getSkillColorInfo(String job, int skill) {
-        return new StringBuilder().append(ChatColor.GOLD).append(ChatColor.BOLD).append(getSkillName(job, skill))
-                .append(ChatColor.RESET).append(ChatColor.GRAY).append(": ").append(ChatColor.LIGHT_PURPLE)
-                .append(getSkillInfo(job, skill)).toString();
+        return String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + getSkillName(job, skill) +
+                ChatColor.RESET + ChatColor.GRAY + ": " + ChatColor.LIGHT_PURPLE +
+                getSkillInfo(job, skill);
     }
 
     public static String getSkillColorName(String job, int skill) {
-        return new StringBuilder().append(ChatColor.RED).append(ChatColor.BOLD).append(getSkillName(job, skill))
-                .toString();
+        return String.valueOf(ChatColor.RED) + ChatColor.BOLD + getSkillName(job, skill);
 
     }
 

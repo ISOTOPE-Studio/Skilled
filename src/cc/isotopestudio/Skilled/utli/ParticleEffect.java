@@ -383,8 +383,8 @@ public enum ParticleEffect {
      */
     MOB_APPEARANCE("mobappearance", 41, 8);
 
-    private static final Map<String, ParticleEffect> NAME_MAP = new HashMap<String, ParticleEffect>();
-    private static final Map<Integer, ParticleEffect> ID_MAP = new HashMap<Integer, ParticleEffect>();
+    private static final Map<String, ParticleEffect> NAME_MAP = new HashMap<>();
+    private static final Map<Integer, ParticleEffect> ID_MAP = new HashMap<>();
     private final String name;
     private final int id;
     private final int requiredVersion;
@@ -455,10 +455,7 @@ public enum ParticleEffect {
      * @return Whether the particle effect is supported or not
      */
     private boolean isSupported() {
-        if (requiredVersion == -1) {
-            return true;
-        }
-        return ParticlePacket.getVersion() >= requiredVersion;
+        return requiredVersion == -1 || ParticlePacket.getVersion() >= requiredVersion;
     }
 
     /**

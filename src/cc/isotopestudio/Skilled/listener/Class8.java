@@ -20,7 +20,7 @@ class Class8 {
     // 技能3：暗：一定时间内攻击附带虚弱和失明 //点击空气
     // 技能4：刃：范围伤害，附带虚弱和凋零 //点击空气
 
-    public static boolean onClass8Skill1(Player player, int level, Skilled plugin) {
+    static boolean onClass8Skill1(Player player, int level, Skilled plugin) {
         System.out.print("onClass8Skill1");
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
@@ -29,7 +29,7 @@ class Class8 {
         return true;
     }
 
-    public static boolean onClass8Skill2(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
+    static boolean onClass8Skill2(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
         System.out.print("onClass8Skill2");
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
@@ -43,7 +43,7 @@ class Class8 {
         return true;
     }
 
-    public static boolean onClass8Skill4(Player player, int level, Skilled plugin) {
+    static boolean onClass8Skill4(Player player, int level, Skilled plugin) {
         System.out.print("onClass8Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
