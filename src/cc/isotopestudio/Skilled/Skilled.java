@@ -6,6 +6,7 @@ import cc.isotopestudio.Skilled.command.CommandClass;
 import cc.isotopestudio.Skilled.command.CommandSkilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.listener.SkilledListener;
+import cc.isotopestudio.Skilled.metrics.Metrics;
 import cc.isotopestudio.Skilled.task.CooldownResetTask;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
 import com.comphenix.protocol.ProtocolLibrary;
@@ -25,7 +26,7 @@ public class Skilled extends JavaPlugin {
             .append(ChatColor.ITALIC).append(ChatColor.BOLD).append("职业").append(ChatColor.RESET)
             .append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
 
-    private static final String version = "1.0.3 beta";
+    private static final String version = "1.0.4 beta";
 
     private ProtocolManager protocolManager;
 
@@ -68,6 +69,12 @@ public class Skilled extends JavaPlugin {
 
         new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
         new CooldownResetTask(this).runTaskLater(this, 20);
+        try {
+            Metrics metrics = new Metrics(this);
+            metrics.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         getLogger().info("Skilled 成功加载! Version: " + version);
         getLogger().info("Skilled 由ISOTOPE Studio制作!");
         getLogger().info("http://isotopestudio.cc");
