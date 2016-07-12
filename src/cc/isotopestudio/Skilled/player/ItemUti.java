@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.player;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Names;
 import org.bukkit.ChatColor;
 import org.bukkit.inventory.ItemStack;
@@ -11,18 +10,16 @@ import java.util.List;
 
 public class ItemUti {
 
-    private final Skilled plugin;
-
-    public ItemUti(Skilled plugin) {
-        this.plugin = plugin;
-    }
-
-    public static void addLore(final ItemStack item, String job, final int skill) {
+    public static ItemStack addLore(final ItemStack item, String job, final int skill) {
         ItemMeta meta = item.getItemMeta();
         meta.setDisplayName(Names.getSkillName(job, skill));
 
-        List<String> lore = item.getItemMeta().getLore();
-        lore = new ArrayList<>();
+        List<String> lore = null;
+        try {
+            lore = item.getItemMeta().getLore();
+        } catch (Exception ignored) {
+        }
+        if (lore == null) lore = new ArrayList<>();
         lore.add(String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "ְҵ: " + job);
 
         lore.add(String.valueOf(ChatColor.YELLOW) + ChatColor.BOLD +
@@ -30,6 +27,7 @@ public class ItemUti {
         meta.setLore(lore);
 
         item.setItemMeta(meta);
+        return item;
     }
 
     public static String[] getLore(final ItemStack item) {

@@ -22,7 +22,9 @@ public class SelectClass {
         ClassGUI menu = new ClassGUI(title, 9, new ClassGUI.OptionClickEventHandler() {
             @Override
             public void onOptionClick(ClassGUI.OptionClickEvent event) {
-                event.setWillClose(false);
+                event.setWillClose(true);
+                int job = Names.getClassNum(event.getName().substring(4));
+                event.getPlayer().performCommand("class " + job);
             }
         }, plugin, true)
 

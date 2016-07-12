@@ -17,6 +17,8 @@ public class Msg {
 
     public static final String hasMetaData = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
             .append("此物品有自定义信息, 无法绑定").toString();
+    public static final String noItem = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
+            .append("没有物品, 无法绑定").toString();
 
     public static final String mustbe1 = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("只能绑定一个物品")
             .toString();
@@ -37,6 +39,8 @@ public class Msg {
             .toString();
 
     public static final String release = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD).append("成功释放技能")
+            .toString();
+    public static final String endSkill = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("技能时间结束")
             .toString();
 
     public static final String successJoin = (new StringBuilder(Skilled.prefix)).append(ChatColor.GOLD).append("成功加入职业")

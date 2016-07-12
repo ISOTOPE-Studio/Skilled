@@ -51,12 +51,11 @@ class Class8 {
         PluginManager pm = plugin.getServer().getPluginManager();
         DamageListener listener = new DamageListener(player, level);
         pm.registerEvents(listener, plugin);
-        player.sendMessage("to-do");
         new BukkitRunnable() {
             @Override
             public void run() {
                 HandlerList.unregisterAll(listener);
-                player.sendMessage("to-do");
+                player.sendMessage(Msg.endSkill);
             }
         }.runTaskLater(plugin, ticks);
         return true;

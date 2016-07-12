@@ -156,7 +156,6 @@ public class SkilledListener implements Listener {
         String[] classAndSkill;
         String job, skillString;
         int skill, level;
-        System.out.println(event.getAction());
         try {
             item = player.getItemInHand();
             classAndSkill = ItemUti.getLore(item);
@@ -359,7 +358,7 @@ public class SkilledListener implements Listener {
                 cooldownMap.remove(playerName + job + skill);
             }
         }.runTaskLater(this.plugin, 20 * cooldownTime);
-        player.sendMessage(Msg.release + Names.getSkillColorName(job, skill) + ChatColor.GOLD + ", 消耗法力值" + magic);
+        player.sendMessage(Msg.release + Names.getSkillColorName(job, skill) + ChatColor.GOLD + ", 消耗魔法值" + magic);
     }
 
 }

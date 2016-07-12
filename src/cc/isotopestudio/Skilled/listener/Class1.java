@@ -9,6 +9,8 @@ import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 import java.util.List;
 
@@ -65,6 +67,7 @@ class Class1 {
         target[5] = player.getLocation().clone().add(-3, 0, 3);
         for (int i = 0; i < 6; i++)
             player.getWorld().strikeLightning(target[i]);
+        player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 100, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         return true;
     }

@@ -1,6 +1,7 @@
 package cc.isotopestudio.Skilled.listener;
 
 import cc.isotopestudio.Skilled.Skilled;
+import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import cc.isotopestudio.Skilled.utli.PotionEffectUtil;
 import cc.isotopestudio.Skilled.utli.SkilledMetaData;
@@ -36,12 +37,12 @@ class Class3 {
         PluginManager pm = plugin.getServer().getPluginManager();
         ArrowListener listener = new ArrowListener(player, level);
         pm.registerEvents(listener, plugin);
-        player.sendMessage("to-do");
+        //player.sendMessage("to-do");
         new BukkitRunnable() {
             @Override
             public void run() {
                 HandlerList.unregisterAll(listener);
-                player.sendMessage("to-do");
+                player.sendMessage(Msg.endSkill);
             }
         }.runTaskLater(plugin, 5 * 20);
         return true;

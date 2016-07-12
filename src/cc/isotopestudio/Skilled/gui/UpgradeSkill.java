@@ -4,8 +4,10 @@ import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.message.Names;
+import cc.isotopestudio.Skilled.player.ItemUti;
 import cc.isotopestudio.Skilled.player.PlayerData;
 import org.bukkit.ChatColor;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -56,9 +58,10 @@ public class UpgradeSkill {
                 int skillPoint = data1.getSkillPoint(event.getPlayer());
                 String job1 = data1.getClass(event.getPlayer());
                 int skill = Names.getSkillNum(event.getName().substring(4));
-                int reqPoint = 0;
+                int level = data1.getLevel(player,skill);
+                int reqPoint;
                 boolean unlock1 = false;
-                if (skill == 0) {
+                if (level == 0) {
                     reqPoint = ConfigData.getUnlockRequiredSkillPoint(job1, skill);
                     unlock1 = true;
                 } else {
@@ -68,9 +71,12 @@ public class UpgradeSkill {
                     data1.addLevel(event.getPlayer(), skill);
                     data1.addSkillPoint(event.getPlayer(), -reqPoint);
                     plugin.savePlayersData();
-                    if (unlock1)
+                    if (unlock1) {
+                        int i = (int) (Math.random() * DyeColor.values().length);
+                        ItemStack item = new ItemStack(Material.INK_SACK, 1, (short) i);
+                        event.getPlayer().getInventory().addItem(ItemUti.addLore(item, job1, skill));
                         event.getPlayer().sendMessage(Msg.successUnlock + event.getName());
-                    else
+                    } else
                         event.getPlayer().sendMessage(Msg.successUpgrade + event.getName());
                 } else {
                     event.getPlayer().sendMessage(Msg.noSkillPoint);

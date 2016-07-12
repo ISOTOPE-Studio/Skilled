@@ -8,7 +8,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.Iterator;
 import java.util.Set;
 
 public class MagicRefillTask extends BukkitRunnable {
@@ -21,6 +20,7 @@ public class MagicRefillTask extends BukkitRunnable {
 
     @Override
     public void run() {
+        boardcast();
         Set<String> players = plugin.getPlayersData().getKeys(false);
         if (players.size() != 0) {
             PlayerData data = new PlayerData(plugin);
@@ -39,6 +39,14 @@ public class MagicRefillTask extends BukkitRunnable {
                     }
                 }
             }
+        }
+    }
+
+    private static final String link = "http://www.isotopestudio.cc/wiki/doku.php?id=discussion:skilled";
+
+    private static void boardcast() {
+        if (Math.random() < 0.2) {
+            Bukkit.broadcastMessage(Skilled.prefix + ChatColor.GOLD + "请到这里提供任何建议和BUG  " + ChatColor.GRAY + link);
         }
     }
 

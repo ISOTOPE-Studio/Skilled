@@ -5,6 +5,7 @@ import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.player.ItemUti;
 import cc.isotopestudio.Skilled.player.PlayerData;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,7 +32,7 @@ public class CommandCbind implements CommandExecutor {
                 player.sendMessage(Msg.commandcBind);
                 return true;
             }
-            int skill = 0;
+            int skill;
             try {
                 skill = Integer.parseInt(args[0]);
             } catch (Exception e) {
@@ -48,6 +49,10 @@ public class CommandCbind implements CommandExecutor {
                 return true;
             }
             ItemStack item = player.getItemInHand();
+            if (item == null || item.getType() == Material.AIR) {
+                player.sendMessage(Msg.noItem);
+                return true;
+            }
             if (item.getItemMeta().hasDisplayName() || item.getItemMeta().hasLore()) {
                 player.sendMessage(Msg.hasMetaData);
                 return true;

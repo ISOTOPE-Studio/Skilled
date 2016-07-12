@@ -25,6 +25,8 @@ public class Skilled extends JavaPlugin {
             .append(ChatColor.ITALIC).append(ChatColor.BOLD).append("职业").append(ChatColor.RESET)
             .append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
 
+    private static final String version = "1.0.3 beta";
+
     private ProtocolManager protocolManager;
 
     private void createFile(String name) {
@@ -66,7 +68,7 @@ public class Skilled extends JavaPlugin {
 
         new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
         new CooldownResetTask(this).runTaskLater(this, 20);
-        getLogger().info("Skilled 成功加载!");
+        getLogger().info("Skilled 成功加载! Version: " + version);
         getLogger().info("Skilled 由ISOTOPE Studio制作!");
         getLogger().info("http://isotopestudio.cc");
     }

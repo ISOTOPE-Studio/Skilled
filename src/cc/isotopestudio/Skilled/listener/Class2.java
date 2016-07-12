@@ -35,8 +35,7 @@ class Class2 {
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         new BukkitRunnable() {
             public void run() {
-                rightClicked
-                        .addPotionEffect(new PotionEffect(PotionEffectType.HARM, 1, (int) (1 + 0.2 * level), false));// Revise
+                rightClicked.damage(2 + 0.2 * level);// Revise
             }
         }.runTaskLater(plugin, 10);
         return true;
@@ -63,7 +62,7 @@ class Class2 {
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
         ArrayList<PotionEffect> effects = new ArrayList<>();
-        effects.add(new PotionEffect(PotionEffectType.HARM, 1, level, false)); // Revise
+        //effects.add(new PotionEffect(PotionEffectType.HARM, 1, level, false)); // Revise
         effects.add(new PotionEffect(PotionEffectType.POISON, 3 * level * 20, level, false)); // Revise
         int count = 0;
         for (Entity entity : near) {
@@ -72,6 +71,7 @@ class Class2 {
             if (entity.getLocation().distance(player.getLocation()) <= radius)
                 if (entity instanceof LivingEntity) {
                     ((LivingEntity) entity).addPotionEffects(effects);
+                    ((LivingEntity) entity).damage(1 + level * 0.3);
                     ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, entity.getLocation(), 20);
                     count++;
                 }

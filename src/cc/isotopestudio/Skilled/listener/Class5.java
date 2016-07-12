@@ -1,6 +1,7 @@
 package cc.isotopestudio.Skilled.listener;
 
 import cc.isotopestudio.Skilled.Skilled;
+import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -39,12 +40,11 @@ class Class5 {
         PluginManager pm = plugin.getServer().getPluginManager();
         LifeListener listener = new LifeListener(player, level);
         pm.registerEvents(listener, plugin);
-        player.sendMessage("to-do");
         new BukkitRunnable() {
             @Override
             public void run() {
                 HandlerList.unregisterAll(listener);
-                player.sendMessage("to-do");
+                player.sendMessage(Msg.endSkill);
             }
         }.runTaskLater(plugin, ticks);
         return true;
