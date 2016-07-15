@@ -28,7 +28,7 @@ class Class7 {
     // 技能4：神临：无敌 //点击空气
 
     static boolean onClass7Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
-        System.out.print("onClass7Skill1");
+        plugin.getLogger().info("onClass7Skill1");
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.setFireTicks((5 + 3 * level) * 20);// Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
@@ -36,7 +36,7 @@ class Class7 {
     }
 
     static boolean onClass7Skill2(Player player, int level, Skilled plugin) {
-        System.out.print("onClass7Skill2");
+        plugin.getLogger().info("onClass7Skill2");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
         int count = 0;
@@ -57,7 +57,7 @@ class Class7 {
     }
 
     static boolean onClass7Skill3(Player player, int level, Skilled plugin) {
-        System.out.print("onClass7Skill3");
+        plugin.getLogger().info("onClass7Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
@@ -65,7 +65,7 @@ class Class7 {
     }
 
     static boolean onClass7Skill4(Player player, int level, Skilled plugin) {
-        System.out.print("onClass7Skill4");
+        plugin.getLogger().info("onClass7Skill4");
         final int ticks = 20 * (level * 2 + 1); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, ticks, 100, false)); // Revise
         PluginManager pm = plugin.getServer().getPluginManager();

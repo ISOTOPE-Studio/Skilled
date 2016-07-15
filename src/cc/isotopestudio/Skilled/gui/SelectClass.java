@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class SelectClass {
 
     private static final String title = String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "职业选择";
-    private static final String unknownJob = String.valueOf(ChatColor.BLUE) + ChatColor.ITALIC + "未知职业";
+    private static final String unknownJob = String.valueOf(ChatColor.BLUE) + ChatColor.ITALIC + "隐藏职业";
     private static final String questionMark = String.valueOf(ChatColor.BLACK) + ChatColor.ITALIC + "????";
     private static final String[] intro = {String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "说明",
             String.valueOf(ChatColor.GREEN) + ChatColor.ITALIC + "这里是可以选择的职业",

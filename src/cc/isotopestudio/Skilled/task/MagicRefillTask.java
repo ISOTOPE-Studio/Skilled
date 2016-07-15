@@ -35,7 +35,8 @@ public class MagicRefillTask extends BukkitRunnable {
                             newMagic = ConfigData.maxMagic;
                         }
                         data.setMagic(player, newMagic);
-                        player.sendMessage(Skilled.prefix + ChatColor.GOLD + "恢复魔法值" + newMagic);
+                        player.sendMessage(Skilled.prefix + ChatColor.GOLD +
+                                "恢复魔法值" + newMagic + " / " + ConfigData.maxMagic);
                     }
                 }
             }
@@ -45,7 +46,7 @@ public class MagicRefillTask extends BukkitRunnable {
     private static final String link = "http://www.isotopestudio.cc/wiki/doku.php?id=discussion:skilled";
 
     private static void boardcast() {
-        if (Math.random() < 0.2) {
+        if (Math.random() < 0.01) {
             Bukkit.broadcastMessage(Skilled.prefix + ChatColor.GOLD + "请到这里提供任何建议和BUG  " + ChatColor.GRAY + link);
         }
     }

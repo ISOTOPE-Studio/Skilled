@@ -26,14 +26,14 @@ class Class5 {
     // 技能4：一夫当关：一定时间内攻击力大幅提升，获得再生效果 //点击空气
 
     static boolean onClass5Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
-        System.out.print("onClass5Skill1");
+        plugin.getLogger().info("onClass5Skill1");
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         return true;
     }
 
     static boolean onClass5Skill2(Player player, int level, Skilled plugin) {
-        System.out.print("onClass5Skill2");
+        plugin.getLogger().info("onClass5Skill2");
         final int ticks = (1 + level * 2) * 20; //Revise
         player.setFireTicks(ticks);
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, ticks, 1, false)); // Revise
@@ -64,7 +64,8 @@ class Class5 {
         public void onDamaged(EntityDamageByEntityEvent event) {
             if (event.getEntity() instanceof LivingEntity && event.getDamager().equals(player)) {
                 double max = player.getMaxHealth();
-                double health = player.getHealth() + event.getFinalDamage();
+                double health = player.getHealth() + event.getDamage();
+                // double health = player.getHealth() + event.getFinalDamage();
                 if (health > max) {
                     health = max;
                 }
@@ -75,7 +76,7 @@ class Class5 {
 
 
     static boolean onClass5Skill3(Player player, int level, Skilled plugin) {
-        System.out.print("onClass5Skill3");
+        plugin.getLogger().info("onClass5Skill3");
         final double range = 5 + level * 2; // Reivse
         List<Entity> nearby = player.getNearbyEntities(range, range, range);
         for (Entity entity : nearby) {
@@ -90,7 +91,7 @@ class Class5 {
     }
 
     static boolean onClass5Skill4(Player player, int level, Skilled plugin) {
-        System.out.print("onClass5Skill4");
+        plugin.getLogger().info("onClass5Skill4");
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (5 + 3 * level) * 20, level, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);

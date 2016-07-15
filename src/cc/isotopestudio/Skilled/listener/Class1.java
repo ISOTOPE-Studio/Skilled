@@ -23,7 +23,7 @@ class Class1 {
     // 技能4：生命源泉：群体恢复 //点击空气
 
     static boolean onClass1Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
-        System.out.print("onClass1Skill1");
+        plugin.getLogger().info("onClass1Skill1");
         double health = rightClicked.getHealth();
         if (rightClicked.getMaxHealth() == health) {
             player.sendMessage(Skilled.prefix + "已经满血");
@@ -41,7 +41,7 @@ class Class1 {
 
     static boolean onClass1Skill2(Player player, Player rightClicked, int level, Skilled plugin) {
         PlayerData data = new PlayerData(plugin);
-        System.out.print("onClass1Skill2");
+        plugin.getLogger().info("onClass1Skill2");
         int magic = data.getMagic(rightClicked);
         if (ConfigData.maxMagic <= magic) {
             player.sendMessage(Skilled.prefix + "法力值已满");
@@ -56,8 +56,8 @@ class Class1 {
         return true;
     }
 
-    public static boolean onClass1Skill3(Player player, int level, Skilled skilled) {
-        System.out.print("onClass1Skill3");
+    static boolean onClass1Skill3(Player player, int level, Skilled plugin) {
+        plugin.getLogger().info("onClass1Skill3");
         Location[] target = new Location[6];
         target[0] = player.getLocation().clone().add(3, 0, 0);
         target[1] = player.getLocation().clone().add(3, 0, 3);
@@ -66,14 +66,18 @@ class Class1 {
         target[4] = player.getLocation().clone().add(-3, 0, 0);
         target[5] = player.getLocation().clone().add(-3, 0, 3);
         for (int i = 0; i < 6; i++)
-            player.getWorld().strikeLightning(target[i]);
+            player.getWorld().strikeLightningEffect(target[i]);
+        for (Entity entity : player.getNearbyEntities(3, 3, 3)) {
+            if (entity instanceof LivingEntity)
+                ((LivingEntity) entity).damage(2 + level * 0.5, player); // Revise
+        }
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 100, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         return true;
     }
 
-    static boolean onClass1Skill4(Player player, int level, Skilled skilled) {
-        System.out.print("onClass1Skill4");
+    static boolean onClass1Skill4(Player player, int level, Skilled plugin) {
+        plugin.getLogger().info("onClass1Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
         int count = 0;

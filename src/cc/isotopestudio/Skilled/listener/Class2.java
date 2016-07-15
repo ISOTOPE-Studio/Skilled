@@ -24,7 +24,7 @@ class Class2 {
     // 技能4：影舞：挥动匕首，使周围敌人受到伤害，并且附带中毒效果 //点击空气
 
     static boolean onClass2Skill1(Player player, final Player rightClicked, final int level, Skilled plugin) {
-        System.out.print("onClass2Skill1");
+        plugin.getLogger().info("onClass2Skill1");
         Location loc = rightClicked.getEyeLocation();
         Vector v = loc.getDirection().normalize();
         v.multiply(-3);
@@ -42,14 +42,14 @@ class Class2 {
     }
 
     static boolean onClass2Skill2(Player player, int level, Skilled plugin) {
-        System.out.print("onClass2Skill2");
+        plugin.getLogger().info("onClass2Skill2");
         player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, (5 + 3 * level) * 20, 1, true)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         return true;
     }
 
     static boolean onClass2Skill3(Player player, int level, Skilled plugin) {
-        System.out.print("onClass2Skill3");
+        plugin.getLogger().info("onClass2Skill3");
         double health = player.getHealth() * 0.6;// Revise
         player.setHealth(health);
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
@@ -58,7 +58,7 @@ class Class2 {
     }
 
     static boolean onClass2Skill4(Player player, int level, Skilled plugin) {
-        System.out.print("onClass2Skill4");
+        plugin.getLogger().info("onClass2Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
         ArrayList<PotionEffect> effects = new ArrayList<>();

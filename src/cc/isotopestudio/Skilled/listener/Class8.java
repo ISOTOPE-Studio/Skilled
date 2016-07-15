@@ -28,7 +28,7 @@ class Class8 {
     // ¼¼ÄÜ4£ºÈÐ£º·¶Î§ÉËº¦£¬¸½´øÐéÈõºÍµòÁã //µã»÷¿ÕÆø
 
     static boolean onClass8Skill1(Player player, int level, Skilled plugin) {
-        System.out.print("onClass8Skill1");
+        plugin.getLogger().info("onClass8Skill1");
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (5 + 3 * level) * 20, level, false)); // Revise
@@ -37,7 +37,7 @@ class Class8 {
     }
 
     static boolean onClass8Skill2(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
-        System.out.print("onClass8Skill2");
+        plugin.getLogger().info("onClass8Skill2");
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.setFireTicks((5 + 3 * level) * 20);// Revise
@@ -45,8 +45,8 @@ class Class8 {
         return true;
     }
 
-    public static boolean onClass8Skill3(Player player, int level, Skilled plugin) {
-        System.out.print("onClass8Skill3");
+    static boolean onClass8Skill3(Player player, int level, Skilled plugin) {
+        plugin.getLogger().info("onClass8Skill3");
         final int ticks = 20 * (level * 2 + 1); // Revise
         PluginManager pm = plugin.getServer().getPluginManager();
         DamageListener listener = new DamageListener(player, level);
@@ -81,7 +81,7 @@ class Class8 {
     }
 
     static boolean onClass8Skill4(Player player, int level, Skilled plugin) {
-        System.out.print("onClass8Skill4");
+        plugin.getLogger().info("onClass8Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
         int count = 0;
