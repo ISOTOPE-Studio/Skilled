@@ -26,7 +26,7 @@ public class Skilled extends JavaPlugin {
             .append(ChatColor.ITALIC).append(ChatColor.BOLD).append("ְҵ").append(ChatColor.RESET)
             .append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
 
-    private static final String version = "1.0.4 beta";
+    private static final String version = "1.1 alpha";
 
     private ProtocolManager protocolManager;
 

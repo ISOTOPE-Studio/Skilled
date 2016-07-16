@@ -29,18 +29,7 @@ public class ClassGUI implements Listener {
     private final boolean willDestory;
     private ArrayList<Integer> clickList;
 
-    public ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin) {
-        this.name = name;
-        this.size = size;
-        this.handler = handler;
-        this.plugin = plugin;
-        this.optionNames = new String[size];
-        this.optionIcons = new ItemStack[size];
-        plugin.getServer().getPluginManager().registerEvents(this, plugin);
-        willDestory = false;
-    }
-
-    public ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin, boolean willDestory) {
+    ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin, boolean willDestory) {
         this.name = name;
         this.size = size;
         this.handler = handler;
@@ -51,7 +40,7 @@ public class ClassGUI implements Listener {
         this.willDestory = willDestory;
     }
 
-    public ClassGUI setOption(int position, ItemStack icon, String name, String... info) {
+    ClassGUI setOption(int position, ItemStack icon, String name, String... info) {
         optionNames[position] = name;
         optionIcons[position] = setItemNameAndLore(icon, name, info);
         return this;
@@ -99,10 +88,6 @@ public class ClassGUI implements Listener {
             if (clickList == null) {
                 clickList = new ArrayList<>();
             }
-            clickList.add(1);
-            clickList.add(2);
-            clickList.add(3);
-            clickList.add(4);
             if (ifValueExist(slot) && optionNames[slot] != null) {
                 Plugin plugin = this.plugin;
                 OptionClickEvent e = new OptionClickEvent((Player) event.getWhoClicked(), slot, optionNames[slot]);

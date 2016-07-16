@@ -29,26 +29,46 @@ public class SelectClass {
         }, plugin, true)
 
                 .setOption(0, new ItemStack(Material.NETHER_STAR, 1), intro[0], intro[1], intro[2])
-                .setOption(1, new ItemStack(Material.GLOWSTONE_DUST, 1), Names.getClassColorName(1), skill,
-                        Names.getSkillColorInfo(1, 1), Names.getSkillColorInfo(1, 2), Names.getSkillColorInfo(1, 3),
-                        Names.getSkillColorInfo(1, 4))
-                .setOption(2, new ItemStack(Material.HOPPER, 1), Names.getClassColorName(2), skill,
-                        Names.getSkillColorInfo(2, 1), Names.getSkillColorInfo(2, 2), Names.getSkillColorInfo(2, 3),
-                        Names.getSkillColorInfo(2, 4))
-                .setOption(3, new ItemStack(Material.EYE_OF_ENDER, 1), Names.getClassColorName(3), skill,
-                        Names.getSkillColorInfo(3, 1), Names.getSkillColorInfo(3, 2), Names.getSkillColorInfo(3, 3),
-                        Names.getSkillColorInfo(3, 4))
-                .setOption(4, new ItemStack(Material.IRON_FENCE, 1), Names.getClassColorName(4), skill,
-                        Names.getSkillColorInfo(4, 1), Names.getSkillColorInfo(4, 2), Names.getSkillColorInfo(4, 3),
-                        Names.getSkillColorInfo(4, 4))
-                .setOption(5, new ItemStack(Material.REDSTONE, 1), Names.getClassColorName(5), skill,
-                        Names.getSkillColorInfo(5, 1), Names.getSkillColorInfo(5, 2), Names.getSkillColorInfo(5, 3),
-                        Names.getSkillColorInfo(5, 4))
+                .setOption(1, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark)
+                .setOption(2, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark)
+                .setOption(3, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark)
+                .setOption(4, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark)
+                .setOption(5, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark)
                 .setOption(6, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark)
                 .setOption(7, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark)
                 .setOption(8, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark);
         for (int job : list) {
             switch (job) {
+                case (1): {
+                    menu.setOption(1, new ItemStack(Material.GLOWSTONE_DUST, 1), Names.getClassColorName(1), skill,
+                            Names.getSkillColorInfo(1, 1), Names.getSkillColorInfo(1, 2), Names.getSkillColorInfo(1, 3),
+                            Names.getSkillColorInfo(1, 4));
+                    break;
+                }
+                case (2): {
+                    menu.setOption(2, new ItemStack(Material.HOPPER, 1), Names.getClassColorName(2), skill,
+                            Names.getSkillColorInfo(2, 1), Names.getSkillColorInfo(2, 2), Names.getSkillColorInfo(2, 3),
+                            Names.getSkillColorInfo(2, 4));
+                    break;
+                }
+                case (3): {
+                    menu.setOption(3, new ItemStack(Material.EYE_OF_ENDER, 1), Names.getClassColorName(3), skill,
+                            Names.getSkillColorInfo(3, 1), Names.getSkillColorInfo(3, 2), Names.getSkillColorInfo(3, 3),
+                            Names.getSkillColorInfo(3, 4));
+                    break;
+                }
+                case (4): {
+                    menu.setOption(4, new ItemStack(Material.IRON_FENCE, 1), Names.getClassColorName(4), skill,
+                            Names.getSkillColorInfo(4, 1), Names.getSkillColorInfo(4, 2), Names.getSkillColorInfo(4, 3),
+                            Names.getSkillColorInfo(4, 4));
+                    break;
+                }
+                case (5): {
+                    menu.setOption(5, new ItemStack(Material.REDSTONE, 1), Names.getClassColorName(5), skill,
+                            Names.getSkillColorInfo(5, 1), Names.getSkillColorInfo(5, 2), Names.getSkillColorInfo(5, 3),
+                            Names.getSkillColorInfo(5, 4));
+                    break;
+                }
                 case (6): {
                     menu.setOption(6, new ItemStack(Material.SOUL_SAND, 1), Names.getClassColorName(6), skill,
                             Names.getSkillColorInfo(6, 1), Names.getSkillColorInfo(6, 2), Names.getSkillColorInfo(6, 3),
@@ -69,7 +89,6 @@ public class SelectClass {
                 }
             }
         }
-        list.add(5);
         menu.setClickList(list);
         return menu;
     }

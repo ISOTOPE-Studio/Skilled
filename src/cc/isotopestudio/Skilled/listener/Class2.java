@@ -23,7 +23,7 @@ class Class2 {
     // 技能3：孤注一掷：血量减少，攻击力上升 //点击空气
     // 技能4：影舞：挥动匕首，使周围敌人受到伤害，并且附带中毒效果 //点击空气
 
-    static boolean onClass2Skill1(Player player, final Player rightClicked, final int level, Skilled plugin) {
+    static boolean onClass2Skill1(Player player, final LivingEntity rightClicked, final int level, Skilled plugin) {
         plugin.getLogger().info("onClass2Skill1");
         Location loc = rightClicked.getEyeLocation();
         Vector v = loc.getDirection().normalize();

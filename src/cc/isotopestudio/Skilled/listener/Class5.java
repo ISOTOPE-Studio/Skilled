@@ -25,11 +25,39 @@ class Class5 {
     // 技能3：怒火：范围使敌人受到伤害且燃烧 //点击空气
     // 技能4：一夫当关：一定时间内攻击力大幅提升，获得再生效果 //点击空气
 
-    static boolean onClass5Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
+    static boolean onClass5Skill1(Player player, int level, Skilled plugin) {
         plugin.getLogger().info("onClass5Skill1");
-        rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        final int ticks = (1 + level * 2) * 20; //Revise
+        PluginManager pm = plugin.getServer().getPluginManager();
+        WeaknessListener listener = new WeaknessListener(player, level);
+        pm.registerEvents(listener, plugin);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                HandlerList.unregisterAll(listener);
+                player.sendMessage(Msg.endSkill);
+            }
+        }.runTaskLater(plugin, ticks);
         return true;
+    }
+
+    private static class WeaknessListener implements Listener {
+        private final Player player;
+        private final int level;
+
+        WeaknessListener(Player player, int level) {
+            this.player = player;
+            this.level = level;
+        }
+
+        @EventHandler
+        public void onDamaged(EntityDamageByEntityEvent event) {
+            if (event.getEntity() instanceof LivingEntity && event.getDamager().equals(player)) {
+                ((LivingEntity) event.getEntity()).addPotionEffect(
+                        new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
+                ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+            }
+        }
     }
 
     static boolean onClass5Skill2(Player player, int level, Skilled plugin) {

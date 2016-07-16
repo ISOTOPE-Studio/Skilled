@@ -88,19 +88,7 @@ public class SkilledListener implements Listener {
             case (2): {
                 switch (skill) {
                     case (1): {
-                        if (rightClicked instanceof Player) {
-                            if (Class2.onClass2Skill1(player, (Player) rightClicked, level, plugin))
-                                afterRelease(player, job, skill);
-                            return;
-                        }
-                    }
-                }
-                return;
-            }
-            case (5): {
-                switch (skill) {
-                    case (1): {
-                        if (Class5.onClass5Skill1(player, rightClicked, level, plugin))
+                        if (Class2.onClass2Skill1(player, rightClicked, level, plugin))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -274,6 +262,11 @@ public class SkilledListener implements Listener {
             }
             case (5): {
                 switch (skill) {
+                    case (1): {
+                        if (Class5.onClass5Skill1(player, level, plugin))
+                            afterRelease(player, job, skill);
+                        return;
+                    }
                     case (2): {
                         if (Class5.onClass5Skill2(player, level, plugin))
                             afterRelease(player, job, skill);
