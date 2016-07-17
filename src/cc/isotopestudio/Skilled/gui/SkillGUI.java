@@ -19,14 +19,13 @@ import static cc.isotopestudio.Skilled.Skilled.plugin;
 public class SkillGUI extends GUI {
 
     public SkillGUI(Player player) {
-        super(title, 9);
-        PlayerData data = new PlayerData(plugin);
-        String job = data.getClass(player);
+        super(title);
+        String job = PlayerData.getClass(player);
         String[] skillsName = new String[5];
         String[][] skillsDescription = new String[5][4];
         int[] skillsLevel = new int[5];
         for (int i = 1; i <= 4; i++) {
-            skillsLevel[i] = data.getLevel(player, i);
+            skillsLevel[i] = PlayerData.getLevel(player, i);
             skillsName[i] = Names.getSkillColorName(job, i);
             skillsDescription[i][0] = Names.getSkillColorInfo(job, i).split(": ")[1];
             if (skillsLevel[i] == 0) {
@@ -38,7 +37,7 @@ public class SkillGUI extends GUI {
             }
             skillsDescription[i][3] = magicRequired + ConfigData.getRequiredMagic(job, i);
         }
-        setOption(0, new ItemStack(Material.NETHER_STAR, 1), intro[0], intro[1] + data.getSkillPoint(player),
+        setOption(0, new ItemStack(Material.NETHER_STAR, 1), intro[0], intro[1] + PlayerData.getSkillPoint(player),
                 intro[2]);
         setOption(1, new ItemStack(Material.GLOWSTONE_DUST, 1), skillsName[1], skillsDescription[1][0],
                 skillsDescription[1][1], skillsDescription[1][2], skillsDescription[1][3]);
@@ -79,11 +78,10 @@ public class SkillGUI extends GUI {
                 return;
             }
             Player player = (Player) event.getWhoClicked();
-            PlayerData data1 = new PlayerData(plugin);
-            int skillPoint = data1.getSkillPoint(player);
-            String jobString = data1.getClass(player);
+            int skillPoint = PlayerData.getSkillPoint(player);
+            String jobString = PlayerData.getClass(player);
             int skill = event.getSlot();
-            int level = data1.getLevel(player, skill);
+            int level = PlayerData.getLevel(player, skill);
             int reqPoint;
             boolean unlock1 = false;
             if (level == 0) {
@@ -93,8 +91,8 @@ public class SkillGUI extends GUI {
                 reqPoint = ConfigData.getUpgradeRequiredSkillPoint(jobString, skill);
             }
             if (skillPoint >= reqPoint) {
-                data1.addLevel(player, skill);
-                data1.addSkillPoint(player, -reqPoint);
+                PlayerData.addLevel(player, skill);
+                PlayerData.addSkillPoint(player, -reqPoint);
                 plugin.savePlayersData();
                 if (unlock1) {
                     int i = (int) (Math.random() * DyeColor.values().length);

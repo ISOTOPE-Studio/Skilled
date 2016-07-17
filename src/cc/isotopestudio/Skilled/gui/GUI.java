@@ -14,26 +14,25 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public abstract class GUI implements Listener {
 
     // From: https://bukkit.org/threads/icon-menu.108342
 
-    protected final String name;
+    final String name;
     final int size;
     private Plugin plugin;
     String[] optionNames;
     ItemStack[] optionIcons;
     private final boolean willDestory;
 
-    GUI(String name, int size) {
+    GUI(String name) {
         this.name = name;
-        this.size = size;
+        this.size = 9;
         this.plugin = Skilled.plugin;
-        this.optionNames = new String[size];
-        this.optionIcons = new ItemStack[size];
+        this.optionNames = new String[9];
+        this.optionIcons = new ItemStack[9];
         plugin.getServer().getPluginManager().registerEvents(this, plugin);
         willDestory = true;
     }

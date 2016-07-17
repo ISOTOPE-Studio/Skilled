@@ -13,12 +13,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 public class CommandCbind implements CommandExecutor {
-    private final Skilled plugin;
-
-    public CommandCbind(Skilled plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("cBind")) {
@@ -43,8 +37,7 @@ public class CommandCbind implements CommandExecutor {
                 player.sendMessage(Msg.mustBeInt);
                 return true;
             }
-            PlayerData data = new PlayerData(plugin);
-            if (!data.ifHasSkill(player, skill)) {
+            if (!PlayerData.ifHasSkill(player, skill)) {
                 player.sendMessage(Msg.noSkill);
                 return true;
             }
@@ -61,7 +54,7 @@ public class CommandCbind implements CommandExecutor {
                 player.sendMessage(Msg.mustbe1);
                 return true;
             }
-            ItemUti.addLore(item, data.getClass(player), skill);
+            ItemUti.addLore(item, PlayerData.getClass(player), skill);
             player.sendMessage(Skilled.prefix + ChatColor.AQUA + "³É¹¦°ó¶¨ ");
             return true;
         }

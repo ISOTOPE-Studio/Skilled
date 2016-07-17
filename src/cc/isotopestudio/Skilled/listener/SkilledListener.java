@@ -21,12 +21,10 @@ import java.util.HashMap;
 
 public class SkilledListener implements Listener {
     private final Skilled plugin;
-    private final PlayerData data;
     private final HashMap<String, Long> cooldownMap;
 
     public SkilledListener(Skilled instance) {
         plugin = instance;
-        data = new PlayerData(plugin);
         cooldownMap = new HashMap<>();
     }
 
@@ -45,25 +43,25 @@ public class SkilledListener implements Listener {
             job = classAndSkill[0];
             skillString = classAndSkill[1];
             skill = Names.getSkillNum(skillString);
-            level = data.getLevel(player, skill);
+            level = PlayerData.getLevel(player, skill);
         } catch (Exception e) {
             return;
         }
         if (job == null || skillString == null)
             return;
-        if (!(data.ifHasClass(player, job))) {
+        if (!(PlayerData.ifHasClass(player, job))) {
             // player.sendMessage(Msg.noClass);
             return;
         }
-        if (!(data.ifHasSkill(player, skill))) {
+        if (!(PlayerData.ifHasSkill(player, skill))) {
             // player.sendMessage(Msg.noSkill);
             return;
         }
-        if (data.getMagic(player) < ConfigData.getRequiredMagic(job, skill)) {
+        if (PlayerData.getMagic(player) < ConfigData.getRequiredMagic(job, skill)) {
             // player.sendMessage(Msg.noMagic);
             return;
         }
-        if (data.isCooldown(player, skill)) {
+        if (PlayerData.isCooldown(player, skill)) {
             // player.sendMessage(Msg.cooldown);
             return;
         }
@@ -150,26 +148,25 @@ public class SkilledListener implements Listener {
             job = classAndSkill[0];
             skillString = classAndSkill[1];
             skill = Names.getSkillNum(skillString);
-            level = data.getLevel(player, skill);
+            level = PlayerData.getLevel(player, skill);
         } catch (Exception e) {
             return;
         }
         if (job == null || skillString == null)
             return;
-        PlayerData data = new PlayerData(plugin);
-        if (!(data.ifHasClass(player, job))) {
+        if (!(PlayerData.ifHasClass(player, job))) {
             player.sendMessage(Msg.noClass);
             return;
         }
-        if (!(data.ifHasSkill(player, skill))) {
+        if (!(PlayerData.ifHasSkill(player, skill))) {
             player.sendMessage(Msg.noSkill);
             return;
         }
-        if (data.getMagic(player) < ConfigData.getRequiredMagic(job, skill)) {
+        if (PlayerData.getMagic(player) < ConfigData.getRequiredMagic(job, skill)) {
             player.sendMessage(Msg.noMagic);
             return;
         }
-        if (data.isCooldown(player, skill)) {
+        if (PlayerData.isCooldown(player, skill)) {
             player.sendMessage(Msg.cooldown
                     + ((cooldownMap.get(player.getName() + job + skill) - new Date().getTime()) / 1000.0) + "Ãë");
             return;
@@ -339,15 +336,15 @@ public class SkilledListener implements Listener {
 
     private void afterRelease(final Player player, final String job, final int skill) {
         int magic = ConfigData.getRequiredMagic(job, skill);
-        data.decreaseMagic(player, magic);
-        data.setCooldown(player, skill, true);
+        PlayerData.decreaseMagic(player, magic);
+        PlayerData.setCooldown(player, skill, true);
         int cooldownTime = ConfigData.getCooldown(job, skill);
         final String playerName = player.getName();
         cooldownMap.put(playerName + job + skill, new Date().getTime() + cooldownTime * 1000);
         new BukkitRunnable() {
             @Override
             public void run() {
-                data.setCooldown(player, skill, false);
+                PlayerData.setCooldown(player, skill, false);
                 cooldownMap.remove(playerName + job + skill);
             }
         }.runTaskLater(this.plugin, 20 * cooldownTime);

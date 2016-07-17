@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.command;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.gui.ClassGUI;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.message.Names;
@@ -12,12 +11,9 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
-public class CommandClass implements CommandExecutor {
-    private final Skilled plugin;
+import static cc.isotopestudio.Skilled.Skilled.plugin;
 
-    public CommandClass(Skilled plugin) {
-        this.plugin = plugin;
-    }
+public class CommandClass implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -45,14 +41,13 @@ public class CommandClass implements CommandExecutor {
                 }
                 String jobName = Names.getClassName(job);
                 player.sendMessage(Msg.successJoin + Names.getClassColorName(job));
-                PlayerData data = new PlayerData(plugin);
-                data.setClass(player, jobName);
-                data.setLevel(player, 1, 0);
-                data.setLevel(player, 2, 0);
-                data.setLevel(player, 3, 0);
-                data.setLevel(player, 4, 0);
-                data.setMagic(player, 200);
-                data.setSkillPoint(player, 10);
+                PlayerData.setClass(player, jobName);
+                PlayerData.setLevel(player, 1, 0);
+                PlayerData.setLevel(player, 2, 0);
+                PlayerData.setLevel(player, 3, 0);
+                PlayerData.setLevel(player, 4, 0);
+                PlayerData.setMagic(player, 200);
+                PlayerData.setSkillPoint(player, 10);
                 plugin.savePlayersData();
             } else {
                 ArrayList<Integer> list = new ArrayList<>();

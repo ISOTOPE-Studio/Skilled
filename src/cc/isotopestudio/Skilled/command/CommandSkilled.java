@@ -9,16 +9,10 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
+
+import static cc.isotopestudio.Skilled.Skilled.plugin;
 
 public class CommandSkilled implements CommandExecutor {
-    private final Skilled plugin;
-
-    public CommandSkilled(Skilled plugin) {
-        this.plugin = plugin;
-    }
-
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (cmd.getName().equalsIgnoreCase("Skilled")) {
@@ -30,6 +24,16 @@ public class CommandSkilled implements CommandExecutor {
                 sender.sendMessage(Skilled.prefix);
                 sender.sendMessage(Msg.commandSkilledAddsp);
                 return true;
+            }
+            if (args[0].equalsIgnoreCase("info")) {
+                if (sender instanceof Player) {
+                    Player player = (Player) sender;
+                    player.sendMessage("职业：" + PlayerData.getClass(player));
+                    player.sendMessage("魔法值：" + PlayerData.getMagic(player));
+                    player.sendMessage("技能：" + PlayerData.getLevel(player, 1) + ", " + PlayerData.getLevel(player, 2) + ","
+                            + PlayerData.getLevel(player, 3) + ", " + PlayerData.getLevel(player, 4));
+                    player.sendMessage("技能点：" + PlayerData.getSkillPoint(player));
+                }
             }
             if (args[0].equalsIgnoreCase("addsp")) {
                 if (args.length != 3) {
@@ -51,14 +55,10 @@ public class CommandSkilled implements CommandExecutor {
                     sender.sendMessage(Msg.mustBeInt);
                     return true;
                 }
-                PlayerData data = new PlayerData(plugin);
-                data.addSkillPoint(playerName, skillPoint);
+                PlayerData.addSkillPoint(playerName, skillPoint);
                 sender.sendMessage(Skilled.prefix + ChatColor.AQUA + "成功给予玩家 " + playerName + " " + skillPoint + " 技能点");
                 return true;
             }
-            if (args[0].equals("test"))
-                ((Player) sender).addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY,
-                        Integer.parseInt(args[1]), Integer.parseInt(args[2])));
             if (args[0].equalsIgnoreCase("reload")) {
                 plugin.onReload();
                 sender.sendMessage(

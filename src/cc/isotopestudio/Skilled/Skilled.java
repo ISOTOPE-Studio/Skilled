@@ -39,7 +39,7 @@ public class Skilled extends JavaPlugin {
         }
     }
 
-    String FileVersion = "1";
+    final static String FileVersion = "1";
 
     @Override
     public void onEnable() {
@@ -61,15 +61,15 @@ public class Skilled extends JavaPlugin {
         PluginManager pm = this.getServer().getPluginManager();
         pm.registerEvents(new SkilledListener(this), this);
 
-        this.getCommand("class").setExecutor(new CommandClass(this));
-        this.getCommand("CSkill").setExecutor(new CommandCSkill(this));
-        this.getCommand("Skilled").setExecutor(new CommandSkilled(this));
-        this.getCommand("CBind").setExecutor(new CommandCbind(this));
+        this.getCommand("class").setExecutor(new CommandClass());
+        this.getCommand("CSkill").setExecutor(new CommandCSkill());
+        this.getCommand("Skilled").setExecutor(new CommandSkilled());
+        this.getCommand("CBind").setExecutor(new CommandCbind());
 
         ConfigData.updateConfig(this);
 
-        new MagicRefillTask(this).runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
-        new CooldownResetTask(this).runTaskLater(this, 20);
+        new MagicRefillTask().runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
+        new CooldownResetTask().runTaskLater(this, 20);
         try {
             Metrics metrics = new Metrics(this);
             metrics.start();
@@ -83,7 +83,7 @@ public class Skilled extends JavaPlugin {
 
     public void onReload() {
         ConfigData.updateConfig(this);
-        new CooldownResetTask(this).runTaskLater(this, 20);
+        new CooldownResetTask().runTaskLater(this, 20);
     }
 
     @Override

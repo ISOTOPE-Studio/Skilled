@@ -40,9 +40,8 @@ class Class1 {
     }
 
     static boolean onClass1Skill2(Player player, Player rightClicked, int level, Skilled plugin) {
-        PlayerData data = new PlayerData(plugin);
         plugin.getLogger().info("onClass1Skill2");
-        int magic = data.getMagic(rightClicked);
+        int magic = PlayerData.getMagic(rightClicked);
         if (ConfigData.maxMagic <= magic) {
             player.sendMessage(Skilled.prefix + "法力值已满");
             return false;
@@ -51,7 +50,7 @@ class Class1 {
         if (ConfigData.maxMagic <= magic) {
             magic = ConfigData.maxMagic;
         }
-        data.setMagic(rightClicked, magic);
+        PlayerData.setMagic(rightClicked, magic);
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
         return true;
     }

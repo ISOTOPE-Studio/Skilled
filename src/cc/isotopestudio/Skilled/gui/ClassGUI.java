@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class ClassGUI extends GUI {
 
     public ClassGUI(ArrayList<Integer> list) {
-        super(title, 9);
+        super(title);
         setOption(0, new ItemStack(Material.NETHER_STAR, 1), intro[0], intro[1], intro[2]);
         for (int i = 1; i <= 8; i++)
             setOption(i, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark);
@@ -85,7 +85,7 @@ public class ClassGUI extends GUI {
                 return;
             }
             int job = Names.getClassNum(optionNames[slot].substring(4));
-            ((Player) event.getWhoClicked()).closeInventory();
+            event.getWhoClicked().closeInventory();
             ((Player) event.getWhoClicked()).performCommand("class " + job);
         }
     }
