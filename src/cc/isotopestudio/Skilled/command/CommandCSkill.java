@@ -1,7 +1,7 @@
 package cc.isotopestudio.Skilled.command;
 
 import cc.isotopestudio.Skilled.Skilled;
-import cc.isotopestudio.Skilled.gui.UpgradeSkill;
+import cc.isotopestudio.Skilled.gui.SkillGUI;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.player.PlayerData;
 import org.bukkit.command.Command;
@@ -29,7 +29,7 @@ public class CommandCSkill implements CommandExecutor {
                 player.sendMessage(Msg.noClass);
                 return true;
             }
-            UpgradeSkill.createMenu(plugin, player).open(player);
+            new SkillGUI(player).open(player);
             return true;
         }
         return false;

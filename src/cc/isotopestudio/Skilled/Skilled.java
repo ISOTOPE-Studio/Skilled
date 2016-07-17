@@ -26,8 +26,8 @@ public class Skilled extends JavaPlugin {
             .append(ChatColor.ITALIC).append(ChatColor.BOLD).append("职业").append(ChatColor.RESET)
             .append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
 
-    private static final String version = "1.1 alpha";
-
+    private static final String version = "1.1.1 alpha";
+    public static Skilled plugin;
     private ProtocolManager protocolManager;
 
     private void createFile(String name) {
@@ -43,6 +43,7 @@ public class Skilled extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        plugin = this;
         getLogger().info("加载配置文件中");
 
         createFile("config");

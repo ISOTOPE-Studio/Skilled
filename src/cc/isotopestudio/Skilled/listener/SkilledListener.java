@@ -351,8 +351,7 @@ public class SkilledListener implements Listener {
                 cooldownMap.remove(playerName + job + skill);
             }
         }.runTaskLater(this.plugin, 20 * cooldownTime);
-        player.sendMessage(Msg.release + Names.getSkillColorName(job, skill) + ChatColor.GOLD +
-                ", 消耗魔法值" + magic + " / " + ConfigData.maxMagic);
+        player.sendMessage(Msg.release + Names.getSkillColorName(job, skill) + ChatColor.GOLD + ", 消耗魔法值" + magic);
     }
 
 }

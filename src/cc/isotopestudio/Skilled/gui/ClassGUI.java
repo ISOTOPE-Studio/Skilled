@@ -1,178 +1,101 @@
 package cc.isotopestudio.Skilled.gui;
 
-import org.bukkit.Bukkit;
+import cc.isotopestudio.Skilled.message.Names;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
-import org.bukkit.event.HandlerList;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.plugin.Plugin;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
-public class ClassGUI implements Listener {
+public class ClassGUI extends GUI {
 
-    // From: https://bukkit.org/threads/icon-menu.108342
-
-    private final String name;
-    private final int size;
-    private OptionClickEventHandler handler;
-    private Plugin plugin;
-    private String[] optionNames;
-    private ItemStack[] optionIcons;
-    private final boolean willDestory;
-    private ArrayList<Integer> clickList;
-
-    ClassGUI(String name, int size, OptionClickEventHandler handler, Plugin plugin, boolean willDestory) {
-        this.name = name;
-        this.size = size;
-        this.handler = handler;
-        this.plugin = plugin;
-        this.optionNames = new String[size];
-        this.optionIcons = new ItemStack[size];
-        plugin.getServer().getPluginManager().registerEvents(this, plugin);
-        this.willDestory = willDestory;
-    }
-
-    ClassGUI setOption(int position, ItemStack icon, String name, String... info) {
-        optionNames[position] = name;
-        optionIcons[position] = setItemNameAndLore(icon, name, info);
-        return this;
-    }
-
-    public void setHandler(OptionClickEventHandler handler) {
-        this.handler = handler;
-    }
-
-    public void open(Player player) {
-        Inventory inventory = Bukkit.createInventory(player, size, name);
-        for (int i = 0; i < optionIcons.length; i++) {
-            if (optionIcons[i] != null) {
-                inventory.setItem(i, optionIcons[i]);
+    public ClassGUI(ArrayList<Integer> list) {
+        super(title, 9);
+        setOption(0, new ItemStack(Material.NETHER_STAR, 1), intro[0], intro[1], intro[2]);
+        for (int i = 1; i <= 8; i++)
+            setOption(i, new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7), unknownJob, questionMark);
+        for (int job : list) {
+            switch (job) {
+                case (1): {
+                    setOption(1, new ItemStack(Material.GLOWSTONE_DUST, 1), Names.getClassColorName(1), skill,
+                            Names.getSkillColorInfo(1, 1), Names.getSkillColorInfo(1, 2), Names.getSkillColorInfo(1, 3),
+                            Names.getSkillColorInfo(1, 4));
+                    break;
+                }
+                case (2): {
+                    setOption(2, new ItemStack(Material.HOPPER, 1), Names.getClassColorName(2), skill,
+                            Names.getSkillColorInfo(2, 1), Names.getSkillColorInfo(2, 2), Names.getSkillColorInfo(2, 3),
+                            Names.getSkillColorInfo(2, 4));
+                    break;
+                }
+                case (3): {
+                    setOption(3, new ItemStack(Material.EYE_OF_ENDER, 1), Names.getClassColorName(3), skill,
+                            Names.getSkillColorInfo(3, 1), Names.getSkillColorInfo(3, 2), Names.getSkillColorInfo(3, 3),
+                            Names.getSkillColorInfo(3, 4));
+                    break;
+                }
+                case (4): {
+                    setOption(4, new ItemStack(Material.IRON_FENCE, 1), Names.getClassColorName(4), skill,
+                            Names.getSkillColorInfo(4, 1), Names.getSkillColorInfo(4, 2), Names.getSkillColorInfo(4, 3),
+                            Names.getSkillColorInfo(4, 4));
+                    break;
+                }
+                case (5): {
+                    setOption(5, new ItemStack(Material.REDSTONE, 1), Names.getClassColorName(5), skill,
+                            Names.getSkillColorInfo(5, 1), Names.getSkillColorInfo(5, 2), Names.getSkillColorInfo(5, 3),
+                            Names.getSkillColorInfo(5, 4));
+                    break;
+                }
+                case (6): {
+                    setOption(6, new ItemStack(Material.SOUL_SAND, 1), Names.getClassColorName(6), skill,
+                            Names.getSkillColorInfo(6, 1), Names.getSkillColorInfo(6, 2), Names.getSkillColorInfo(6, 3),
+                            Names.getSkillColorInfo(6, 4));
+                    break;
+                }
+                case (7): {
+                    setOption(7, new ItemStack(Material.DOUBLE_PLANT, 1), Names.getClassColorName(7), skill,
+                            Names.getSkillColorInfo(7, 1), Names.getSkillColorInfo(7, 2), Names.getSkillColorInfo(7, 3),
+                            Names.getSkillColorInfo(7, 4));
+                    break;
+                }
+                case (8): {
+                    setOption(8, new ItemStack(Material.GOLD_HOE, 1), Names.getClassColorName(8), skill,
+                            Names.getSkillColorInfo(8, 1), Names.getSkillColorInfo(7, 2), Names.getSkillColorInfo(8, 3),
+                            Names.getSkillColorInfo(8, 4));
+                    break;
+                }
             }
         }
-        player.openInventory(inventory);
     }
 
-    private void Destory() {
-        HandlerList.unregisterAll(this);
-        handler = null;
-        plugin = null;
-        optionNames = null;
-        optionIcons = null;
-    }
-
-    public void setClickList(ArrayList<Integer> list) {
-        clickList = list;
-    }
-
-    private boolean ifValueExist(int n) {
-        for (int i : clickList) {
-            if (i == n)
-                return true;
-        }
-        return false;
-    }
-
+    @Override
     @EventHandler(priority = EventPriority.MONITOR)
-    void onInventoryClick(InventoryClickEvent event) {
-        if (event.getInventory().getTitle().equals(name)) {
+    public void onInventoryClick(InventoryClickEvent event) {
+        if (event.getInventory().getName().equals(name)) {
             event.setCancelled(true);
             int slot = event.getRawSlot();
-            if (clickList == null) {
-                clickList = new ArrayList<>();
+            if (slot < 0 || slot >= size) {
+                return;
             }
-            if (ifValueExist(slot) && optionNames[slot] != null) {
-                Plugin plugin = this.plugin;
-                OptionClickEvent e = new OptionClickEvent((Player) event.getWhoClicked(), slot, optionNames[slot]);
-                handler.onOptionClick(e);
-                if (e.willClose()) {
-                    final Player p = (Player) event.getWhoClicked();
-                    Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-                        public void run() {
-                            p.closeInventory();
-                        }
-                    }, 1);
-                }
-                if (e.willDestroy()) {
-                    Destory();
-                }
+            if (optionIcons[slot] == null) {
+                return;
             }
+            int job = Names.getClassNum(optionNames[slot].substring(4));
+            ((Player) event.getWhoClicked()).closeInventory();
+            ((Player) event.getWhoClicked()).performCommand("class " + job);
         }
     }
 
-    @EventHandler(priority = EventPriority.MONITOR)
-    void onInventoryClose(InventoryCloseEvent event) {
-        if (event.getInventory().getTitle().equals(name)) {
-            if (willDestory) {
-                Destory();
-            }
-        }
-    }
+    private static final String title = String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "职业选择";
+    private static final String unknownJob = String.valueOf(ChatColor.BLUE) + ChatColor.ITALIC + "隐藏职业";
+    private static final String questionMark = String.valueOf(ChatColor.BLACK) + ChatColor.ITALIC + "????";
+    private static final String[] intro = {String.valueOf(ChatColor.GOLD) + ChatColor.BOLD + "说明",
+            String.valueOf(ChatColor.GREEN) + ChatColor.ITALIC + "这里是可以选择的职业",
+            String.valueOf(ChatColor.AQUA) + ChatColor.ITALIC + "单击即可加入一个职业"};
+    private static final String skill = String.valueOf(ChatColor.AQUA) + ChatColor.ITALIC + "技能: ";
 
-    public interface OptionClickEventHandler {
-        void onOptionClick(OptionClickEvent event);
-    }
-
-    public class OptionClickEvent {
-        private final Player player;
-        private int position;
-        private String name;
-        private boolean close;
-        private boolean Destory;
-
-        public OptionClickEvent(Player player, int position, String name) {
-            this.player = player;
-            this.position = position;
-            this.name = name;
-            this.close = true;
-            this.Destory = false;
-        }
-
-        public OptionClickEvent(Player player) {
-            this.player = player;
-        }
-
-        public Player getPlayer() {
-            return player;
-        }
-
-        public int getPosition() {
-            return position;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public boolean willClose() {
-            return close;
-        }
-
-        public boolean willDestroy() {
-            return Destory;
-        }
-
-        public void setWillClose(boolean close) {
-            this.close = close;
-        }
-
-        public void setWillDestroy(boolean Destory) {
-            this.Destory = Destory;
-        }
-    }
-
-    private ItemStack setItemNameAndLore(ItemStack item, String name, String[] lore) {
-        ItemMeta im = item.getItemMeta();
-        im.setDisplayName(name);
-        im.setLore(Arrays.asList(lore));
-        item.setItemMeta(im);
-        return item;
-    }
 }

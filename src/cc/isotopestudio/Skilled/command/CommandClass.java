@@ -1,7 +1,7 @@
 package cc.isotopestudio.Skilled.command;
 
 import cc.isotopestudio.Skilled.Skilled;
-import cc.isotopestudio.Skilled.gui.SelectClass;
+import cc.isotopestudio.Skilled.gui.ClassGUI;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.message.Names;
 import cc.isotopestudio.Skilled.player.PlayerData;
@@ -62,7 +62,7 @@ public class CommandClass implements CommandExecutor {
                     }
                 }
 
-                SelectClass.createMenu(plugin, list).open(player);
+                new ClassGUI(list).open(player);
             }
             return true;
         }
