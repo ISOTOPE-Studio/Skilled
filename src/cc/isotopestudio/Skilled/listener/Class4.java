@@ -18,6 +18,8 @@ import org.bukkit.util.Vector;
 
 import java.util.List;
 
+import static cc.isotopestudio.Skilled.Skilled.plugin;
+
 class Class4 implements Listener {
 
     // 铁卫
@@ -26,7 +28,7 @@ class Class4 implements Listener {
     // 技能3：不屈：获得再生 II //点击空气
     // 技能4：坚不可摧：三秒内无视伤害 //点击空气
 
-    static boolean onClass4Skill1(Player player, int level, Skilled plugin) {
+    static boolean onClass4Skill1(Player player, int level) {
         plugin.getLogger().info("onClass4Skill1");
         player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, (5 + 3 * level) * 20,
@@ -35,7 +37,7 @@ class Class4 implements Listener {
         return true;
     }
 
-    static boolean onClass4Skill2(Player player, int level, Skilled plugin) {
+    static boolean onClass4Skill2(Player player, int level) {
         plugin.getLogger().info("onClass4Skill2");
         Vector v = player.getLocation().getDirection().normalize();
         Fireball fb = player.launchProjectile(Fireball.class, v);
@@ -81,14 +83,14 @@ class Class4 implements Listener {
         }
     }
 
-    static boolean onClass4Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass4Skill3(Player player, int level) {
         plugin.getLogger().info("onClass4Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (15 + 3 * level) * 20, 2, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         return true;
     }
 
-    static boolean onClass4Skill4(Player player, int level, Skilled plugin) {// 三秒这个设定是不合理的，因为没有可升级性
+    static boolean onClass4Skill4(Player player, int level) {// 三秒这个设定是不合理的，因为没有可升级性
         plugin.getLogger().info("onClass4Skill4");
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, (5 + 3 * level) * 20, 100, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);

@@ -14,6 +14,8 @@ import org.bukkit.potion.PotionEffectType;
 
 import java.util.List;
 
+import static cc.isotopestudio.Skilled.Skilled.plugin;
+
 class Class1 {
     // 圣谕
 
@@ -22,7 +24,7 @@ class Class1 {
     // 技能3：神圣打击：召唤天雷攻击敌人 //点击空气
     // 技能4：生命源泉：群体恢复 //点击空气
 
-    static boolean onClass1Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
+    static boolean onClass1Skill1(Player player, LivingEntity rightClicked, int level) {
         plugin.getLogger().info("onClass1Skill1");
         double health = rightClicked.getHealth();
         if (rightClicked.getMaxHealth() == health) {
@@ -39,7 +41,7 @@ class Class1 {
         return true;
     }
 
-    static boolean onClass1Skill2(Player player, Player rightClicked, int level, Skilled plugin) {
+    static boolean onClass1Skill2(Player player, Player rightClicked, int level) {
         plugin.getLogger().info("onClass1Skill2");
         int magic = PlayerData.getMagic(rightClicked);
         if (ConfigData.maxMagic <= magic) {
@@ -55,7 +57,7 @@ class Class1 {
         return true;
     }
 
-    static boolean onClass1Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass1Skill3(Player player, int level) {
         plugin.getLogger().info("onClass1Skill3");
         Location[] target = new Location[6];
         target[0] = player.getLocation().clone().add(3, 0, 0);
@@ -75,7 +77,7 @@ class Class1 {
         return true;
     }
 
-    static boolean onClass1Skill4(Player player, int level, Skilled plugin) {
+    static boolean onClass1Skill4(Player player, int level) {
         plugin.getLogger().info("onClass1Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();

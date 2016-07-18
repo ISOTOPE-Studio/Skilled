@@ -15,6 +15,8 @@ import org.bukkit.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
 
+import static cc.isotopestudio.Skilled.Skilled.plugin;
+
 class Class2 {
 
     // 暗影
@@ -23,7 +25,7 @@ class Class2 {
     // 技能3：孤注一掷：血量减少，攻击力上升 //点击空气
     // 技能4：影舞：挥动匕首，使周围敌人受到伤害，并且附带中毒效果 //点击空气
 
-    static boolean onClass2Skill1(Player player, final LivingEntity rightClicked, final int level, Skilled plugin) {
+    static boolean onClass2Skill1(Player player, final LivingEntity rightClicked, final int level) {
         plugin.getLogger().info("onClass2Skill1");
         Location loc = rightClicked.getEyeLocation();
         Vector v = loc.getDirection().normalize();
@@ -41,14 +43,14 @@ class Class2 {
         return true;
     }
 
-    static boolean onClass2Skill2(Player player, int level, Skilled plugin) {
+    static boolean onClass2Skill2(Player player, int level) {
         plugin.getLogger().info("onClass2Skill2");
         player.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, (5 + 3 * level) * 20, 1, true)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         return true;
     }
 
-    static boolean onClass2Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass2Skill3(Player player, int level) {
         plugin.getLogger().info("onClass2Skill3");
         double health = player.getHealth() * 0.6;// Revise
         player.setHealth(health);
@@ -57,7 +59,7 @@ class Class2 {
         return true;
     }
 
-    static boolean onClass2Skill4(Player player, int level, Skilled plugin) {
+    static boolean onClass2Skill4(Player player, int level) {
         plugin.getLogger().info("onClass2Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();

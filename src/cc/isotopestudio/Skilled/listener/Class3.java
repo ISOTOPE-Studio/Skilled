@@ -16,6 +16,8 @@ import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
+import static cc.isotopestudio.Skilled.Skilled.plugin;
+
 class Class3 {
 
     // 鹰眼
@@ -24,7 +26,7 @@ class Class3 {
     // 技能3：轻语：增加攻击力 //点击空气
     // 技能4：箭雨：从空中落下一片箭雨 //点击空气
 
-    static boolean onClass3Skill1(Player player, int level, Skilled plugin) {
+    static boolean onClass3Skill1(Player player, int level) {
         plugin.getLogger().info("onClass3Skill1");
         player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + 3 * level) * 20, level, false)); // Revise
@@ -32,10 +34,10 @@ class Class3 {
         return true;
     }
 
-    static boolean onClass3Skill2(Player player, int level, Skilled plugin) {
+    static boolean onClass3Skill2(final Player player, int level) {
         plugin.getLogger().info("onClass3Skill2");
         PluginManager pm = plugin.getServer().getPluginManager();
-        ArrowListener listener = new ArrowListener(player, level);
+        final ArrowListener listener = new ArrowListener(player, level);
         pm.registerEvents(listener, plugin);
         //player.sendMessage("to-do");
         new BukkitRunnable() {
@@ -66,14 +68,14 @@ class Class3 {
         }
     }
 
-    static boolean onClass3Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass3Skill3(Player player, int level) {
         plugin.getLogger().info("onClass3Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (7 + 3 * level) * 20, level, false)); // Revise
         ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
         return true;
     }
 
-    static boolean onClass3Skill4(Player player, int level, Skilled plugin) {
+    static boolean onClass3Skill4(Player player, int level) {
         plugin.getLogger().info("onClass3Skill4");
         Bat bat = (Bat) player.getWorld().spawnEntity(player.getLocation().add(0, 5, 0), EntityType.BAT);
         bat.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, (5 + 3 * level) * 20, 1, true));

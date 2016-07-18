@@ -18,6 +18,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 
+import static cc.isotopestudio.Skilled.Skilled.plugin;
+
 class Class7 {
 
     // 光骑
@@ -27,7 +29,7 @@ class Class7 {
     // 技能3：祈祷：生命吸收，伤害增加 //点击空气
     // 技能4：神临：无敌 //点击空气
 
-    static boolean onClass7Skill1(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
+    static boolean onClass7Skill1(Player player, LivingEntity rightClicked, int level) {
         plugin.getLogger().info("onClass7Skill1");
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.setFireTicks((5 + 3 * level) * 20);// Revise
@@ -35,7 +37,7 @@ class Class7 {
         return true;
     }
 
-    static boolean onClass7Skill2(Player player, int level, Skilled plugin) {
+    static boolean onClass7Skill2(Player player, int level) {
         plugin.getLogger().info("onClass7Skill2");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();
@@ -56,7 +58,7 @@ class Class7 {
         return true;
     }
 
-    static boolean onClass7Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass7Skill3(Player player, int level) {
         plugin.getLogger().info("onClass7Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
@@ -64,12 +66,12 @@ class Class7 {
         return true;
     }
 
-    static boolean onClass7Skill4(Player player, int level, Skilled plugin) {
+    static boolean onClass7Skill4(final Player player, int level) {
         plugin.getLogger().info("onClass7Skill4");
         final int ticks = 20 * (level * 2 + 1); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, ticks, 100, false)); // Revise
         PluginManager pm = plugin.getServer().getPluginManager();
-        InvincibleListener listener = new InvincibleListener(player, level);
+        final InvincibleListener listener = new InvincibleListener(player, level);
         pm.registerEvents(listener, plugin);
         new BukkitRunnable() {
             @Override

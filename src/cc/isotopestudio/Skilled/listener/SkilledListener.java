@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.message.Names;
@@ -19,14 +18,10 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.Date;
 import java.util.HashMap;
 
-public class SkilledListener implements Listener {
-    private final Skilled plugin;
-    private final HashMap<String, Long> cooldownMap;
+import static cc.isotopestudio.Skilled.Skilled.plugin;
 
-    public SkilledListener(Skilled instance) {
-        plugin = instance;
-        cooldownMap = new HashMap<>();
-    }
+public class SkilledListener implements Listener {
+    private final HashMap<String, Long> cooldownMap = new HashMap<>();
 
     @EventHandler
     public void onRightClickEntity(PlayerInteractEntityEvent event) {
@@ -69,13 +64,13 @@ public class SkilledListener implements Listener {
             case (1): {
                 switch (skill) {
                     case (1): {
-                        if (Class1.onClass1Skill1(player, rightClicked, level, plugin))
+                        if (Class1.onClass1Skill1(player, rightClicked, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (2): {
                         if (rightClicked instanceof Player) {
-                            if (Class1.onClass1Skill2(player, (Player) rightClicked, level, plugin))
+                            if (Class1.onClass1Skill2(player, (Player) rightClicked, level))
                                 afterRelease(player, job, skill);
                         }
                         return;
@@ -86,7 +81,7 @@ public class SkilledListener implements Listener {
             case (2): {
                 switch (skill) {
                     case (1): {
-                        if (Class2.onClass2Skill1(player, rightClicked, level, plugin))
+                        if (Class2.onClass2Skill1(player, rightClicked, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -96,17 +91,17 @@ public class SkilledListener implements Listener {
             case (6): {
                 switch (skill) {
                     case (1): {
-                        if (Class6.onClass6Skill1(player, rightClicked, level, plugin))
+                        if (Class6.onClass6Skill1(player, rightClicked, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (2): {
-                        if (Class6.onClass6Skill2(player, rightClicked, level, plugin))
+                        if (Class6.onClass6Skill2(player, rightClicked, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class6.onClass6Skill4(player, rightClicked, level, plugin))
+                        if (Class6.onClass6Skill4(player, rightClicked, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -116,7 +111,7 @@ public class SkilledListener implements Listener {
             case (7): {
                 switch (skill) {
                     case (1): {
-                        if (Class7.onClass7Skill1(player, rightClicked, level, plugin))
+                        if (Class7.onClass7Skill1(player, rightClicked, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -126,7 +121,7 @@ public class SkilledListener implements Listener {
             case (8): {
                 switch (skill) {
                     case (2): {
-                        if (Class8.onClass8Skill2(player, rightClicked, level, plugin))
+                        if (Class8.onClass8Skill2(player, rightClicked, level))
                             afterRelease(player, job, skill);
 
                     }
@@ -175,12 +170,12 @@ public class SkilledListener implements Listener {
             case (1): {
                 switch (skill) {
                     case (3): {
-                        if (Class1.onClass1Skill3(player, level, plugin))
+                        if (Class1.onClass1Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class1.onClass1Skill4(player, level, plugin))
+                        if (Class1.onClass1Skill4(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -190,17 +185,17 @@ public class SkilledListener implements Listener {
             case (2): {
                 switch (skill) {
                     case (2): {
-                        if (Class2.onClass2Skill2(player, level, plugin))
+                        if (Class2.onClass2Skill2(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (3): {
-                        if (Class2.onClass2Skill3(player, level, plugin))
+                        if (Class2.onClass2Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class2.onClass2Skill4(player, level, plugin))
+                        if (Class2.onClass2Skill4(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -210,22 +205,22 @@ public class SkilledListener implements Listener {
             case (3): {
                 switch (skill) {
                     case (1): {
-                        if (Class3.onClass3Skill1(player, level, plugin))
+                        if (Class3.onClass3Skill1(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (2): {
-                        if (Class3.onClass3Skill2(player, level, plugin))
+                        if (Class3.onClass3Skill2(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (3): {
-                        if (Class3.onClass3Skill3(player, level, plugin))
+                        if (Class3.onClass3Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class3.onClass3Skill4(player, level, plugin))
+                        if (Class3.onClass3Skill4(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -235,22 +230,22 @@ public class SkilledListener implements Listener {
             case (4): {
                 switch (skill) {
                     case (1): {
-                        if (Class4.onClass4Skill1(player, level, plugin))
+                        if (Class4.onClass4Skill1(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (2): {
-                        if (Class4.onClass4Skill2(player, level, plugin))
+                        if (Class4.onClass4Skill2(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (3): {
-                        if (Class4.onClass4Skill3(player, level, plugin))
+                        if (Class4.onClass4Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class4.onClass4Skill4(player, level, plugin))
+                        if (Class4.onClass4Skill4(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -260,22 +255,22 @@ public class SkilledListener implements Listener {
             case (5): {
                 switch (skill) {
                     case (1): {
-                        if (Class5.onClass5Skill1(player, level, plugin))
+                        if (Class5.onClass5Skill1(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (2): {
-                        if (Class5.onClass5Skill2(player, level, plugin))
+                        if (Class5.onClass5Skill2(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (3): {
-                        if (Class5.onClass5Skill3(player, level, plugin))
+                        if (Class5.onClass5Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class5.onClass5Skill4(player, level, plugin))
+                        if (Class5.onClass5Skill4(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -285,7 +280,7 @@ public class SkilledListener implements Listener {
             case (6): {
                 switch (skill) {
                     case (3): {
-                        if (Class6.onClass6Skill3(player, level, plugin))
+                        if (Class6.onClass6Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -295,17 +290,17 @@ public class SkilledListener implements Listener {
             case (7): {
                 switch (skill) {
                     case (2): {
-                        if (Class7.onClass7Skill2(player, level, plugin))
+                        if (Class7.onClass7Skill2(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (3): {
-                        if (Class7.onClass7Skill3(player, level, plugin))
+                        if (Class7.onClass7Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class7.onClass7Skill4(player, level, plugin))
+                        if (Class7.onClass7Skill4(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
@@ -315,17 +310,17 @@ public class SkilledListener implements Listener {
             case (8): {
                 switch (skill) {
                     case (1): {
-                        if (Class8.onClass8Skill1(player, level, plugin))
+                        if (Class8.onClass8Skill1(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (3): {
-                        if (Class8.onClass8Skill3(player, level, plugin))
+                        if (Class8.onClass8Skill3(player, level))
                             afterRelease(player, job, skill);
                         return;
                     }
                     case (4): {
-                        if (Class8.onClass8Skill4(player, level, plugin))
+                        if (Class8.onClass8Skill4(player, level))
                             afterRelease(player, job, skill);
 
                     }
@@ -347,7 +342,7 @@ public class SkilledListener implements Listener {
                 PlayerData.setCooldown(player, skill, false);
                 cooldownMap.remove(playerName + job + skill);
             }
-        }.runTaskLater(this.plugin, 20 * cooldownTime);
+        }.runTaskLater(plugin, 20 * cooldownTime);
         player.sendMessage(Msg.release + Names.getSkillColorName(job, skill) + ChatColor.GOLD + ", ÏûºÄÄ§·¨Öµ" + magic);
     }
 

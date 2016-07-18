@@ -18,6 +18,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 
+import static cc.isotopestudio.Skilled.Skilled.plugin;
+
 class Class8 {
 
     // 猎刃
@@ -27,7 +29,7 @@ class Class8 {
     // 技能3：暗：一定时间内攻击附带虚弱和失明 //点击空气
     // 技能4：刃：范围伤害，附带虚弱和凋零 //点击空气
 
-    static boolean onClass8Skill1(Player player, int level, Skilled plugin) {
+    static boolean onClass8Skill1(Player player, int level) {
         plugin.getLogger().info("onClass8Skill1");
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
@@ -36,7 +38,7 @@ class Class8 {
         return true;
     }
 
-    static boolean onClass8Skill2(Player player, LivingEntity rightClicked, int level, Skilled plugin) {
+    static boolean onClass8Skill2(Player player, LivingEntity rightClicked, int level) {
         plugin.getLogger().info("onClass8Skill2");
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
@@ -45,11 +47,11 @@ class Class8 {
         return true;
     }
 
-    static boolean onClass8Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass8Skill3(final Player player, int level) {
         plugin.getLogger().info("onClass8Skill3");
         final int ticks = 20 * (level * 2 + 1); // Revise
         PluginManager pm = plugin.getServer().getPluginManager();
-        DamageListener listener = new DamageListener(player, level);
+        final DamageListener listener = new DamageListener(player, level);
         pm.registerEvents(listener, plugin);
         new BukkitRunnable() {
             @Override
@@ -80,7 +82,7 @@ class Class8 {
         }
     }
 
-    static boolean onClass8Skill4(Player player, int level, Skilled plugin) {
+    static boolean onClass8Skill4(Player player, int level) {
         plugin.getLogger().info("onClass8Skill4");
         double radius = 5D;
         List<Entity> near = player.getLocation().getWorld().getEntities();

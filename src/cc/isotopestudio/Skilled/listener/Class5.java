@@ -17,6 +17,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 
+import static cc.isotopestudio.Skilled.Skilled.plugin;
+
 class Class5 {
 
     // 血怒
@@ -25,11 +27,11 @@ class Class5 {
     // 技能3：怒火：范围使敌人受到伤害且燃烧 //点击空气
     // 技能4：一夫当关：一定时间内攻击力大幅提升，获得再生效果 //点击空气
 
-    static boolean onClass5Skill1(Player player, int level, Skilled plugin) {
+    static boolean onClass5Skill1(final Player player, int level) {
         plugin.getLogger().info("onClass5Skill1");
         final int ticks = (1 + level * 2) * 20; //Revise
         PluginManager pm = plugin.getServer().getPluginManager();
-        WeaknessListener listener = new WeaknessListener(player, level);
+        final WeaknessListener listener = new WeaknessListener(player, level);
         pm.registerEvents(listener, plugin);
         new BukkitRunnable() {
             @Override
@@ -60,13 +62,13 @@ class Class5 {
         }
     }
 
-    static boolean onClass5Skill2(Player player, int level, Skilled plugin) {
+    static boolean onClass5Skill2(final Player player, int level) {
         plugin.getLogger().info("onClass5Skill2");
         final int ticks = (1 + level * 2) * 20; //Revise
         player.setFireTicks(ticks);
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, ticks, 1, false)); // Revise
         PluginManager pm = plugin.getServer().getPluginManager();
-        LifeListener listener = new LifeListener(player, level);
+        final LifeListener listener = new LifeListener(player, level);
         pm.registerEvents(listener, plugin);
         new BukkitRunnable() {
             @Override
@@ -103,7 +105,7 @@ class Class5 {
     }
 
 
-    static boolean onClass5Skill3(Player player, int level, Skilled plugin) {
+    static boolean onClass5Skill3(Player player, int level) {
         plugin.getLogger().info("onClass5Skill3");
         final double range = 5 + level * 2; // Reivse
         List<Entity> nearby = player.getNearbyEntities(range, range, range);
@@ -118,7 +120,7 @@ class Class5 {
         return true;
     }
 
-    static boolean onClass5Skill4(Player player, int level, Skilled plugin) {
+    static boolean onClass5Skill4(Player player, int level) {
         plugin.getLogger().info("onClass5Skill4");
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (5 + 3 * level) * 20, level, false)); // Revise
