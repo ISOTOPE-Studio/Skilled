@@ -37,7 +37,12 @@ class Class1 {
         }
 
         rightClicked.setHealth(health);
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
+
         return true;
     }
 
@@ -53,7 +58,10 @@ class Class1 {
             magic = ConfigData.maxMagic;
         }
         PlayerData.setMagic(rightClicked, magic);
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -73,7 +81,10 @@ class Class1 {
                 ((LivingEntity) entity).damage(2 + level * 0.5, player); // Revise
         }
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 20, 100, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -96,7 +107,10 @@ class Class1 {
                     }
 
                     ((LivingEntity) entity).setHealth(health);
-                    ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, entity.getLocation(), 20);
+                    try {
+                        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+                    } catch (Exception ignored) {
+                    }
                     count++;
                 }
         }

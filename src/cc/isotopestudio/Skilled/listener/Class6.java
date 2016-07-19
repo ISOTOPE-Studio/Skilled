@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import cc.isotopestudio.Skilled.utli.PotionEffectUtil;
@@ -26,7 +25,10 @@ class Class6 {
         plugin.getLogger().info("onClass6Skill1");
         player.sendMessage(Msg.release);
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, (5 + 3 * level) * 20, level, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -34,7 +36,10 @@ class Class6 {
         plugin.getLogger().info("onClass6Skill2");
         rightClicked.damage(level, player); // Revise
         rightClicked.addPotionEffect(PotionEffectUtil.getRandomNegativeEffect(level)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -60,8 +65,11 @@ class Class6 {
         if (random <= 2 + level * 0.1)
             rightClicked.setHealth(0); // Revise
         else
-            rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, 1 + level)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+            rightClicked.damage(5 + level * 0.5, player); // Revise
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 

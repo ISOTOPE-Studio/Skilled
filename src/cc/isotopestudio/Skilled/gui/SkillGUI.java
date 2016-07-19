@@ -71,7 +71,7 @@ public class SkillGUI extends GUI {
         if (event.getInventory().getName().equals(name)) {
             event.setCancelled(true);
             int slot = event.getRawSlot();
-            if (slot < 0 || slot >= size) {
+            if (slot < 1 || slot >= size) {
                 return;
             }
             if (optionIcons[slot] == null) {

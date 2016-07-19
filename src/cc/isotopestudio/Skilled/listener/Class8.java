@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import org.bukkit.entity.Entity;
@@ -34,16 +33,22 @@ class Class8 {
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (5 + 3 * level) * 20, level, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
     static boolean onClass8Skill2(Player player, LivingEntity rightClicked, int level) {
         plugin.getLogger().info("onClass8Skill2");
-        rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
+        rightClicked.damage(2 + 0.5 * level, player); // Revise
         rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
         rightClicked.setFireTicks((5 + 3 * level) * 20);// Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -92,13 +97,15 @@ class Class8 {
                 if (entity.equals(player))
                     continue;
                 if (entity instanceof LivingEntity) {
-                    ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.HARM,
-                            (5 + 3 * level) * 20, (int) (1 + level * 0.05), false));
+                    ((LivingEntity) entity).damage(2 + 0.3 * level, player);
                     ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.WITHER,
                             (5 + 3 * level) * 20, (int) (1 + level * 0.05), false));
                     ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS,
                             (5 + 3 * level) * 20, (int) (1 + level * 0.05), false));
-                    ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, entity.getLocation(), 20);
+                    try {
+                        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+                    } catch (Exception ignored) {
+                    }
                     count++;
                 }
             }

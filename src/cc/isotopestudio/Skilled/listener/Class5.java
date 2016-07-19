@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import org.bukkit.entity.Entity;
@@ -57,7 +56,10 @@ class Class5 {
             if (event.getEntity() instanceof LivingEntity && event.getDamager().equals(player)) {
                 ((LivingEntity) event.getEntity()).addPotionEffect(
                         new PotionEffect(PotionEffectType.WEAKNESS, (5 + 3 * level) * 20, level, false)); // Revise
-                ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+                try {
+                    ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+                } catch (Exception ignored) {
+                }
             }
         }
     }
@@ -124,7 +126,10 @@ class Class5 {
         plugin.getLogger().info("onClass5Skill4");
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (5 + 3 * level) * 20, level, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 

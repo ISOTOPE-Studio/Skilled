@@ -1,6 +1,8 @@
 initial:
   skillPoint: 10
 basic:
+  #玩家是否只能选择一次职业
+  onlyOnce: true
   magic:
     full: 200
     refillRate: 5

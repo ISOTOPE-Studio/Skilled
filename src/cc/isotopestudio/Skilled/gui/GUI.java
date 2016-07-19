@@ -2,6 +2,7 @@ package cc.isotopestudio.Skilled.gui;
 
 import cc.isotopestudio.Skilled.Skilled;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -28,7 +29,7 @@ public abstract class GUI implements Listener {
     private final boolean willDestory;
 
     GUI(String name) {
-        this.name = name;
+        this.name = name + getPassword();
         this.size = 9;
         this.plugin = Skilled.plugin;
         this.optionNames = new String[9];
@@ -80,5 +81,14 @@ public abstract class GUI implements Listener {
         im.setLore(Arrays.asList(lore));
         item.setItemMeta(im);
         return item;
+    }
+
+    private static String getPassword() {
+        String result = "";
+        for (int i = 0; i < 5; i++) {
+            result += ChatColor.values()[(int) (Math.random() * 20)];
+        }
+        return result;
+
     }
 }

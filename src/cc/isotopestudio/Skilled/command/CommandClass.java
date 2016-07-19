@@ -1,5 +1,6 @@
 package cc.isotopestudio.Skilled.command;
 
+import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.gui.ClassGUI;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.message.Names;
@@ -24,6 +25,10 @@ public class CommandClass implements CommandExecutor {
             }
             Player player = (Player) sender;
             if (args.length > 0) {
+                if (!player.isOp() && ConfigData.onlyOnce && PlayerData.getClass(player) != null) {
+                    player.sendMessage(Msg.hasClass);
+                    return true;
+                }
                 int job;
                 try {
                     job = Integer.parseInt(args[0]);
@@ -46,8 +51,8 @@ public class CommandClass implements CommandExecutor {
                 PlayerData.setLevel(player, 2, 0);
                 PlayerData.setLevel(player, 3, 0);
                 PlayerData.setLevel(player, 4, 0);
-                PlayerData.setMagic(player, 200);
-                PlayerData.setSkillPoint(player, 10);
+                PlayerData.setMagic(player, ConfigData.maxMagic);
+                PlayerData.setSkillPoint(player, ConfigData.initialSkillPoint);
                 plugin.savePlayersData();
             } else {
                 ArrayList<Integer> list = new ArrayList<>();

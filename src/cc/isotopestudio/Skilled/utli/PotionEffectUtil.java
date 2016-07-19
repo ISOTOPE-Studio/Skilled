@@ -35,7 +35,8 @@ public class PotionEffectUtil {
             }
             case (7): {
                 return new PotionEffect(PotionEffectType.BLINDNESS, (5 + 3 * level) * 20, level, false);
-            } default: {
+            }
+            default: {
                 return new PotionEffect(PotionEffectType.CONFUSION, (5 + 3 * level) * 20, level, false);
             }
         }

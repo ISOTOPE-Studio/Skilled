@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import cc.isotopestudio.Skilled.utli.PotionEffectUtil;
@@ -30,7 +29,10 @@ class Class3 {
         plugin.getLogger().info("onClass3Skill1");
         player.addPotionEffect(new PotionEffect(PotionEffectType.JUMP, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, (5 + 3 * level) * 20, level, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -71,7 +73,10 @@ class Class3 {
     static boolean onClass3Skill3(Player player, int level) {
         plugin.getLogger().info("onClass3Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (7 + 3 * level) * 20, level, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -99,7 +104,10 @@ class Class3 {
             // arrow.
         }
         bat.remove();
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 

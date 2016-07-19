@@ -26,7 +26,7 @@ public class Skilled extends JavaPlugin {
             .append(ChatColor.ITALIC).append(ChatColor.BOLD).append("ְҵ").append(ChatColor.RESET)
             .append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
 
-    private static final String version = "1.1.1 alpha";
+    private static final String version = "1.1.3 alpha";
     public static Skilled plugin;
     private ProtocolManager protocolManager;
 
@@ -59,7 +59,7 @@ public class Skilled extends JavaPlugin {
         protocolManager = ProtocolLibrary.getProtocolManager();
 
         PluginManager pm = this.getServer().getPluginManager();
-        pm.registerEvents(new SkilledListener(this), this);
+        pm.registerEvents(new SkilledListener(), this);
 
         this.getCommand("class").setExecutor(new CommandClass());
         this.getCommand("CSkill").setExecutor(new CommandCSkill());

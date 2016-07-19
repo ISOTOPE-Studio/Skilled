@@ -44,6 +44,7 @@ public class SkilledListener implements Listener {
         }
         if (job == null || skillString == null)
             return;
+        event.setCancelled(true);
         if (!(PlayerData.ifHasClass(player, job))) {
             // player.sendMessage(Msg.noClass);
             return;
@@ -149,6 +150,7 @@ public class SkilledListener implements Listener {
         }
         if (job == null || skillString == null)
             return;
+        event.setCancelled(true);
         if (!(PlayerData.ifHasClass(player, job))) {
             player.sendMessage(Msg.noClass);
             return;

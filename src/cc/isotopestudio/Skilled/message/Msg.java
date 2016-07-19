@@ -14,6 +14,8 @@ public class Msg {
 
     public static final String mustBeInt = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
             .append("这不是一个有效数字吧").toString();
+    public static final String hasClass = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
+            .append("你已经选过职业了").toString();
 
     public static final String hasMetaData = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED)
             .append("此物品有自定义信息, 无法绑定").toString();

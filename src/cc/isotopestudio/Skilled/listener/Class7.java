@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.message.Msg;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import org.bukkit.entity.Entity;
@@ -31,9 +30,13 @@ class Class7 {
 
     static boolean onClass7Skill1(Player player, LivingEntity rightClicked, int level) {
         plugin.getLogger().info("onClass7Skill1");
-        rightClicked.addPotionEffect(new PotionEffect(PotionEffectType.HARM, (5 + 3 * level) * 20, level, false)); // Revise
+
+        rightClicked.damage(5 + 0.3 * level, player); // Revise
         rightClicked.setFireTicks((5 + 3 * level) * 20);// Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -47,7 +50,10 @@ class Class7 {
                 if (entity instanceof LivingEntity) {
                     ((LivingEntity) entity).addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE,
                             (5 + 3 * level) * 20, (int) (1 + level * 0.05), false));
-                    ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, entity.getLocation(), 20);
+                    try {
+                        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+                    } catch (Exception ignored) {
+                    }
                     count++;
                 }
         }
@@ -62,7 +68,10 @@ class Class7 {
         plugin.getLogger().info("onClass7Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, (5 + 3 * level) * 20, level, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 

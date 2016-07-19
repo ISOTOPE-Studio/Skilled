@@ -1,6 +1,5 @@
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.Skilled;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
@@ -33,7 +32,10 @@ class Class4 implements Listener {
         player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, (5 + 3 * level) * 20, level, false)); // Revise
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, (5 + 3 * level) * 20,
                 (int) (1 + level * 0.05), false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -45,7 +47,10 @@ class Class4 implements Listener {
         PluginManager pm = plugin.getServer().getPluginManager();
         FireballListener listener = new FireballListener(fb, level);
         pm.registerEvents(listener, plugin);
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
@@ -86,14 +91,20 @@ class Class4 implements Listener {
     static boolean onClass4Skill3(Player player, int level) {
         plugin.getLogger().info("onClass4Skill3");
         player.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, (15 + 3 * level) * 20, 2, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 
     static boolean onClass4Skill4(Player player, int level) {// 三秒这个设定是不合理的，因为没有可升级性
         plugin.getLogger().info("onClass4Skill4");
         player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, (5 + 3 * level) * 20, 100, false)); // Revise
-        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        try {
+            ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+        } catch (Exception ignored) {
+        }
         return true;
     }
 

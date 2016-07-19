@@ -8,6 +8,8 @@ public class ConfigData {
     public static int magicRefillValue = 0;
     public static int magicRefillRate = 0;
     public static int maxMagic = 200;
+    public static int initialSkillPoint = 10;
+    public static boolean onlyOnce = true;
     private static int[][] unlock;
     private static int[][] upgrade;
     private static int[][] magic;
@@ -34,9 +36,11 @@ public class ConfigData {
     }
 
     public static void updateConfig(Skilled plugin) {
-        magicRefillRate = plugin.getConfig().getInt("basic.magic.refillRate");
-        magicRefillValue = plugin.getConfig().getInt("basic.magic.refillValue");
-        maxMagic = plugin.getConfig().getInt("basic.magic.full");
+        magicRefillRate = plugin.getConfig().getInt("basic.magic.refillRate", 5);
+        magicRefillValue = plugin.getConfig().getInt("basic.magic.refillValue", 10);
+        maxMagic = plugin.getConfig().getInt("basic.magic.full", 200);
+        initialSkillPoint = plugin.getConfig().getInt("initial.skillPoint", 10);
+        onlyOnce = plugin.getConfig().getBoolean("basic.onlyOnce", true);
         unlock = new int[9][5];
         upgrade = new int[9][5];
         magic = new int[9][5];
