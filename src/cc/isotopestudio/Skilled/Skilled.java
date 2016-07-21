@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016. ISOTOPE Studio
+ */
+
 package cc.isotopestudio.Skilled;
 
 import cc.isotopestudio.Skilled.command.CommandCSkill;
@@ -9,6 +13,7 @@ import cc.isotopestudio.Skilled.listener.SkilledListener;
 import cc.isotopestudio.Skilled.metrics.Metrics;
 import cc.isotopestudio.Skilled.task.CooldownResetTask;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
+import cc.isotopestudio.Skilled.task.Updater;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import org.bukkit.ChatColor;
@@ -26,12 +31,11 @@ public class Skilled extends JavaPlugin {
             .append(ChatColor.ITALIC).append(ChatColor.BOLD).append("ְҵ").append(ChatColor.RESET)
             .append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
 
-    private static final String version = "1.1.3 alpha";
+    public static final String version = "1.1.3a";
     public static Skilled plugin;
     private ProtocolManager protocolManager;
 
     private void createFile(String name) {
-
         File file;
         file = new File(getDataFolder(), name + ".yml");
         if (!file.exists()) {
@@ -69,7 +73,9 @@ public class Skilled extends JavaPlugin {
         ConfigData.updateConfig(this);
 
         new MagicRefillTask().runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
+        new Updater().runTaskTimer(this, 20, 60 * 60 * 20);
         new CooldownResetTask().runTaskLater(this, 20);
+
         try {
             Metrics metrics = new Metrics(this);
             metrics.start();

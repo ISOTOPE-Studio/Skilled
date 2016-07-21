@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016. ISOTOPE Studio
+ */
+
 package cc.isotopestudio.Skilled.utli;
 
 import org.bukkit.Bukkit;

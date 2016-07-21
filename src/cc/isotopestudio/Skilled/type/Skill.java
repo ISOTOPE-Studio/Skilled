@@ -1,9 +1,9 @@
+/*
+ * Copyright (c) 2016. ISOTOPE Studio
+ */
+
 package cc.isotopestudio.Skilled.type;
 
-/**
- * Created by Mars on 7/13/2016.
- * Copyright ISOTOPE Studio
- */
 public enum Skill {
     c1s1(1, 1, ""),
     c1s2(1, 2, ""),

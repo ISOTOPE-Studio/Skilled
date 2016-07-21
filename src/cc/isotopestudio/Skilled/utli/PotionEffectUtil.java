@@ -1,12 +1,12 @@
+/*
+ * Copyright (c) 2016. ISOTOPE Studio
+ */
+
 package cc.isotopestudio.Skilled.utli;
 
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-/**
- * Created by Mars on 7/5/2016.
- * Copyright ISOTOPE Studio
- */
 public class PotionEffectUtil {
 
     public static PotionEffect getRandomNegativeEffect(int level) {

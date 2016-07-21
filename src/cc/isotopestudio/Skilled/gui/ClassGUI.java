@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2016. ISOTOPE Studio
+ */
+
 package cc.isotopestudio.Skilled.gui;
 
 import cc.isotopestudio.Skilled.message.Names;

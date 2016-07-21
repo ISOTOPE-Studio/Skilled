@@ -1,91 +1,36 @@
 #Skilled
 职业插件
 
-##加入职业
-命令 `/class` 弹出GUI界面
+![GUI截图](http://www.isotopestudio.cc/wiki/lib/exe/fetch.php?media=wiki:skilled:class.png)
 
-##技能球
-输入 `/cbind <1-4>` ，将职业的技能绑定到自己想绑定的东西上，右键使用
+![GUI截图](http://www.isotopestudio.cc/wiki/lib/exe/fetch.php?media=wiki:skilled:skill.png)
 
-##法力值
-法力值初始是200，当玩家每次使用技能的时候都会消耗法力
+![GUI截图](http://www.isotopestudio.cc/wiki/lib/exe/fetch.php?media=wiki:skilled:skillball.png)
 
-每隔5秒法力值恢复
+##Wiki
 
-##技能点
-玩家刚加入职业的时候，会获得一点的技能点，技能点可以使用指令获得，指令只能有发放技能点的人才能用，职业的技能都是需要技能点来解锁，并且可以使用技能点来升级技能
+[插件Wiki](http://www.isotopestudio.cc/wiki/doku.php?id=skilled)
 
-命令 `/skill` 或者 `/cSkill` 弹出GUI界面
+[配置文件](http://www.isotopestudio.cc/wiki/doku.php?id=skilled:config)
 
-###管理员给予技能点
+[已知bug](http://www.isotopestudio.cc/wiki/doku.php?id=skilled:bug)
 
-命令 `/skilled addsp <玩家名字>`
+[提供建议](http://www.isotopestudio.cc/wiki/doku.php?id=discussion:skilled)
 
-权限：`Skilled.admin`
+[反馈Bug](http://www.isotopestudio.cc/wiki/doku.php?id=discussion:skilled:bug)
 
-##职业与技能
-所有职业的权限：`Skilled.class.*`
+##统计信息
 
-###圣谕
-权限：`Skilled.class.1`
+![玩家与服务器](http://i.mcstats.org/Skilled/Global+Statistics.borderless.png)
 
-- [x] 技能1：治愈：恢复目标生命值 *点击生物*
-- [x] 技能2：活力：恢复目标法力值 *点击玩家*
-- [x] 技能3：神圣打击：召唤天雷攻击敌人 *点击空气*
-- [x] 技能4：生命源泉：群体（半径5）恢复 *点击空气*
- 
-###暗影
-权限：`Skilled.class.2`
+![插件版本](http://i.mcstats.org/Skilled/Version+Demographics.borderless.png)
 
-- [x] 技能1：影击：瞬移到背后给敌人一击 *点击玩家*
-- [x] 技能2：影化：隐身 *点击空气*
-- [x] 技能3：孤注一掷：血量减少，攻击力上升 *点击空气*
-- [x] 技能4：影舞：挥动匕首，使周围敌人受到伤害，并且附带中毒效果 *点击空气*
+![服务器版本](http://i.mcstats.org/Skilled/Game+Version.borderless.png)
 
-###鹰眼
-权限：`Skilled.class.3`
+![服务器类型](http://i.mcstats.org/Skilled/Server+Software.borderless.png)
 
-- [x] 技能1：警惕：加移动速度和跳跃 *点击空气*
-- [x] 技能2：魔法箭：射出的箭附带随机负面效果 *点击空气*
-- [x] 技能3：轻语：一定时间增加攻击力 *点击空气*
-- [x] 技能4：箭雨：从空中落下一片箭雨 *点击空气*
+##支持
 
-###铁卫
-权限：`Skilled.class.4`
+![支持](http://www.isotopestudio.cc/wiki/lib/exe/fetch.php?media=wiki:alipay.png)
 
-- [x] 技能1：坚定不移：加抗性与血量 *点击空气*
-- [x] 技能2：怒吼：发出一个火球，伤害：50 *点击空气*
-- [x] 技能3：不屈：获得再生 II *点击空气*
-- [x] 技能4：坚不可摧：三秒内无视伤害 *点击空气*
-
-###血怒
-权限：`Skilled.class.5`
-
-- [x] 技能1：压制：攻击使目标虚弱 *点击生物*
-- [x] 技能2：狂化：自身被点燃，但攻击带生命偷取 *点击空气*
-- [x] 技能3：怒火：范围使敌人受到伤害且燃烧 *点击空气*
-- [x] 技能4：一夫当关：一定时间内攻击力大幅提升，获得再生效果 *点击空气*
-
-###引魂 6
-权限：`Skilled.class.6`
-
-- [x] 技能1：控魂：使敌人减速 *点击生物*
-- [x] 技能2：诱魂：造成单体伤害并使敌人进入负面效果 *点击生物*
-- [x] 技能3：破魂：造成范围击退并产生短暂的禁锢 *点击空气*
-- [x] 技能4：灭火：单体攻击，有较小几率秒杀敌人，失败则造成少量伤害 *点击生物*
-
-###光骑 7
-权限：`Skilled.class.7`
-
-- [x] 技能1：审判：造成单体伤害并点燃目标 *点击生物*
-- [x] 技能2：守护：范围增加抗性 *点击空气*
-- [x] 技能3：祈祷：生命吸收，伤害增加 *点击空气*
-- [x] 技能4：神临：无敌 *点击空气*
-
-###猎刃 8
-权限：`Skilled.class.8`
-
-- [x] 技能1：影：增加移动速度和攻击力以及生命恢复 *点击空气*
-- [x] 技能2：烈：单体伤害，附加点燃和虚弱 *点击生物*
-- [x] 技能3：暗：一定时间内攻击附带虚弱和失明 *点击空气*
-- [x] 技能4：刃：范围伤害，附带虚弱和凋零 *点击空气*
+![支持](http://www.isotopestudio.cc/wiki/lib/exe/fetch.php?media=wiki:wechat.png)
