@@ -93,6 +93,5 @@ public abstract class GUI implements Listener {
             result += ChatColor.values()[(int) (Math.random() * 20)];
         }
         return result;
-
     }
 }
