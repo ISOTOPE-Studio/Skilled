@@ -14,15 +14,13 @@ import cc.isotopestudio.Skilled.metrics.Metrics;
 import cc.isotopestudio.Skilled.task.CooldownResetTask;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
 import cc.isotopestudio.Skilled.task.Updater;
+import cc.isotopestudio.Skilled.utli.PluginFile;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import org.bukkit.ChatColor;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.File;
 import java.io.IOException;
 
 public class Skilled extends JavaPlugin {
@@ -35,30 +33,18 @@ public class Skilled extends JavaPlugin {
     public static Skilled plugin;
     private ProtocolManager protocolManager;
 
-    private void createFile(String name) {
-        File file;
-        file = new File(getDataFolder(), name + ".yml");
-        if (!file.exists()) {
-            saveDefaultConfig();
-        }
-    }
-
-    final static String FileVersion = "1";
+    final static String FileVersion = "2";
+    public static PluginFile config;
+    public static PluginFile playerData;
 
     @Override
     public void onEnable() {
         plugin = this;
         getLogger().info("加载配置文件中");
 
-        createFile("config");
-
-        try {
-            getPlayersData().save(dataFile);
-        } catch (IOException e) {
-            getLogger().info("玩家文件出错！");
-            getServer().getPluginManager().disablePlugin(this);
-            return;
-        }
+        config = new PluginFile(this, "config.yml", "config.yml");
+        config.setEditable(false);
+        playerData = new PluginFile(this, "playersData.yml");
 
         protocolManager = ProtocolLibrary.getProtocolManager();
 
@@ -97,32 +83,5 @@ public class Skilled extends JavaPlugin {
         getLogger().info("Skilled 成功卸载!");
     }
 
-    private File dataFile = null;
-    private FileConfiguration data = null;
-
-    private void reloadPlayersData() {
-        if (dataFile == null) {
-            dataFile = new File(getDataFolder(), "playersData.yml");
-        }
-        data = YamlConfiguration.loadConfiguration(dataFile);
-    }
-
-    public FileConfiguration getPlayersData() {
-        if (data == null) {
-            reloadPlayersData();
-        }
-        return data;
-    }
-
-    public void savePlayersData() {
-        if (data == null || dataFile == null) {
-            return;
-        }
-        try {
-            getPlayersData().save(dataFile);
-        } catch (IOException ex) {
-            getLogger().info("玩家文件保存失败！");
-        }
-    }
 
 }

@@ -9,4 +9,11 @@ if($plugin=="Skilled"){
     else
         echo "yes";
 }
+if($plugin=="WTP"){
+    define("Latest", "2.0.0");
+    if($version==Latest)
+        echo "no";
+    else
+        echo "yes";
+}
 ?>

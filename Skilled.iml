@@ -10,15 +10,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../../Spigot/server/plugins/ProtocolLib.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/../../../Spigot/builds/spigot-api-1.7.10-R0.1-SNAPSHOT.jar!/" />
         </CLASSES>
         <JAVADOC />
@@ -31,6 +22,15 @@
       <library>
         <CLASSES>
           <root url="jar://$APPLICATION_HOME_DIR$/lib/annotations.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../../../Spigot/builds/ProtocolLib.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

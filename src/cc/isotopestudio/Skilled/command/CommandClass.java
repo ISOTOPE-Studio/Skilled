@@ -16,7 +16,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 
-import static cc.isotopestudio.Skilled.Skilled.plugin;
+import static cc.isotopestudio.Skilled.Skilled.playerData;
 
 public class CommandClass implements CommandExecutor {
 
@@ -57,7 +57,7 @@ public class CommandClass implements CommandExecutor {
                 PlayerData.setLevel(player, 4, 0);
                 PlayerData.setMagic(player, ConfigData.maxMagic);
                 PlayerData.setSkillPoint(player, ConfigData.initialSkillPoint);
-                plugin.savePlayersData();
+                playerData.save();
             } else {
                 ArrayList<Integer> list = new ArrayList<>();
                 for (int i = 1; i <= 8; i++) {

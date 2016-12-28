@@ -62,4 +62,7 @@ public class Msg {
     public static final String commandcBind = (new StringBuilder()).append(ChatColor.GOLD).append("/cBind <技能编号>")
             .append(ChatColor.GRAY).append(" - ").append(ChatColor.LIGHT_PURPLE).append("绑定到手持物品").toString();
 
+    public static final String maxLevel = (new StringBuilder(Skilled.prefix)).append(ChatColor.RED).append("此技能已达到最高级")
+            .toString();
+    ;
 }

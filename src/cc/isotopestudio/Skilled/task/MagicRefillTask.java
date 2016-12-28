@@ -12,7 +12,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import static cc.isotopestudio.Skilled.Skilled.plugin;
+import static cc.isotopestudio.Skilled.Skilled.playerData;
 
 public class MagicRefillTask extends BukkitRunnable {
 
@@ -21,7 +21,7 @@ public class MagicRefillTask extends BukkitRunnable {
         boardcast();
         final int value = ConfigData.magicRefillValue;
         final int max = ConfigData.maxMagic;
-        for (String playerName : plugin.getPlayersData().getKeys(false)) {
+        for (String playerName : playerData.getKeys(false)) {
             Player player = Bukkit.getServer().getPlayer(playerName);
             if (player != null) {
                 int newMagic = PlayerData.getMagic(player) + value;

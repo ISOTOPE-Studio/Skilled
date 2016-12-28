@@ -18,7 +18,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-import static cc.isotopestudio.Skilled.Skilled.plugin;
+import static cc.isotopestudio.Skilled.Skilled.playerData;
 
 public class SkillGUI extends GUI {
 
@@ -94,10 +94,14 @@ public class SkillGUI extends GUI {
             } else {
                 reqPoint = ConfigData.getUpgradeRequiredSkillPoint(jobString, skill);
             }
+            if (level >= ConfigData.maxlevel[Names.getClassNum(jobString)][skill]) {
+                player.sendMessage(Msg.maxLevel);
+                return;
+            }
             if (skillPoint >= reqPoint) {
                 PlayerData.addLevel(player, skill);
                 PlayerData.addSkillPoint(player, -reqPoint);
-                plugin.savePlayersData();
+                playerData.save();
                 if (unlock1) {
                     int i = (int) (Math.random() * DyeColor.values().length);
                     ItemStack item = new ItemStack(Material.INK_SACK, 1, (short) i);
