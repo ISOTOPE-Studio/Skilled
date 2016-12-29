@@ -29,7 +29,6 @@ public class Skilled extends JavaPlugin {
             .append(ChatColor.ITALIC).append(ChatColor.BOLD).append("职业").append(ChatColor.RESET)
             .append(ChatColor.GREEN).append("]").append(ChatColor.RESET).toString();
 
-    public static final String version = "1.1.3a";
     public static Skilled plugin;
     private ProtocolManager protocolManager;
 
@@ -68,7 +67,7 @@ public class Skilled extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        getLogger().info("Skilled 成功加载! Version: " + version);
+        getLogger().info("Skilled 成功加载! Version: " + getDescription().getVersion());
         getLogger().info("Skilled 由ISOTOPE Studio制作!");
         getLogger().info("http://isotopestudio.cc");
     }

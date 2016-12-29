@@ -18,6 +18,7 @@ c1:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -25,6 +26,7 @@ c1:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -32,6 +34,7 @@ c1:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -39,6 +42,7 @@ c1:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
 c2:
   s1:
     skillPoint:
@@ -47,6 +51,7 @@ c2:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -54,6 +59,7 @@ c2:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -61,6 +67,7 @@ c2:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -68,6 +75,7 @@ c2:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
 c3:
   s1:
     skillPoint:
@@ -76,6 +84,7 @@ c3:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -83,6 +92,7 @@ c3:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -90,6 +100,7 @@ c3:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -97,6 +108,7 @@ c3:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
 c4:
   s1:
     skillPoint:
@@ -105,6 +117,7 @@ c4:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -112,6 +125,7 @@ c4:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -119,6 +133,7 @@ c4:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -126,6 +141,7 @@ c4:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
 
 c5:
   s1:
@@ -135,6 +151,7 @@ c5:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -142,6 +159,7 @@ c5:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -149,6 +167,7 @@ c5:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -156,6 +175,7 @@ c5:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
 
 c6:
   s1:
@@ -165,6 +185,7 @@ c6:
       magic: 5
       cooldown: 2
       upgrade: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -172,6 +193,7 @@ c6:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -179,6 +201,7 @@ c6:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -186,6 +209,7 @@ c6:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
 c7:
   s1:
     skillPoint:
@@ -194,6 +218,7 @@ c7:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -201,6 +226,7 @@ c7:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -208,6 +234,7 @@ c7:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -215,6 +242,7 @@ c7:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
 c8:
   s1:
     skillPoint:
@@ -223,6 +251,7 @@ c8:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s2:
     skillPoint:
       unlock: 2
@@ -230,6 +259,7 @@ c8:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s3:
     skillPoint:
       unlock: 3
@@ -237,6 +267,7 @@ c8:
     release:
       magic: 5
       cooldown: 2
+    maxlevel: 7
   s4:
     skillPoint:
       unlock: 5
@@ -244,4 +275,4 @@ c8:
     release:
       magic: 5
       cooldown: 2
-    
+    maxlevel: 7

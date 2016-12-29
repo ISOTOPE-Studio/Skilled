@@ -25,11 +25,9 @@ public class Updater extends BukkitRunnable {
         }
     }
 
-    static String latest = Skilled.version;
-
     private static boolean hasNewVersion() {
         try {
-            String result = readUrlContent("http://www.isotopestudio.cc/wiki/check.php?plugin=Skilled&version=" + Skilled.version, 4000);
+            String result = readUrlContent("http://www.isotopestudio.cc/wiki/check.php?plugin=Skilled&version=" + plugin.getDescription().getVersion(), 4000);
             if (result.equals("yes")) {
                 return true;
             }

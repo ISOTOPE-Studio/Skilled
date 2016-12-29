@@ -18,7 +18,7 @@ public class MagicRefillTask extends BukkitRunnable {
 
     @Override
     public void run() {
-        boardcast();
+//        boardcast();
         final int value = ConfigData.magicRefillValue;
         final int max = ConfigData.maxMagic;
         for (String playerName : playerData.getKeys(false)) {

@@ -11,10 +11,12 @@ import cc.isotopestudio.Skilled.player.PlayerData;
 import cc.isotopestudio.Skilled.utli.ParticleEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.List;
 
@@ -30,21 +32,36 @@ class Class1 {
 
     static boolean onClass1Skill1(Player player, LivingEntity rightClicked, int level) {
         plugin.getLogger().info("onClass1Skill1");
+        if (!isAllowed(rightClicked.getType())) {
+            player.sendMessage(Skilled.prefix + "不能给它回血");
+            return false;
+        }
+
         double health = rightClicked.getHealth();
-        if (rightClicked.getMaxHealth() == health) {
+        if (rightClicked.getMaxHealth() == health)
+
+        {
             player.sendMessage(Skilled.prefix + "已经满血");
             return false;
         }
+
         health += 5 * (1 + 2 * level); // Revise
-        if (health > rightClicked.getMaxHealth()) {
+        if (health > rightClicked.getMaxHealth())
+
+        {
             health = rightClicked.getMaxHealth();
         }
 
         rightClicked.setHealth(health);
 
-        try {
+        try
+
+        {
             ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
-        } catch (Exception ignored) {
+        } catch (
+                Exception ignored)
+
+        {
         }
 
         return true;
@@ -99,7 +116,7 @@ class Class1 {
         int count = 0;
         for (Entity entity : near) {
             if (entity.getLocation().distance(player.getLocation()) <= radius)
-                if (entity instanceof LivingEntity) {
+                if (entity instanceof LivingEntity && isAllowed(entity.getType())) {
 
                     double health = ((LivingEntity) entity).getHealth();
                     if (((LivingEntity) entity).getMaxHealth() == health) {
@@ -112,7 +129,9 @@ class Class1 {
 
                     ((LivingEntity) entity).setHealth(health);
                     try {
-                        ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, player.getLocation(), 20);
+                        for (int i = 0; i < 4; i++) {
+                            new HeartEffect(entity.getLocation()).runTaskLater(plugin, i);
+                        }
                     } catch (Exception ignored) {
                     }
                     count++;
@@ -123,6 +142,28 @@ class Class1 {
             return false;
         }
         return true;
+    }
+
+    private static boolean isAllowed(EntityType type) {
+        return type == EntityType.PLAYER || type == EntityType.CHICKEN
+                || type == EntityType.COW || type == EntityType.HORSE
+                || type == EntityType.IRON_GOLEM || type == EntityType.MUSHROOM_COW
+                || type == EntityType.OCELOT || type == EntityType.PIG
+                || type == EntityType.SHEEP || type == EntityType.SNOWMAN
+                || type == EntityType.VILLAGER || type == EntityType.WOLF;
+    }
+
+    private static class HeartEffect extends BukkitRunnable {
+        private final Location location;
+
+        private HeartEffect(Location location) {
+            this.location = location;
+        }
+
+        @Override
+        public void run() {
+            ParticleEffect.HEART.display((float) (Math.random() * 3), 2F + (float) (Math.random() * 3), (float) (Math.random() * 3), 1, 20, location, 20);
+        }
     }
 
 }
