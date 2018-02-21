@@ -71,7 +71,10 @@ class Class4 implements Listener {
         @EventHandler
         public void onArrow(ProjectileHitEvent event) {
             if (!(event.getEntity().equals(fireball))) return;
-            ParticleEffect.EXPLOSION_NORMAL.display(0, 0, 0, 1, 20, fireball.getLocation(), 20);
+            try {
+                ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, fireball.getLocation(), 20);
+            } catch (Exception ignored) {
+            }
             List<Entity> nearby = fireball.getNearbyEntities(range, range, range);
             for (Entity entity : nearby) {
                 if (entity.equals(fireball.getShooter())) continue;

@@ -4,10 +4,6 @@
 
 package cc.isotopestudio.Skilled.task;
 
-import cc.isotopestudio.Skilled.Skilled;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.jetbrains.annotations.NotNull;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,7 +12,7 @@ import java.net.URL;
 
 import static cc.isotopestudio.Skilled.Skilled.plugin;
 
-public class Updater extends BukkitRunnable {
+public class Updater extends Thread {
 
     @Override
     public void run() {
@@ -27,7 +23,7 @@ public class Updater extends BukkitRunnable {
 
     private static boolean hasNewVersion() {
         try {
-            String result = readUrlContent("http://www.isotopestudio.cc/wiki/check.php?plugin=Skilled&version=" + plugin.getDescription().getVersion(), 4000);
+            String result = readUrlContent("http://www.isotopestudio.cc/check.php?plugin=Skilled&version=" + plugin.getDescription().getVersion(), 4000);
             if (result.equals("yes")) {
                 return true;
             }
@@ -38,7 +34,6 @@ public class Updater extends BukkitRunnable {
         return false;
     }
 
-    @NotNull
     private static String readUrlContent(String address, int timeout) throws IOException {
         StringBuilder contents = new StringBuilder(2048);
         BufferedReader br = null;

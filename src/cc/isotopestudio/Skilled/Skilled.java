@@ -10,8 +10,8 @@ import cc.isotopestudio.Skilled.command.CommandClass;
 import cc.isotopestudio.Skilled.command.CommandSkilled;
 import cc.isotopestudio.Skilled.config.ConfigData;
 import cc.isotopestudio.Skilled.listener.SkilledListener;
-import cc.isotopestudio.Skilled.metrics.Metrics;
 import cc.isotopestudio.Skilled.task.CooldownResetTask;
+import cc.isotopestudio.Skilled.task.LangFolderTask;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
 import cc.isotopestudio.Skilled.task.Updater;
 import cc.isotopestudio.Skilled.utli.PluginFile;
@@ -33,8 +33,10 @@ public class Skilled extends JavaPlugin {
     private ProtocolManager protocolManager;
 
     final static String FileVersion = "2";
+    public static String lang;
     public static PluginFile config;
     public static PluginFile playerData;
+    public static PluginFile msgFile;
 
     @Override
     public void onEnable() {
@@ -57,16 +59,12 @@ public class Skilled extends JavaPlugin {
 
         ConfigData.updateConfig(this);
 
+        new LangFolderTask().runTask(plugin);
+
         new MagicRefillTask().runTaskTimer(this, 20, ConfigData.magicRefillRate * 20);
-        new Updater().runTaskTimer(this, 20, 60 * 60 * 20);
+        new Updater().start();
         new CooldownResetTask().runTaskLater(this, 20);
 
-        try {
-            Metrics metrics = new Metrics(this);
-            metrics.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         getLogger().info("Skilled 成功加载! Version: " + getDescription().getVersion());
         getLogger().info("Skilled 由ISOTOPE Studio制作!");
         getLogger().info("http://isotopestudio.cc");
@@ -74,6 +72,7 @@ public class Skilled extends JavaPlugin {
 
     public void onReload() {
         ConfigData.updateConfig(this);
+        new LangFolderTask().runTask(plugin);
         new CooldownResetTask().runTaskLater(this, 20);
     }
 

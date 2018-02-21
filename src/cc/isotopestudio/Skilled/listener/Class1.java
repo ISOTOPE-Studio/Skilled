@@ -38,32 +38,22 @@ class Class1 {
         }
 
         double health = rightClicked.getHealth();
-        if (rightClicked.getMaxHealth() == health)
-
-        {
+        if (rightClicked.getMaxHealth() == health) {
             player.sendMessage(Skilled.prefix + "ÒÑ¾­ÂúÑª");
             return false;
         }
 
         health += 5 * (1 + 2 * level); // Revise
-        if (health > rightClicked.getMaxHealth())
-
-        {
+        if (health > rightClicked.getMaxHealth()) {
             health = rightClicked.getMaxHealth();
         }
 
         rightClicked.setHealth(health);
 
-        try
-
-        {
+        try {
             ParticleEffect.EXPLOSION_NORMAL.display(0F, 0F, 0F, 1, 20, rightClicked.getLocation(), 20);
-        } catch (
-                Exception ignored)
-
-        {
+        } catch (Exception ignored) {
         }
-
         return true;
     }
 

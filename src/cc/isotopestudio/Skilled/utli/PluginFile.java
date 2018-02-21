@@ -110,7 +110,7 @@ public class PluginFile extends YamlConfiguration {
     @Override
     public void load(File file) throws IOException, InvalidConfigurationException {
         Validate.notNull(file, "File cannot be null");
-        super.load(new FileInputStream(file));
+        super.load(file);
     }
 
 }

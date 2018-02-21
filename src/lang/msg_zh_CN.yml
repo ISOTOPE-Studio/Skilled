@@ -1,0 +1,144 @@
+msg:
+  noPermission: '&c你没有权限'
+  notNumber: '&c这不是一个数字'
+  mustBePlayer: '&c只有玩家能使用'
+  mustBeInt: '&c这不是一个有效数字吧'
+  hasClass: '&c你已经选过职业了'
+  hasMetaData: '&c此物品有自定义信息, 无法绑定'
+  noItem: '&c没有物品, 无法绑定'
+  mustbe1: '&c只能绑定一个物品'
+  playerNotOnline: '&c请注意玩家不在线'
+  noSkill: '&c你没有这个技能'
+  noClass: '&c你没有这个职业'
+  noMagic: '&c法力值不足'
+  noSkillPoint: '&c技能点不足'
+  noLife: '&c周围无生物'
+  cooldown: '&c技能冷却中，还有'
+  release: '&6成功释放技能'
+  endSkill: '&c技能时间结束'
+  successJoin: '&6成功加入职业'
+  successUnlock: '&6成功解锁技能'
+  successUpgrade: '&6成功升级技能'
+  maxLevel: '&c此技能已达到最高级'
+
+classes:
+  c1:
+    name: '圣谕'
+    skills:
+      s1:
+        name: '治愈'
+        description: '恢复目标玩家生命值'
+      s2:
+        name: '活力'
+        description: '恢复目标玩家法力值'
+      s3:
+        name: '神圣打击'
+        description: '召唤天雷攻击敌人'
+      s4:
+        name: '生命源泉'
+        description: '群体恢复'
+  c2:
+    name: '暗影'
+    skills:
+      s1:
+        name: '影击'
+        description: '瞬移到背后给敌人一击'
+      s2:
+        name: '影化'
+        description: '获得隐身效果'
+      s3:
+        name: '孤注一掷'
+        description: '血量减少，但攻击力上升'
+      s4:
+        name: '影舞'
+        description: '挥动匕首，造成范围伤害并中毒'
+  c3:
+    name: '鹰眼'
+    skills:
+      s1:
+        name: '警惕'
+        description: '增加移动速度和跳跃力'
+      s2:
+        name: '魔法箭'
+        description: '射出的箭附带随机负面效果'
+      s3:
+        name: '轻语'
+        description: '一定时间提升玩家攻击力'
+      s4:
+        name: '箭雨'
+        description: '从空中落下一片箭雨'
+  c4:
+    name: '铁卫'
+    skills:
+      s1:
+        name: '坚定不移'
+        description: '增加抗性与血量'
+      s2:
+        name: '怒吼'
+        description: '发出一个火球'
+      s3:
+        name: '不屈'
+        description: '获得再生效果'
+      s4:
+        name: '坚不可摧'
+        description: '可在三秒内无视伤害'
+  c5:
+    name: '血怒'
+    skills:
+      s1:
+        name: '压制'
+        description: '攻击使目标虚弱'
+      s2:
+        name: '狂化'
+        description: '自身收到灼烧伤害，但攻击附加生命偷取效果'
+      s3:
+        name: '怒火'
+        description: '对目标区域产生范围伤害，并附加燃烧效果'
+      s4:
+        name: '一夫当关'
+        description: '一定时间内攻击力获得大幅提升，并获得再生效果'
+  c6:
+    name: '引魂'
+    skills:
+      s1:
+        name: '控魂'
+        description: '进行施法使目标敌人减速'
+      s2:
+        name: '诱魂'
+        description: '对敌人造成单体伤害并使敌人进入负面效果'
+      s3:
+        name: '破魂'
+        description: '所所指位置造成范围击退并产生短暂的禁锢'
+      s4:
+        name: '灭火'
+        description: '有较小几率秒杀目标，否则对目标造成少量伤害'
+  c7:
+    name: '光骑'
+    skills:
+      s1:
+        name: '审判'
+        description: '对目标造成单体伤害并点燃目标'
+      s2:
+        name: '守护'
+        description: '对目标所处范围玩家增加抗性效果'
+      s3:
+        name: '祈祷'
+        description: '获得生命吸收效果，并且自身伤害增加'
+      s4:
+        name: '神临'
+        description: '无视任何伤害'
+  c8:
+    name: '猎刃'
+    skills:
+      s1:
+        name: '影'
+        description: '增加移动速度和攻击力以及生命恢复效果'
+      s2:
+        name: '烈'
+        description: '对目标造成单体伤害，附加点燃和虚弱'
+      s3:
+        name: '暗'
+        description: '在一定时间内攻击附带虚弱和失明效果'
+      s4:
+        name: '刃'
+        description: '造成范围伤害，以及虚弱和凋零效果'

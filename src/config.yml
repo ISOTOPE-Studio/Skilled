@@ -1,3 +1,4 @@
+lang: zh_CN
 initial:
   skillPoint: 10
 basic:
@@ -13,11 +14,16 @@ c1:
   s1:
   #治愈
     skillPoint:
+      #解锁所需技能点
       unlock: 1
+      #升级所需技能点
       upgrade: 2
     release:
+      #释放技能所需法力值
       magic: 5
+      #冷却时间
       cooldown: 2
+    #技能最大值
     maxlevel: 7
   s2:
     skillPoint:
