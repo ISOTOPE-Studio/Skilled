@@ -45,7 +45,7 @@ public class CommandCbind implements CommandExecutor {
                 player.sendMessage(Msg.noSkill);
                 return true;
             }
-            ItemStack item = player.getInventory().getItemInMainHand();
+            ItemStack item = player.getInventory().getItemInHand();
             if (item == null || item.getType() == Material.AIR) {
                 player.sendMessage(Msg.noItem);
                 return true;

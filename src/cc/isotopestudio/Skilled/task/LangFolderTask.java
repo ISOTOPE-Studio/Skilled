@@ -5,7 +5,7 @@
 package cc.isotopestudio.Skilled.task;
 
 import cc.isotopestudio.Skilled.message.Msg;
-import cc.isotopestudio.Skilled.utli.PluginFile;
+import cc.isotopestudio.Skilled.util.PluginFile;
 import org.bukkit.ChatColor;
 import org.bukkit.scheduler.BukkitRunnable;
 

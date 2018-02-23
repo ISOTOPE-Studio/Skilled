@@ -2,7 +2,7 @@
  * Copyright (c) 2016. ISOTOPE Studio
  */
 
-package cc.isotopestudio.Skilled.utli;
+package cc.isotopestudio.Skilled.util;
 
 import com.google.common.io.Files;
 import org.apache.commons.lang.Validate;
@@ -99,7 +99,7 @@ public class PluginFile extends YamlConfiguration {
         Validate.notNull(file, "File cannot be null");
         Files.createParentDirs(file);
         String data = this.saveToString();
-        Writer writer = new OutputStreamWriter(new FileOutputStream(file));
+        Writer writer = new OutputStreamWriter(new FileOutputStream(file), "UTF-8");
         try {
             writer.write(data);
         } finally {

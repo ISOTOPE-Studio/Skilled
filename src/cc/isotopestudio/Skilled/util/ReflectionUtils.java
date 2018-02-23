@@ -2,7 +2,7 @@
  * Copyright (c) 2016. ISOTOPE Studio
  */
 
-package cc.isotopestudio.Skilled.utli;
+package cc.isotopestudio.Skilled.util;
 
 import org.bukkit.Bukkit;
 

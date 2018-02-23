@@ -2,9 +2,9 @@
  * Copyright (c) 2016. ISOTOPE Studio
  */
 
-package cc.isotopestudio.Skilled.utli;
+package cc.isotopestudio.Skilled.util;
 
-import cc.isotopestudio.Skilled.utli.ReflectionUtils.PackageType;
+import cc.isotopestudio.Skilled.util.ReflectionUtils.PackageType;
 import org.bukkit.Bukkit;
 import org.bukkit.Color;
 import org.bukkit.Location;

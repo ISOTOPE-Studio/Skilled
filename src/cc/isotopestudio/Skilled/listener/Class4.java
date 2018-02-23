@@ -4,7 +4,7 @@
 
 package cc.isotopestudio.Skilled.listener;
 
-import cc.isotopestudio.Skilled.utli.ParticleEffect;
+import cc.isotopestudio.Skilled.util.ParticleEffect;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Fireball;

@@ -1,4 +1,4 @@
-msg:
+﻿msg:
   noPermission: '&c你没有权限'
   notNumber: '&c这不是一个数字'
   mustBePlayer: '&c只有玩家能使用'

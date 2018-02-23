@@ -37,7 +37,7 @@ public class SkilledListener implements Listener {
         LivingEntity rightClicked;
         try {
             rightClicked = (LivingEntity) event.getRightClicked();
-            item = player.getInventory().getItemInMainHand();
+            item = player.getInventory().getItemInHand();
             classAndSkill = ItemUti.getLore(item);
             job = classAndSkill[0];
             skillString = classAndSkill[1];
@@ -143,7 +143,7 @@ public class SkilledListener implements Listener {
         String job, skillString;
         int skill, level;
         try {
-            item = player.getInventory().getItemInMainHand();
+            item = player.getInventory().getItemInHand();
             classAndSkill = ItemUti.getLore(item);
             job = classAndSkill[0];
             skillString = classAndSkill[1];

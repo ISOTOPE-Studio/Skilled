@@ -5,9 +5,9 @@
 package cc.isotopestudio.Skilled.listener;
 
 import cc.isotopestudio.Skilled.message.Msg;
-import cc.isotopestudio.Skilled.utli.ParticleEffect;
-import cc.isotopestudio.Skilled.utli.PotionEffectUtil;
-import cc.isotopestudio.Skilled.utli.SkilledMetaData;
+import cc.isotopestudio.Skilled.util.ParticleEffect;
+import cc.isotopestudio.Skilled.util.PotionEffectUtil;
+import cc.isotopestudio.Skilled.util.SkilledMetaData;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.HandlerList;

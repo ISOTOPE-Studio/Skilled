@@ -14,14 +14,12 @@ import cc.isotopestudio.Skilled.task.CooldownResetTask;
 import cc.isotopestudio.Skilled.task.LangFolderTask;
 import cc.isotopestudio.Skilled.task.MagicRefillTask;
 import cc.isotopestudio.Skilled.task.Updater;
-import cc.isotopestudio.Skilled.utli.PluginFile;
+import cc.isotopestudio.Skilled.util.PluginFile;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.IOException;
 
 public class Skilled extends JavaPlugin {
 
